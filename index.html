@@ -1,0 +1,2678 @@
+<!DOCTYPE html>
+<!-- saved from url=(0133)file:///C:/Users/satyam.pathak/OneDrive%20-%20Nuvoco%20Vistas%20Corp.%20Ltd/Desktop/LCP%20Satyam/Reports/LCP_Cement_Plant_Report.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LIMLA CEMENT PLANT REPORT (Live Excel Link)</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root {
+  --bg: #f1f5f9;
+  --cd: #ffffff;
+  --tx: #0f172a;
+  --mu: #64748b;
+  --bd: #cbd5e1;
+  --pr: #1e56a0;
+  --hd: #0f3d73;
+  --g: #15803d;
+  --r: #dc2626;
+  --tr: #e2e8f0;
+  --card-bg: #ffffff;
+  --card-mtd: #eff6ff;
+  --hl: #fef3c7;
+  color-scheme: light;
+  box-sizing: border-box;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1220;
+    --cd: #141c2e;
+    --tx: #f8fafc;
+    --mu: #94a3b8;
+    --bd: #27354f;
+    --pr: #60a5fa;
+    --hd: #0f294a;
+    --g: #4ade80;
+    --r: #f87171;
+    --tr: #1e293b;
+    --card-bg: #141c2e;
+    --card-mtd: #172554;
+    --hl: #854d0e;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b1220;
+  --cd: #141c2e;
+  --tx: #f8fafc;
+  --mu: #94a3b8;
+  --bd: #27354f;
+  --pr: #60a5fa;
+  --hd: #0f294a;
+  --g: #4ade80;
+  --r: #f87171;
+  --tr: #1e293b;
+  --card-bg: #141c2e;
+  --card-mtd: #172554;
+  --hl: #854d0e;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font: 13px/1.45 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--tx);
+  padding: 12px;
+}
+.hd {
+  background: var(--hd);
+  color: #fff;
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+.hd h1 {
+  font-size: 19px;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.hd small {
+  opacity: 0.88;
+  font-size: 12px;
+  display: block;
+  margin-top: 2px;
+}
+.ct {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.ct select, .ct button, .ct label {
+  font: inherit;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-size: 12px;
+  font-weight: 500;
+}
+.ct select option {
+  color: #0f172a;
+  background: #fff;
+}
+.ct select:hover, .ct button:hover, .ct label:hover {
+  background: rgba(255,255,255,0.28);
+}
+.btn-upload {
+  background: #22c55e !important;
+  color: #064e3b !important;
+  font-weight: 700 !important;
+  border-color: #16a34a !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-upload:hover {
+  background: #16a34a !important;
+  color: #fff !important;
+}
+.drop-zone {
+  background: var(--cd);
+  border: 2px dashed var(--bd);
+  border-radius: 8px;
+  padding: 8px 14px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--mu);
+}
+.drop-zone.dragover {
+  border-color: var(--pr);
+  background: var(--card-mtd);
+}
+.top-scorecard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.card-kpi {
+  background: var(--card-bg);
+  border: 1px solid var(--bd);
+  border-radius: 8px;
+  padding: 12px 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  position: relative;
+}
+.card-kpi .lbl {
+  color: var(--mu);
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.card-kpi .val-day {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--pr);
+  line-height: 1.15;
+  margin: 4px 0;
+}
+.card-kpi .val-day span {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--mu);
+}
+.card-kpi .mtd-box {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--bd);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+}
+.card-kpi .mtd-val {
+  font-weight: 700;
+  color: var(--hd);
+}
+.g2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.cd {
+  background: var(--cd);
+  border: 1px solid var(--bd);
+  border-radius: 8px;
+  padding: 12px 14px;
+  min-width: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.cd h2 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--pr);
+  margin: 0 0 8px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cd h2 small {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--mu);
+  text-transform: none;
+}
+.sv {
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+}
+.rg {
+  text-align: center;
+}
+.rg i {
+  display: grid;
+  place-items: center;
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  font: 800 15px system-ui;
+  font-style: normal;
+  margin: auto;
+}
+.rg i b {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--cd);
+}
+.cv {
+  position: relative;
+  height: 220px;
+}
+.sc {
+  overflow-x: auto;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  white-space: nowrap;
+}
+th, td {
+  padding: 5px 8px;
+  text-align: right;
+  border-bottom: 1px solid var(--bd);
+  font-size: 12px;
+}
+th:first-child, td:first-child {
+  text-align: left;
+}
+th {
+  color: var(--mu);
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--tr);
+  position: sticky;
+  top: 0;
+}
+tr.gh td {
+  background: var(--tr);
+  font-weight: 800;
+  color: var(--pr);
+  text-align: left;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  padding: 7px 8px;
+  border-top: 2px solid var(--bd);
+}
+tr.kpi-subhdr th {
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 5px 8px;
+  border-bottom: 2px solid var(--bd);
+  text-align: right;
+  letter-spacing: 0.02em;
+}
+tr.kpi-subhdr th:first-child {
+  text-align: left;
+}
+tr.kpi-subhdr th:nth-child(2),
+tr.kpi-subhdr th:last-child {
+  text-align: center;
+}
+tr:hover td {
+  background: rgba(30, 86, 160, 0.03);
+}
+.up { color: var(--g); font-weight: 600; }
+.dn { color: var(--r); font-weight: 600; }
+.n { color: var(--mu); }
+ul { margin: 0; padding-left: 18px; }
+li { margin: 3px 0; font-size: 12px; }
+.file-info {
+  font-weight: 600;
+  color: var(--g);
+}
+@media print {
+  .ct, .drop-zone, .tab-nav-bar { display: none !important; }
+  body { padding: 0; background: #fff; }
+  .cd, .card-kpi { box-shadow: none; border-color: #ccc; }
+}
+
+/* TAB NAVIGATION BAR */
+.tab-nav-bar {
+  display: flex;
+  gap: 10px;
+  margin: 12px 0;
+}
+.tab-btn {
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  border: 1px solid var(--bd);
+  background: var(--cd);
+  color: var(--tx);
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.tab-btn:hover {
+  background: var(--tr);
+}
+.tab-btn.active {
+  background: var(--pr) !important;
+  color: #fff !important;
+  border-color: var(--pr) !important;
+  box-shadow: 0 2px 8px rgba(30, 86, 160, 0.28);
+}
+.target-input {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--bd);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  box-sizing: border-box;
+  background: var(--cd);
+  color: var(--tx);
+}
+.target-input:focus {
+  border-color: var(--pr);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(30, 86, 160, 0.15);
+}
+.btn-save-tgt {
+  padding: 7px 16px;
+  background: var(--g);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.15s ease;
+}
+.btn-save-tgt:hover {
+  filter: brightness(0.9);
+}
+.btn-reset-tgt {
+  padding: 7px 14px;
+  background: var(--tr);
+  color: var(--tx);
+  border: 1px solid var(--bd);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.target-badge-custom {
+  font-weight: 700;
+  color: #1e56a0;
+  background: #e0f2fe;
+  border: 1px solid #bae6fd;
+  padding: 2px 7px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+
+/* Cloud sync controls */
+#cloudSyncStatus { color: inherit; opacity: .95; }
+#cloudLoginDialog {
+  border: 1px solid var(--bd); border-radius: 12px; padding: 22px;
+  width: min(420px, calc(100vw - 28px)); color: var(--tx);
+  background: var(--cd); box-shadow: 0 18px 55px #0003;
+}
+#cloudLoginDialog::backdrop { background: #0f172a99; }
+#cloudLoginDialog input {
+  display:block; width:100%; padding:10px; margin:8px 0;
+  border:1px solid var(--bd); border-radius:6px;
+  background:var(--bg); color:var(--tx);
+}
+#cloudLoginDialog button { padding:8px 14px; border-radius:6px; cursor:pointer; }
+
+</style>
+</head>
+<body>
+
+<dialog id="cloudLoginDialog">
+  <form id="cloudLoginForm">
+    <h2 style="margin-top:0;">Admin sign in</h2>
+    <p style="color:var(--mu);font-size:12px;">Sign in to upload and publish a new Excel dataset to all dashboard viewers.</p>
+    <label for="cloudAdminEmail">Admin email</label>
+    <input id="cloudAdminEmail" type="email" autocomplete="username" required>
+    <label for="cloudAdminPassword">Password</label>
+    <input id="cloudAdminPassword" type="password" autocomplete="current-password" required>
+    <p id="cloudLoginMessage" style="font-size:12px;color:var(--r);"></p>
+    <div style="display:flex;gap:8px;justify-content:flex-end;">
+      <button type="button" id="cloudLoginCancel" style="background:var(--tr);color:var(--tx);border:1px solid var(--bd);">Cancel</button>
+      <button type="submit" style="background:var(--pr);color:white;border:0;">Sign in</button>
+    </div>
+  </form>
+</dialog>
+
+
+<div class="dashboard-content-wrapper" id="dashContent">
+
+<div class="hd">
+  <div>
+    <h1>LIMLA CEMENT PLANT REPORT</h1>
+    <small>Operational Review</small>
+  </div>
+  <div class="ct">
+    <button type="button" id="cloudSignInBtn" title="Sign in to publish Excel updates">☁ Admin Sign in</button>
+    <button type="button" id="cloudSignOutBtn" style="display:none;">Sign out</button>
+    <span id="cloudSyncStatus" style="font-size:11px;max-width:180px;">Cloud sync setup required</span>
+    <label class="btn-upload" for="fileInput">
+      <span>📂 Upload Excel File</span>
+      <input type="file" id="fileInput" accept=".xlsx, .xlsm, .xls" style="display:none">
+    </label>
+    <button id="pv">‹ Prev Day</button>
+    <select id="ds" title="Select Date">
+    <option value="0">01 Jul (2026-07-01)</option>
+  
+    <option value="1">01 Aug (2026-08-01)</option>
+  
+    <option value="2">01 Sep (2026-09-01)</option>
+  
+    <option value="3">01 Aug (2026-08-01)</option>
+  
+    <option value="4">02 Aug (2026-08-02)</option>
+  
+    <option value="5">03 Aug (2026-08-03)</option>
+  
+    <option value="6">04 Aug (2026-08-04)</option>
+  
+    <option value="7">05 Aug (2026-08-05)</option>
+  
+    <option value="8">06 Aug (2026-08-06)</option>
+  
+    <option value="9">07 Aug (2026-08-07)</option>
+  
+    <option value="10">08 Aug (2026-08-08)</option>
+  
+    <option value="11">09 Aug (2026-08-09)</option>
+  
+    <option value="12">10 Aug (2026-08-10)</option>
+  
+    <option value="13">11 Aug (2026-08-11)</option>
+  
+    <option value="14">12 Aug (2026-08-12)</option>
+  
+    <option value="15">13 Aug (2026-08-13)</option>
+  
+    <option value="16">14 Aug (2026-08-14)</option>
+  
+    <option value="17">15 Aug (2026-08-15)</option>
+  
+    <option value="18">16 Aug (2026-08-16)</option>
+  
+    <option value="19">17 Aug (2026-08-17)</option>
+  
+    <option value="20">18 Aug (2026-08-18)</option>
+  
+    <option value="21">19 Aug (2026-08-19)</option>
+  
+    <option value="22">20 Aug (2026-08-20)</option>
+  
+    <option value="23">21 Aug (2026-08-21)</option>
+  
+    <option value="24">22 Aug (2026-08-22)</option>
+  
+    <option value="25">23 Aug (2026-08-23)</option>
+  
+    <option value="26">24 Aug (2026-08-24)</option>
+  
+    <option value="27">25 Aug (2026-08-25)</option>
+  
+    <option value="28">26 Aug (2026-08-26)</option>
+  
+    <option value="29">27 Aug (2026-08-27)</option>
+  
+    <option value="30">28 Aug (2026-08-28)</option>
+  
+    <option value="31">29 Aug (2026-08-29)</option>
+  
+    <option value="32">30 Aug (2026-08-30)</option>
+  
+    <option value="33">31 Aug (2026-08-31)</option>
+  
+    <option value="34">01 Sep (2026-09-01)</option>
+  
+    <option value="35">02 Sep (2026-09-02)</option>
+  
+    <option value="36">03 Sep (2026-09-03)</option>
+  
+    <option value="37">04 Sep (2026-09-04)</option>
+  
+    <option value="38">05 Sep (2026-09-05)</option>
+  
+    <option value="39">06 Sep (2026-09-06)</option>
+  
+    <option value="40">07 Sep (2026-09-07)</option>
+  
+    <option value="41">08 Sep (2026-09-08)</option>
+  
+    <option value="42">09 Sep (2026-09-09)</option>
+  
+    <option value="43">10 Sep (2026-09-10)</option>
+  
+    <option value="44">11 Sep (2026-09-11)</option>
+  
+    <option value="45">12 Sep (2026-09-12)</option>
+  
+    <option value="46">13 Sep (2026-09-13)</option>
+  
+    <option value="47">14 Sep (2026-09-14)</option>
+  
+    <option value="48">15 Sep (2026-09-15)</option>
+  
+    <option value="49">16 Sep (2026-09-16)</option>
+  
+    <option value="50">17 Sep (2026-09-17)</option>
+  
+    <option value="51">18 Sep (2026-09-18)</option>
+  
+    <option value="52">19 Sep (2026-09-19)</option>
+  
+    <option value="53">20 Sep (2026-09-20)</option>
+  
+    <option value="54">21 Sep (2026-09-21)</option>
+  
+    <option value="55">22 Sep (2026-09-22)</option>
+  
+    <option value="56">23 Sep (2026-09-23)</option>
+  
+    <option value="57">24 Sep (2026-09-24)</option>
+  
+    <option value="58">25 Sep (2026-09-25)</option>
+  
+    <option value="59">26 Sep (2026-09-26)</option>
+  
+    <option value="60">27 Sep (2026-09-27)</option>
+  
+    <option value="61">28 Sep (2026-09-28)</option>
+  
+    <option value="62">29 Sep (2026-09-29)</option>
+  
+    <option value="63">30 Sep (2026-09-30)</option>
+  
+    <option value="64">01 Oct (2026-10-01)</option>
+  
+    <option value="65">02 Oct (2026-10-02)</option>
+  
+    <option value="66">03 Oct (2026-10-03)</option>
+  
+    <option value="67">04 Oct (2026-10-04)</option>
+  
+    <option value="68">05 Oct (2026-10-05)</option>
+  
+    <option value="69">06 Oct (2026-10-06)</option>
+  
+    <option value="70">07 Oct (2026-10-07)</option>
+  
+    <option value="71">08 Oct (2026-10-08)</option>
+  
+    <option value="72">09 Oct (2026-10-09)</option>
+  
+    <option value="73">10 Oct (2026-10-10)</option>
+  
+    <option value="74">11 Oct (2026-10-11)</option>
+  
+    <option value="75">12 Oct (2026-10-12)</option>
+  
+    <option value="76">13 Oct (2026-10-13)</option>
+  
+    <option value="77">14 Oct (2026-10-14)</option>
+  
+    <option value="78">15 Oct (2026-10-15)</option>
+  
+    <option value="79">16 Oct (2026-10-16)</option>
+  
+    <option value="80">17 Oct (2026-10-17)</option>
+  
+    <option value="81">18 Oct (2026-10-18)</option>
+  
+    <option value="82">19 Oct (2026-10-19)</option>
+  
+    <option value="83">20 Oct (2026-10-20)</option>
+  
+    <option value="84">21 Oct (2026-10-21)</option>
+  
+    <option value="85">22 Oct (2026-10-22)</option>
+  
+    <option value="86">23 Oct (2026-10-23)</option>
+  
+    <option value="87">24 Oct (2026-10-24)</option>
+  
+    <option value="88">25 Oct (2026-10-25)</option>
+  
+    <option value="89">26 Oct (2026-10-26)</option>
+  
+    <option value="90">27 Oct (2026-10-27)</option>
+  
+    <option value="91">28 Oct (2026-10-28)</option>
+  
+    <option value="92">29 Oct (2026-10-29)</option>
+  </select>
+    <button id="nx">Next Day ›</button>
+    <button id="lt">Latest Day</button>
+    <span style="border-left: 1px solid rgba(255,255,255,0.3); height: 20px; margin: 0 4px;"></span>
+    <select id="ms" title="Select MTD Month">
+    <option value="0">Jul-26</option>
+  
+    <option value="1">Aug-26</option>
+  
+    <option value="2">Sep-26</option>
+  
+    <option value="3">Oct-26 MTD</option>
+  
+    <option value="4">FY27 YTD</option>
+  </select>
+    <select id="ys" title="Select YTD Year">
+    <option value="0">Jul-26</option>
+  
+    <option value="1">Aug-26</option>
+  
+    <option value="2">Sep-26</option>
+  
+    <option value="3">Oct-26 MTD</option>
+  
+    <option value="4">FY27 YTD</option>
+  </select>
+    
+    <button onclick="window.print()" title="Print Dashboard">🖨️ Print</button>
+  </div>
+</div>
+
+<!-- MAIN NAVIGATION TABS -->
+<div class="tab-nav-bar">
+  <button class="tab-btn active" id="tabBtnDash" onclick="switchMainTab('dashboard')">
+    📊 Operations Dashboard
+  </button>
+  <button class="tab-btn" id="tabBtnTargets" onclick="switchMainTab('targets')">
+    🎯 Month-Wise Target Setup 🔒
+  </button>
+</div>
+
+<!-- TAB 1: OPERATIONS DASHBOARD VIEW -->
+<div id="viewDashboard">
+
+<div class="drop-zone" id="dropZone">
+  <div>
+    <strong>Excel Sync Active:</strong> <span id="fileStatus"><span class="file-info">💾 Saved File Active: <b>DPR_LCP New.xlsx</b> (93 days, Latest: 29 Oct)</span> <button type="button" onclick="resetPlantDataToDefault()" title="Revert to baseline data (Password Protected)" style="margin-left:8px;padding:3px 8px;font-size:11px;font-weight:600;border-radius:4px;border:1px solid var(--bd);background:var(--tr);color:var(--tx);cursor:pointer;">↺ Reset to Baseline 🔒</button></span>
+    <div style="font-size: 11px; margin-top: 2px;">Whenever you update <code style="background:var(--tr);padding:1px 4px;border-radius:3px;">DPR_LCP New.xlsx</code>, drag &amp; drop it here or click <b>Upload Excel File</b>. It dynamically updates all metrics without breaking formulas!</div>
+  </div>
+  <div id="fileDateInfo" style="text-align:right;font-size:11px;">Uploaded: 04:06:05 pm</div>
+</div>
+
+<!-- Top Scorecards (Daily & MTD) -->
+<div class="top-scorecard" id="topScorecards">
+      <div class="card-kpi">
+        <div class="lbl">Total Production</div>
+        <div class="val-day">2,056.8 <span>MT</span></div>
+        <div class="mtd-box" style="margin-top:10px;">
+          <span>MTD (Oct-26 MTD):</span>
+          <span class="mtd-val">28,074.4 MT</span>
+        </div>
+        <div class="mtd-box" style="border:none;padding-top:2px;">
+          <span>YTD (FY27 YTD):</span>
+          <span class="mtd-val">71,340.6 MT</span>
+        </div>
+      </div>
+    
+      <div class="card-kpi">
+        <div class="lbl">Total Dispatch</div>
+        <div class="val-day">1,034.6 <span>MT</span></div>
+        <div class="mtd-box" style="margin-top:10px;">
+          <span>MTD (Oct-26 MTD):</span>
+          <span class="mtd-val">21,041.4 MT</span>
+        </div>
+        <div class="mtd-box" style="border:none;padding-top:2px;">
+          <span>YTD (FY27 YTD):</span>
+          <span class="mtd-val">58,934.6 MT</span>
+        </div>
+      </div>
+    
+      <div class="card-kpi">
+        <div class="lbl">Average Output</div>
+        <div class="val-day">242.0 <span>TPH</span></div>
+        <div class="mtd-box" style="margin-top:10px;">
+          <span>MTD (Oct-26 MTD):</span>
+          <span class="mtd-val">246.2 TPH</span>
+        </div>
+        <div class="mtd-box" style="border:none;padding-top:2px;">
+          <span>YTD (FY27 YTD):</span>
+          <span class="mtd-val">208.1 TPH</span>
+        </div>
+      </div>
+    
+      <div class="card-kpi">
+        <div class="lbl">Grind + Pack SPC</div>
+        <div class="val-day">45.35 <span>kWh/t</span></div>
+        <div class="mtd-box" style="margin-top:10px;">
+          <span>MTD (Oct-26 MTD):</span>
+          <span class="mtd-val">49.19 kWh/t</span>
+        </div>
+        <div class="mtd-box" style="border:none;padding-top:2px;">
+          <span>YTD (FY27 YTD):</span>
+          <span class="mtd-val">54.04 kWh/t</span>
+        </div>
+      </div>
+    </div>
+
+<!-- Gauges, Insights & Cement Closing Stock -->
+<div class="g2" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+  <div class="cd">
+    <h2>Service Metrics <small></small></h2>
+    <div class="sv" id="svGauges">
+      <div class="rg">
+        <i style="background: conic-gradient(var(--g) 98%, var(--tr) 0)">
+          <b>98%</b>
+        </i>
+        <div style="font-weight:700;margin-top:6px;">MSA</div>
+        <div class="n" style="font-size:10px;">Selected Day</div>
+      </div>
+    
+      <div class="rg">
+        <i style="background: conic-gradient(var(--pr) 86%, var(--tr) 0)">
+          <b>86%</b>
+        </i>
+        <div style="font-weight:700;margin-top:6px;">DSA</div>
+        <div class="n" style="font-size:10px;">Selected Day</div>
+      </div>
+    
+      <div class="rg">
+        <i style="background: conic-gradient(var(--r) 62%, var(--tr) 0)">
+          <b>62%</b>
+        </i>
+        <div style="font-weight:700;margin-top:6px;">OET (&lt;12h)</div>
+        <div class="n" style="font-size:10px;">Selected Day</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cd">
+    <h2>Remarks for Variations <small> </small></h2>
+    <ul id="insightsList"><li>ℹ️ <b>100% OPC Grinding Today</b>: Mill ran exclusively on OPC 53 (2,056.8 MT produced).</li><li>🏭 <b>Production exceeded dispatch</b> by 1,022 MT (Silo stock buildup).</li></ul>
+  </div>
+
+  <div class="cd" id="closingStockCard">
+    <h2>Cement Closing Stock <small id="stkDateNote">As on 29 Oct</small></h2>
+    <div style="display: flex; flex-direction: column; justify-content: space-around; height: calc(100% - 28px); gap: 8px;">
+      <div style="background: var(--tr); padding: 10px 14px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <span style="font-size: 11px; font-weight: 700; color: var(--mu); text-transform: uppercase;">Total Cement Stock</span>
+          <div id="stkTotalVal" style="font-size: 24px; font-weight: 800; color: var(--pr); line-height: 1.1;">9,950.7 <span style="font-size:12px;font-weight:500;color:var(--mu);">MT</span></div>
+        </div>
+        <div style="font-size: 26px;">🏭</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+        <div style="border: 1px solid var(--bd); padding: 8px 12px; border-radius: 6px; background: var(--cd);">
+          <div style="font-size: 11px; font-weight: 700; color: #1e56a0;">OPC-53 (Loose)</div>
+          <div id="stkOpcVal" style="font-size: 17px; font-weight: 700; color: var(--tx); margin-top: 2px;">4,732.4 <span style="font-size:11px;font-weight:400;color:var(--mu);">MT</span></div>
+        </div>
+        <div style="border: 1px solid var(--bd); padding: 8px 12px; border-radius: 6px; background: var(--cd);">
+          <div style="font-size: 11px; font-weight: 700; color: #16a34a;">PPC (Loose)</div>
+          <div id="stkPpcVal" style="font-size: 17px; font-weight: 700; color: var(--tx); margin-top: 2px;">5,218.3 <span style="font-size:11px;font-weight:400;color:var(--mu);">MT</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Charts Row 1 -->
+<div class="g2">
+  <div class="cd">
+    <h2>Production vs Dispatch (15 Days Trend)</h2>
+    <div class="cv"><canvas id="chartProdDisp" width="479" height="220" style="display: block; box-sizing: border-box; height: 220px; width: 479px;"></canvas></div>
+  </div>
+  <div class="cd">
+    <h2>Mill Run Hours &amp; TPH</h2>
+    <div class="cv"><canvas id="chartRunTPH" width="479" height="220" style="display: block; box-sizing: border-box; height: 220px; width: 479px;"></canvas></div>
+  </div>
+  <div class="cd">
+    <h2>Specific Power Consumption (SPC kWh/t)</h2>
+    <div class="cv"><canvas id="chartSPC" width="479" height="220" style="display: block; box-sizing: border-box; height: 220px; width: 479px;"></canvas></div>
+  </div>
+</div>
+
+<!-- Charts Row 2 -->
+<div class="g2">
+  <div class="cd">
+    <h2>Cement Production Mix (Selected Day)</h2>
+    <div class="cv"><canvas id="chartProdMix" width="479" height="220" style="display: block; box-sizing: border-box; height: 220px; width: 479px;"></canvas></div>
+  </div>
+  <div class="cd">
+    <h2>Dispatch by Packaging Type</h2>
+    <div class="cv"><canvas id="chartDispMix" width="479" height="220" style="display: block; box-sizing: border-box; height: 220px; width: 479px;"></canvas></div>
+  </div>
+  <div class="cd">
+    <h2>Raw Material Consumption % </h2>
+    <div class="cv"><canvas id="chartRawMix" width="479" height="220" style="display: block; box-sizing: border-box; height: 220px; width: 479px;"></canvas></div>
+  </div>
+</div>
+
+<!-- Master KPI Comparison Table -->
+<div class="cd" style="margin-bottom: 12px;">
+  <h2>Plant Key Performance Indicators <small id="tblSubHeaderNote">(Active Targets for Oct-26)</small></h2>
+  <div class="sc">
+    <table id="tblMaster"><thead>
+    <tr class="kpi-subhdr">
+      <th>Key Performance Indicator (KPI)</th>
+      <th>UOM</th>
+      <th>Selected Date (29 Oct)</th>
+      <th>Current Day</th>
+      <th>MTD (Oct-26 MTD)</th>
+      <th>YTD (FY27 YTD)</th>
+      <th style="text-align:center;">Target (Oct-26)</th>
+    </tr>
+  </thead><tbody><tr class="gh"><td colspan="7">1. SERVICE METRICS</td></tr>
+    <tr class="kpi-subhdr">
+      <th>Key Performance Indicator (KPI)</th>
+      <th>UOM</th>
+      <th>Selected Date (29 Oct)</th>
+      <th>Current Day</th>
+      <th>MTD (Oct-26 MTD)</th>
+      <th>YTD (FY27 YTD)</th>
+      <th style="text-align:center;">Target (Oct-26)</th>
+    </tr>
+  
+        <tr style="">
+          <td>Market Service Agreement (MSA)</td>
+          <td style="text-align:center;color:var(--mu);">%</td>
+          <td><b>98.0</b></td>
+          <td>98.0</td>
+          <td>84.0</td>
+          <td>24.0</td>
+          <td style="text-align:center;"><span class="target-badge-custom">≥ 95</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>Delivery Service Agreement (DSA)</td>
+          <td style="text-align:center;color:var(--mu);">%</td>
+          <td><b>86.0</b></td>
+          <td>86.0</td>
+          <td>84.0</td>
+          <td>78.0</td>
+          <td style="text-align:center;"><span class="target-badge-custom">≥ 95</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>Order Execution Time (OET &lt;12h)</td>
+          <td style="text-align:center;color:var(--mu);">%</td>
+          <td><b>62.0</b></td>
+          <td>62.0</td>
+          <td>67.0</td>
+          <td>56.0</td>
+          <td style="text-align:center;"><span class="target-badge-custom">≥ 95</span></td>
+        </tr>
+      <tr class="gh"><td colspan="7">2. CEMENT PRODUCTION</td></tr>
+    <tr class="kpi-subhdr">
+      <th>Key Performance Indicator (KPI)</th>
+      <th>UOM</th>
+      <th>Selected Date (29 Oct)</th>
+      <th>Current Day</th>
+      <th>MTD (Oct-26 MTD)</th>
+      <th>YTD (FY27 YTD)</th>
+      <th style="text-align:center;">Target (Oct-26)</th>
+    </tr>
+  
+        <tr style="">
+          <td>DOUBLE BULL / GGBS</td>
+          <td style="text-align:center;color:var(--mu);">MT</td>
+          <td><b>0.0</b></td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>75.0</td>
+          <td style="text-align:center;"><span class="target-badge-custom">-</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>CM-2 OPC-53 Production</td>
+          <td style="text-align:center;color:var(--mu);">MT</td>
+          <td><b>2,056.8</b></td>
+          <td>2,056.8</td>
+          <td>15,534.6</td>
+          <td>41,220.9</td>
+          <td style="text-align:center;"><span class="target-badge-custom">30035</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>CM-2 PPC Production</td>
+          <td style="text-align:center;color:var(--mu);">MT</td>
+          <td><b>0.0</b></td>
+          <td>0.0</td>
+          <td>12,539.8</td>
+          <td>30,044.7</td>
+          <td style="text-align:center;"><span class="target-badge-custom">1376</span></td>
+        </tr>
+      
+        <tr style="font-weight:700;">
+          <td>TOTAL CEMENT PRODUCTION</td>
+          <td style="text-align:center;color:var(--mu);">MT</td>
+          <td><b>2,056.8</b></td>
+          <td>2,056.8</td>
+          <td>28,074.4</td>
+          <td>71,340.6</td>
+          <td style="text-align:center;"><span class="target-badge-custom">31410</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>PPC Production Share</td>
+          <td style="text-align:center;color:var(--mu);">%</td>
+          <td><b>0.0</b></td>
+          <td>0.0</td>
+          <td>44.7</td>
+          <td>42.1</td>
+          <td style="text-align:center;"><span class="target-badge-custom">8</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>OPC Production Share</td>
+          <td style="text-align:center;color:var(--mu);">%</td>
+          <td><b>100.0</b></td>
+          <td>100.0</td>
+          <td>55.3</td>
+          <td>57.8</td>
+          <td style="text-align:center;"><span class="target-badge-custom">92</span></td>
+        </tr>
+      <tr class="gh"><td colspan="7">3. CEMENT DISPATCH</td></tr>
+    <tr class="kpi-subhdr">
+      <th>Key Performance Indicator (KPI)</th>
+      <th>UOM</th>
+      <th>Selected Date (29 Oct)</th>
+      <th>Current Day</th>
+      <th>MTD (Oct-26 MTD)</th>
+      <th>YTD (FY27 YTD)</th>
+      <th style="text-align:center;">Target (Oct-26)</th>
+    </tr>
+  
+        <tr style="">
+          <td>OPC-53 Infracem (PP)</td>
+          <td style="text-align:center;color:var(--mu);">MT</td>
+          <td><b>32.0</b></td>
+          <td>32.0</td>
+          <td>393.0</td>
+          <td>408.0</td>
+          <td style="text-align:center;"><span class="target-badge-custom">-</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>OPC-53 Loose (Bulk)</td>
+          <td style="text-align:center;color:var(--mu);">MT</td>
+          <td><b>339.6</b></td>
+          <td>339.6</td>
+          <td>6,530.4</td>
+          <td>15,484.4</td>
+          <td style="text-align:center;"><span class="target-badge-custom">-</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>OPC-53 Rapid X (PP)</td>
+          <td style="text-align:center;color:var(--mu);">MT</td>
+          <td><b>288.0</b></td>
+          <td>288.0</td>
+          <td>4,359.0</td>
+          <td>19,488.2</td>
+          <td style="text-align:center;"><span class="target-badge-custom">-</span></td>
+        </tr>
+      
+        <tr style="font-weight:700;">
+          <td>TOTAL OPC DISPATCH</td>
+          <td style="text-align:center;color:var(--mu);">MT</td>
+          <td><b>659.6</b></td>
+          <td>659.6</td>
+          <td>11,282.4</td>
+          <td>35,380.6</td>
+          <td style="text-align:center;"><span class="target-badge-custom">30035</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>PPC Microfiber (PP)</td>
+          <td style="text-align:center;color:var(--mu);">MT</td>
+          <td><b>52.0</b></td>
+          <td>52.0</td>
+          <td>1,187.0</td>
+          <td>1,447.0</td>
+          <td style="text-align:center;"><span class="target-badge-custom">510</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>PPC Direct / DG (PP)</td>
+          <td style="text-align:center;color:var(--mu);">MT</td>
+          <td><b>323.0</b></td>
+          <td>323.0</td>
+          <td>8,572.0</td>
+          <td>22,095.0</td>
+          <td style="text-align:center;"><span class="target-badge-custom">885</span></td>
+        </tr>
+      
+        <tr style="font-weight:700;">
+          <td>TOTAL CEMENT DISPATCH</td>
+          <td style="text-align:center;color:var(--mu);">MT</td>
+          <td><b>1,034.6</b></td>
+          <td>1,034.6</td>
+          <td>21,041.4</td>
+          <td>58,934.6</td>
+          <td style="text-align:center;"><span class="target-badge-custom">31400</span></td>
+        </tr>
+      <tr class="gh"><td colspan="7">4. MILL RUNNING HOURS &amp; UTILISATION</td></tr>
+    <tr class="kpi-subhdr">
+      <th>Key Performance Indicator (KPI)</th>
+      <th>UOM</th>
+      <th>Selected Date (29 Oct)</th>
+      <th>Current Day</th>
+      <th>MTD (Oct-26 MTD)</th>
+      <th>YTD (FY27 YTD)</th>
+      <th style="text-align:center;">Target (Oct-26)</th>
+    </tr>
+  
+        <tr style="">
+          <td>GGBS Grinding Hours</td>
+          <td style="text-align:center;color:var(--mu);">Hrs</td>
+          <td><b>0.0</b></td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.5</td>
+          <td style="text-align:center;"><span class="target-badge-custom">-</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>CM-2 OPC-53 Run Hours</td>
+          <td style="text-align:center;color:var(--mu);">Hrs</td>
+          <td><b>8.5</b></td>
+          <td>8.5</td>
+          <td>64.0</td>
+          <td>204.6</td>
+          <td style="text-align:center;"><span class="target-badge-custom">Max 24h/d</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>CM-2 PPC Run Hours</td>
+          <td style="text-align:center;color:var(--mu);">Hrs</td>
+          <td><b>0.0</b></td>
+          <td>0.0</td>
+          <td>50.0</td>
+          <td>137.7</td>
+          <td style="text-align:center;"><span class="target-badge-custom">Max 24h/d</span></td>
+        </tr>
+      
+        <tr style="font-weight:700;">
+          <td>TOTAL MILL RUNNING HOURS</td>
+          <td style="text-align:center;color:var(--mu);">Hrs</td>
+          <td><b>8.5</b></td>
+          <td>8.5</td>
+          <td>114.0</td>
+          <td>342.8</td>
+          <td style="text-align:center;"><span class="target-badge-custom">Max 24h/d</span></td>
+        </tr>
+      <tr class="gh"><td colspan="7">5. OUTPUT &amp; THROUGHPUT (TPH)</td></tr>
+    <tr class="kpi-subhdr">
+      <th>Key Performance Indicator (KPI)</th>
+      <th>UOM</th>
+      <th>Selected Date (29 Oct)</th>
+      <th>Current Day</th>
+      <th>MTD (Oct-26 MTD)</th>
+      <th>YTD (FY27 YTD)</th>
+      <th style="text-align:center;">Target (Oct-26)</th>
+    </tr>
+  
+        <tr style="">
+          <td>CM-2 OPC-53 Output</td>
+          <td style="text-align:center;color:var(--mu);">TPH</td>
+          <td><b>242.0</b></td>
+          <td>242.0</td>
+          <td>242.7</td>
+          <td>201.5</td>
+          <td style="text-align:center;"><span class="target-badge-custom">≥ 250</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>CM-2 PPC Output</td>
+          <td style="text-align:center;color:var(--mu);">TPH</td>
+          <td><b>0.0</b></td>
+          <td>0.0</td>
+          <td>250.7</td>
+          <td>218.2</td>
+          <td style="text-align:center;"><span class="target-badge-custom">≥ 260</span></td>
+        </tr>
+      
+        <tr style="font-weight:700;">
+          <td>WEIGHTED AVERAGE TPH</td>
+          <td style="text-align:center;color:var(--mu);">TPH</td>
+          <td><b>242.0</b></td>
+          <td>242.0</td>
+          <td>246.2</td>
+          <td>208.1</td>
+          <td style="text-align:center;"><span class="target-badge-custom">≥ 250</span></td>
+        </tr>
+      <tr class="gh"><td colspan="7">6. OPERATIONAL RELIABILITY &amp; EFFICIENCY</td></tr>
+    <tr class="kpi-subhdr">
+      <th>Key Performance Indicator (KPI)</th>
+      <th>UOM</th>
+      <th>Selected Date (29 Oct)</th>
+      <th>Current Day</th>
+      <th>MTD (Oct-26 MTD)</th>
+      <th>YTD (FY27 YTD)</th>
+      <th style="text-align:center;">Target (Oct-26)</th>
+    </tr>
+  
+        <tr style="">
+          <td>Reliability Factor (CM-2)</td>
+          <td style="text-align:center;color:var(--mu);">%</td>
+          <td><b>100.0</b></td>
+          <td>100.0</td>
+          <td>76.9</td>
+          <td>86.2</td>
+          <td style="text-align:center;"><span class="target-badge-custom">≥ 95</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>Overall Equipment Effectiveness (OEE)</td>
+          <td style="text-align:center;color:var(--mu);">%</td>
+          <td><b>80.7</b></td>
+          <td>80.7</td>
+          <td>63.1</td>
+          <td>0.0</td>
+          <td style="text-align:center;"><span class="target-badge-custom">≥ 95</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>Operational Plant Efficiency (OPE)</td>
+          <td style="text-align:center;color:var(--mu);">%</td>
+          <td><b>0.0</b></td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td style="text-align:center;"><span class="target-badge-custom">≥ 95</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>Mean Time Between Failures (MTBF)</td>
+          <td style="text-align:center;color:var(--mu);">Hrs</td>
+          <td><b>8.5</b></td>
+          <td>8.5</td>
+          <td>114.0</td>
+          <td>326.7</td>
+          <td style="text-align:center;"><span class="target-badge-custom">≥ 250</span></td>
+        </tr>
+      <tr class="gh"><td colspan="7">7. SPECIFIC POWER CONSUMPTION (SPC)</td></tr>
+    <tr class="kpi-subhdr">
+      <th>Key Performance Indicator (KPI)</th>
+      <th>UOM</th>
+      <th>Selected Date (29 Oct)</th>
+      <th>Current Day</th>
+      <th>MTD (Oct-26 MTD)</th>
+      <th>YTD (FY27 YTD)</th>
+      <th style="text-align:center;">Target (Oct-26)</th>
+    </tr>
+  
+        <tr style="">
+          <td>CM-2 OPC-53 Grinding SPC</td>
+          <td style="text-align:center;color:var(--mu);">kWh/t</td>
+          <td><b>36.78</b></td>
+          <td>36.78</td>
+          <td>38.88</td>
+          <td>48.52</td>
+          <td style="text-align:center;"><span class="target-badge-custom">≤ 36</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>CM-2 PPC Grinding SPC</td>
+          <td style="text-align:center;color:var(--mu);">kWh/t</td>
+          <td><b>0.00</b></td>
+          <td>0.00</td>
+          <td>41.53</td>
+          <td>41.00</td>
+          <td style="text-align:center;"><span class="target-badge-custom">≤ 34</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>Total Cement Grinding SPC</td>
+          <td style="text-align:center;color:var(--mu);">kWh/t</td>
+          <td><b>36.78</b></td>
+          <td>36.78</td>
+          <td>40.06</td>
+          <td>45.37</td>
+          <td style="text-align:center;"><span class="target-badge-custom">≤ 35</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>Packing Plant SPC</td>
+          <td style="text-align:center;color:var(--mu);">kWh/t</td>
+          <td><b>8.57</b></td>
+          <td>8.57</td>
+          <td>9.13</td>
+          <td>8.67</td>
+          <td style="text-align:center;"><span class="target-badge-custom">≤ 4.5</span></td>
+        </tr>
+      
+        <tr style="font-weight:700;">
+          <td>TOTAL GRINDING + PACKING SPC</td>
+          <td style="text-align:center;color:var(--mu);">kWh/t</td>
+          <td><b>45.35</b></td>
+          <td>45.35</td>
+          <td>49.19</td>
+          <td>54.04</td>
+          <td style="text-align:center;"><span class="target-badge-custom">39.5</span></td>
+        </tr>
+      <tr class="gh"><td colspan="7">8. RAW MATERIAL CONSUMPTION % (OPC, PPC &amp; TOTAL)</td></tr>
+    <tr class="kpi-subhdr">
+      <th>Key Performance Indicator (KPI)</th>
+      <th>UOM</th>
+      <th>Selected Date (29 Oct)</th>
+      <th>Current Day</th>
+      <th>MTD (Oct-26 MTD)</th>
+      <th>YTD (FY27 YTD)</th>
+      <th style="text-align:center;">Target (Oct-26)</th>
+    </tr>
+  
+        <tr style="">
+          <td>OPC-53 Clinker Consumption %</td>
+          <td style="text-align:center;color:var(--mu);">%</td>
+          <td><b>94.9</b></td>
+          <td>94.9</td>
+          <td>95.5</td>
+          <td>95.3</td>
+          <td style="text-align:center;"><span class="target-badge-custom">95.5</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>OPC-53 Gypsum Consumption %</td>
+          <td style="text-align:center;color:var(--mu);">%</td>
+          <td><b>5.1</b></td>
+          <td>5.1</td>
+          <td>4.5</td>
+          <td>4.7</td>
+          <td style="text-align:center;"><span class="target-badge-custom">4.5</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>PPC Clinker Consumption %</td>
+          <td style="text-align:center;color:var(--mu);">%</td>
+          <td><b>0.0</b></td>
+          <td>0.0</td>
+          <td>68.7</td>
+          <td>70.3</td>
+          <td style="text-align:center;"><span class="target-badge-custom">65.5</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>PPC Fly Ash Consumption %</td>
+          <td style="text-align:center;color:var(--mu);">%</td>
+          <td><b>0.0</b></td>
+          <td>0.0</td>
+          <td>28.1</td>
+          <td>25.8</td>
+          <td style="text-align:center;"><span class="target-badge-custom">30</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>PPC Gypsum Consumption %</td>
+          <td style="text-align:center;color:var(--mu);">%</td>
+          <td><b>0.0</b></td>
+          <td>0.0</td>
+          <td>3.2</td>
+          <td>3.9</td>
+          <td style="text-align:center;"><span class="target-badge-custom">4.5</span></td>
+        </tr>
+      
+        <tr style="font-weight:700;">
+          <td>TOTAL CLINKER CONSUMPTION % (Clinker Factor)</td>
+          <td style="text-align:center;color:var(--mu);">%</td>
+          <td><b>94.9</b></td>
+          <td>94.9</td>
+          <td>83.5</td>
+          <td>84.7</td>
+          <td style="text-align:center;"><span class="target-badge-custom">92</span></td>
+        </tr>
+      
+        <tr style="">
+          <td>TOTAL GYPSUM CONSUMPTION % (on Total Cement)</td>
+          <td style="text-align:center;color:var(--mu);">%</td>
+          <td><b>5.1</b></td>
+          <td>5.1</td>
+          <td>3.9</td>
+          <td>4.3</td>
+          <td style="text-align:center;"><span class="target-badge-custom">4.5</span></td>
+        </tr>
+      <tr class="gh"><td colspan="7">9. TOTAL POWER RECEIPT</td></tr>
+    <tr class="kpi-subhdr">
+      <th>Key Performance Indicator (KPI)</th>
+      <th>UOM</th>
+      <th>Selected Date (29 Oct)</th>
+      <th>Current Day</th>
+      <th>MTD (Oct-26 MTD)</th>
+      <th>YTD (FY27 YTD)</th>
+      <th style="text-align:center;">Target (Oct-26)</th>
+    </tr>
+  
+        <tr style="font-weight:700;">
+          <td>Power Receipt Unit</td>
+          <td style="text-align:center;color:var(--mu);">kWh</td>
+          <td><b>87,579</b></td>
+          <td>87,579</td>
+          <td>13,70,173</td>
+          <td>46,15,953</td>
+          <td style="text-align:center;"><span class="target-badge-custom">-</span></td>
+        </tr>
+      </tbody></table>
+  </div>
+</div>
+
+<!-- Interactive KPI Single Metric Trend Explorer -->
+<div class="cd">
+  <h2>Interactive KPI Trend Explorer: <select id="kpiExplorerSelect" style="padding:4px 8px;border-radius:5px;border:1px solid var(--bd);background:var(--cd);color:var(--tx);font-weight:600;font-size:12px;margin-left:8px;">
+    <option value="4">Market Service Agreement (MSA) (%)</option>
+  
+    <option value="5">Delivery Service Agreement (DSA) (%)</option>
+  
+    <option value="6">Order Execution Time (OET &lt;12h) (%)</option>
+  
+    <option value="8">DOUBLE BULL / GGBS (MT)</option>
+  
+    <option value="9">CM-2 OPC-53 Production (MT)</option>
+  
+    <option value="10">CM-2 PPC Production (MT)</option>
+  
+    <option value="11">TOTAL CEMENT PRODUCTION (MT)</option>
+  
+    <option value="12">PPC Production Share (%)</option>
+  
+    <option value="13">OPC Production Share (%)</option>
+  
+    <option value="15">OPC-53 Infracem (PP) (MT)</option>
+  
+    <option value="16">OPC-53 Loose (Bulk) (MT)</option>
+  
+    <option value="17">OPC-53 Rapid X (PP) (MT)</option>
+  
+    <option value="tot_opc_disp">TOTAL OPC DISPATCH (MT)</option>
+  
+    <option value="18">PPC Microfiber (PP) (MT)</option>
+  
+    <option value="19">PPC Direct / DG (PP) (MT)</option>
+  
+    <option value="20">TOTAL CEMENT DISPATCH (MT)</option>
+  
+    <option value="24">GGBS Grinding Hours (Hrs)</option>
+  
+    <option value="25">CM-2 OPC-53 Run Hours (Hrs)</option>
+  
+    <option value="26">CM-2 PPC Run Hours (Hrs)</option>
+  
+    <option value="27">TOTAL MILL RUNNING HOURS (Hrs)</option>
+  
+    <option value="30">CM-2 OPC-53 Output (TPH)</option>
+  
+    <option value="31">CM-2 PPC Output (TPH)</option>
+  
+    <option value="32">WEIGHTED AVERAGE TPH (TPH)</option>
+  
+    <option value="34">Reliability Factor (CM-2) (%)</option>
+  
+    <option value="35">Overall Equipment Effectiveness (OEE) (%)</option>
+  
+    <option value="38">Operational Plant Efficiency (OPE) (%)</option>
+  
+    <option value="39">Mean Time Between Failures (MTBF) (Hrs)</option>
+  
+    <option value="42">CM-2 OPC-53 Grinding SPC (kWh/t)</option>
+  
+    <option value="43">CM-2 PPC Grinding SPC (kWh/t)</option>
+  
+    <option value="44">Total Cement Grinding SPC (kWh/t)</option>
+  
+    <option value="45">Packing Plant SPC (kWh/t)</option>
+  
+    <option value="48">TOTAL GRINDING + PACKING SPC (kWh/t)</option>
+  
+    <option value="56">OPC-53 Clinker Consumption % (%)</option>
+  
+    <option value="55">OPC-53 Gypsum Consumption % (%)</option>
+  
+    <option value="62">PPC Clinker Consumption % (%)</option>
+  
+    <option value="63">PPC Fly Ash Consumption % (%)</option>
+  
+    <option value="61">PPC Gypsum Consumption % (%)</option>
+  
+    <option value="tot_clk">TOTAL CLINKER CONSUMPTION % (Clinker Factor) (%)</option>
+  
+    <option value="tot_gyp">TOTAL GYPSUM CONSUMPTION % (on Total Cement) (%)</option>
+  
+    <option value="110">Power Receipt Unit (kWh)</option>
+  </select></h2>
+  <div class="cv" style="height:240px;"><canvas id="chartExplorer" width="1523" height="240" style="display: block; box-sizing: border-box; height: 240px; width: 1523px;"></canvas></div>
+</div>
+
+</div><!-- /#viewDashboard -->
+
+<!-- TAB 2: MONTH-WISE TARGET SETUP VIEW -->
+<div id="viewTargets" style="display: none;">
+  <div class="cd" style="margin-bottom: 12px; padding: 20px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px; border-bottom: 1px solid var(--bd); padding-bottom: 14px; margin-bottom: 18px;">
+      <div>
+        <h2 style="font-size: 16px; margin: 0 0 4px; color: var(--pr); text-transform: none; letter-spacing: 0;">
+          🎯 Month-Wise Parameter Target Setup
+        </h2>
+        <small style="color: var(--mu); font-size: 12px;">
+          Set customized AOP / operational targets for each month (e.g., Oct-26, Nov-26, Dec-26). Targets dynamically feed the <b>Target</b> column on your Operations Dashboard.
+        </small>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+        <label style="font-weight: 700; font-size: 12px;">Select Target Month:</label>
+        <select id="targetMonthSelect" onchange="renderTargetsEditor()" style="padding: 7px 12px; border-radius: 6px; border: 1px solid var(--bd); font-weight: 600; background: var(--cd); color: var(--tx); font-size: 13px;"></select>
+        <button class="btn-save-tgt" onclick="saveCurrentMonthTargets()">💾 Save Targets</button>
+        <button class="btn-reset-tgt" onclick="resetTargetsToDefault()">🔄 Reset Defaults</button>
+      </div>
+    </div>
+    <div class="sc">
+      <table id="tblTargetsEditor"></table>
+    </div>
+  </div>
+</div><!-- /#viewTargets -->
+
+</div><!-- /#dashContent -->
+<script>
+
+// ==========================================
+// MONTH-WISE TARGET SETUP & STORAGE
+// ==========================================
+var TARGETS_STORE = {};
+
+(function() {
+  try {
+    var saved = localStorage.getItem('limla_monthly_targets');
+    if (saved) TARGETS_STORE = JSON.parse(saved);
+  } catch(e) {}
+})();
+
+// Helper to convert date or label string into standardized "Mmm-YY" (e.g. "Oct-26")
+function getMonthKeyFromDate(isoStr) {
+  if (!isoStr) return "";
+  const parts = String(isoStr).slice(0, 10).split('-');
+  if (parts.length === 3) {
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const mIdx = parseInt(parts[1], 10) - 1;
+    const yr = parts[0].slice(2);
+    return `${months[mIdx] || 'Oct'}-${yr}`;
+  }
+  return "";
+}
+
+function resolveActiveMonthKey() {
+  // 1. First check if selected MTD dropdown has a real month label (e.g. "Oct-26 MTD" -> "Oct-26")
+  var mLabel = (DATA.months.labels[selectedMonthIdx] || "").replace(' MTD', '').trim();
+  if (/^[A-Za-z]{3}-\d{2}$/.test(mLabel)) {
+    return mLabel;
+  }
+  // 2. Otherwise extract from the active selected date (e.g. "2026-10-26" -> "Oct-26")
+  if (DATA.dates && DATA.dates[selectedDayIdx]) {
+    var dMonth = getMonthKeyFromDate(DATA.dates[selectedDayIdx]);
+    if (dMonth) return dMonth;
+  }
+  // 3. Fallback to latest logged date in data
+  if (DATA.dates && DATA.dates.length > 0) {
+    return getMonthKeyFromDate(DATA.dates[DATA.dates.length - 1]);
+  }
+  return "Oct-26";
+}
+
+function getEffectiveTarget(kpi, monthKey) {
+  var cleanM = (monthKey || resolveActiveMonthKey()).trim();
+  if (TARGETS_STORE[cleanM] && TARGETS_STORE[cleanM][kpi.k] !== undefined && TARGETS_STORE[cleanM][kpi.k].trim() !== '') {
+    return TARGETS_STORE[cleanM][kpi.k].trim();
+  }
+  return kpi.target || '-';
+}
+
+// ==========================================
+// ADMIN ACCESS CONTROL (GURU PASSWORD)
+// ==========================================
+var ADMIN_AUTH_KEY = "R3VydQ=="; // "Guru"
+var ADMIN_PASSWORD = atob(ADMIN_AUTH_KEY);
+
+function checkAdminPassword(promptText) {
+  var entered = prompt("🔒 " + (promptText || "Enter admin authorization password:"));
+  if (entered === null) return false;
+  if (entered.trim() === ADMIN_PASSWORD || entered.trim().toLowerCase() === ADMIN_PASSWORD.toLowerCase()) {
+    return true;
+  }
+  alert("❌ Incorrect password. Access denied.");
+  return false;
+}
+
+function switchMainTab(tabName) {
+  var dashView = document.getElementById('viewDashboard');
+  var targetView = document.getElementById('viewTargets');
+  var btnDash = document.getElementById('tabBtnDash');
+  var btnTargets = document.getElementById('tabBtnTargets');
+
+  if (!dashView || !targetView) return;
+
+  if (tabName === 'dashboard') {
+    dashView.style.display = 'block';
+    targetView.style.display = 'none';
+    if (btnDash) btnDash.classList.add('active');
+    if (btnTargets) btnTargets.classList.remove('active');
+    renderDashboard();
+  } else if (tabName === 'targets') {
+    var authed = false;
+    try {
+      if (sessionStorage.getItem('limla_targets_auth') === '1') authed = true;
+    } catch(e) {}
+
+    if (!authed) {
+      if (!checkAdminPassword("Enter password to access Month-Wise Target Setup:")) {
+        return;
+      }
+      try { sessionStorage.setItem('limla_targets_auth', '1'); } catch(e) {}
+    }
+
+    dashView.style.display = 'none';
+    targetView.style.display = 'block';
+    if (btnTargets) btnTargets.classList.add('active');
+    if (btnDash) btnDash.classList.remove('active');
+    initTargetMonthSelector();
+    renderTargetsEditor();
+  }
+}
+
+function initTargetMonthSelector() {
+  var sel = document.getElementById('targetMonthSelect');
+  if (!sel) return;
+  var currentVal = sel.value;
+  var monthsList = [
+    "Jul-26", "Aug-26", "Sep-26", "Oct-26", "Nov-26", "Dec-26",
+    "Jan-27", "Feb-27", "Mar-27"
+  ];
+
+  sel.innerHTML = monthsList.map(function(m) {
+    return '<option value="' + m + '">' + m + '</option>';
+  }).join('');
+
+  var activeM = resolveActiveMonthKey();
+  if (currentVal && monthsList.indexOf(currentVal) !== -1) {
+    sel.value = currentVal;
+  } else {
+    sel.value = (monthsList.indexOf(activeM) !== -1) ? activeM : "Oct-26";
+  }
+}
+
+function renderTargetsEditor() {
+  var selEl = document.getElementById('targetMonthSelect');
+  if (!selEl) return;
+  var selMonth = selEl.value;
+  var monthTargets = TARGETS_STORE[selMonth] || {};
+
+  var html = '<thead>' +
+    '<tr class="kpi-subhdr">' +
+      '<th style="text-align:left;">Key Performance Indicator (KPI)</th>' +
+      '<th style="text-align:center;">UOM</th>' +
+      '<th style="text-align:center;">Standard Baseline Benchmark</th>' +
+      '<th style="text-align:left;width:240px;">Target for ' + selMonth + '</th>' +
+    '</tr>' +
+  '</thead><tbody>';
+
+  for (var groupName in GROUPS) {
+    html += '<tr class="gh"><td colspan="4">' + groupName + '</td></tr>';
+    GROUPS[groupName].forEach(function(kpi) {
+      var currentVal = (monthTargets[kpi.k] !== undefined) ? monthTargets[kpi.k] : (kpi.target || '');
+      var boldStyle = kpi.bold ? 'font-weight:700;' : '';
+      html += '<tr>' +
+        '<td style="' + boldStyle + '">' + kpi.n + '</td>' +
+        '<td style="text-align:center;color:var(--mu);">' + kpi.u + '</td>' +
+        '<td style="text-align:center;color:var(--mu);">' + (kpi.target || '-') + '</td>' +
+        '<td>' +
+          '<input type="text" id="tgt_' + kpi.k + '" class="target-input" value="' + currentVal + '" placeholder="Enter ' + selMonth + ' Target">' +
+        '</td>' +
+      '</tr>';
+    });
+  }
+
+  html += '</tbody>';
+  var tbl = document.getElementById('tblTargetsEditor');
+  if (tbl) tbl.innerHTML = html;
+}
+
+function saveCurrentMonthTargets() {
+  var selEl = document.getElementById('targetMonthSelect');
+  if (!selEl) return;
+  var selMonth = selEl.value;
+  if (!TARGETS_STORE[selMonth]) TARGETS_STORE[selMonth] = {};
+
+  ALL_KPIS.forEach(function(kpi) {
+    var input = document.getElementById('tgt_' + kpi.k);
+    if (input) {
+      TARGETS_STORE[selMonth][kpi.k] = input.value.trim();
+    }
+  });
+
+  try {
+    localStorage.setItem('limla_monthly_targets', JSON.stringify(TARGETS_STORE));
+    alert('✅ Targets for ' + selMonth + ' saved successfully! They are now active in the Operations Dashboard Target column.');
+  } catch(e) {
+    alert('✅ Targets for ' + selMonth + ' saved for this browser session.');
+  }
+
+  renderDashboard();
+}
+
+function resetTargetsToDefault() {
+  var selEl = document.getElementById('targetMonthSelect');
+  if (!selEl) return;
+  var selMonth = selEl.value;
+  if (!checkAdminPassword("Enter password to reset targets for " + selMonth + ":")) {
+    return;
+  }
+  if (confirm('Reset targets for ' + selMonth + ' back to standard plant baselines?')) {
+    delete TARGETS_STORE[selMonth];
+    try {
+      localStorage.setItem('limla_monthly_targets', JSON.stringify(TARGETS_STORE));
+    } catch(e) {}
+    renderTargetsEditor();
+    renderDashboard();
+  }
+}
+
+// Pre-loaded dataset from DPR_LCP New.xlsx
+const DEFAULT_DATA = {"closing_stock": {"opc": 3683.087, "ppc": 4093.645, "total": 7776.732}, "dates": ["2026-08-01", "2026-08-02", "2026-08-03", "2026-08-04", "2026-08-05", "2026-08-06", "2026-08-07", "2026-08-08", "2026-08-09", "2026-08-10", "2026-08-11", "2026-08-12", "2026-08-13", "2026-08-14", "2026-08-15", "2026-08-16", "2026-08-17", "2026-08-18", "2026-08-19", "2026-08-20", "2026-08-21", "2026-08-22", "2026-08-23", "2026-08-24", "2026-08-25", "2026-08-26", "2026-08-27", "2026-08-28", "2026-08-29", "2026-08-30", "2026-08-31", "2026-09-01", "2026-09-02", "2026-09-03", "2026-09-04", "2026-09-05", "2026-09-06", "2026-09-07", "2026-09-08", "2026-09-09", "2026-09-10", "2026-09-11", "2026-09-12", "2026-09-13", "2026-09-14", "2026-09-15", "2026-09-16", "2026-09-17", "2026-09-18", "2026-09-19", "2026-09-20", "2026-09-21", "2026-09-22", "2026-09-23", "2026-09-24", "2026-09-25", "2026-09-26", "2026-09-27", "2026-09-28", "2026-09-29", "2026-09-30", "2026-10-01", "2026-10-02", "2026-10-03", "2026-10-04", "2026-10-05", "2026-10-06", "2026-10-07", "2026-10-08", "2026-10-09", "2026-10-10", "2026-10-11", "2026-10-12", "2026-10-13", "2026-10-14", "2026-10-15", "2026-10-16", "2026-10-17", "2026-10-18", "2026-10-19", "2026-10-20", "2026-10-21", "2026-10-22", "2026-10-23", "2026-10-24", "2026-10-25", "2026-10-26"], "daily": {"4": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 0.9212, 0.6285, 1, null, null, null, null, 0, 0.93, 1, 0.5, 0.5672, 0.21], "5": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1, 1, 0.78, null, null, null, null, null, 0.4464, 1, 1, 0.83, 1], "6": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.74, 0.79, 0.95, 0.91, null, null, null, null, null, 0.6, 0.61, 0.7, 0.74, 0.88], "8": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "9": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 408.285, 1409.51, 0, 1476.879, 2188.207, 405.643, 0, 0, 0, 0, 3328.361, 643.81, 155.65, 223.324, 0], "10": [0, 0, 0, 179.3, 2439.5, 1593.66, 1402.11, 844.49, 554.21, 2469.69, 439.84, 0, 0, 0, 493.79, 1862.8, 2330.83, 2861.3, 2556.14, 0, 0, 0, 2030, 1535, 0, 0, 1286, 0, 0, 0, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 631.86, 1896.712, 0, 729.56, 1710.134, 0, 0, 0, 0, 361.832, 250.404, 822.054, 797.525, 373.103], "11": [0, 0, 0, 179.3, 2439.5, 1593.66, 1402.11, 844.49, 554.21, 2469.69, 439.84, 0, 0, 0, 493.79, 1862.8, 2330.83, 2861.3, 2556.14, 0, 0, 0, 2030, 1535, 0, 0, 1286, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 408.285, 2041.37, 1896.712, 1476.879, 2917.767, 2115.777, 0, 0, 0, 0, 3690.193, 894.214, 977.704, 1020.849, 373.103], "12": [null, null, null, 1, 1, 1, 1, 1, 1, 1, 1, null, null, null, 1, 1, 1, 1, 1, null, null, null, 1, 1, null, null, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0.3095, 1, 0, 0.25, 0.8083, null, null, null, null, 0.0981, 0.28, 0.8408, 0.7812, 1], "13": [null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, 0, 0, 0, 0, 0, null, null, null, 0, 0, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 0.6905, 0, 1, 0.75, 0.1917, null, null, null, null, 0.9019, 0.72, 0.1592, 0.2188, 0], "15": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 50, null, null, 63, null, null, 39, null, 22, 82, 0, 57, null, 0], "16": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 142, 175.49, 127.8, 452.53, 236.81, 123.21, 99.71, 114.98, 386.33, 338.06, 298.95, 476.04, 407.77, 392.96, 538.75], "17": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 233, 362, 351, 167, 78, 91, 91, 116, 344, 164, 120, 70, 38, 377], "18": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 13, 13, null, 52, 39, 26, 13, 71, 39, 62, 123, 52], "19": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 305, 143, 149, 174, 277, 321, 252, 365, 238, 280, 536, 394, 294, 364], "20": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 142, 763.49, 632.8, 965.53, 653.81, 478.21, 563.71, 535.98, 893.33, 955.06, 895.95, 1171.04, 990.77, 847.96, 1331.75], "24": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "25": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1.8, 5.24, 0, 5.8, 9.4, 1.6, 0, 0, 0, 0, 14.2, 2.8, 0.67, 1, 0], "26": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 2.62, 7, 0, 3, 7.4, 0, 0, 0, 0, 1.5, 1.2, 3, 3, 1.8], "27": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.8, 7.86, 7, 5.8, 12.4, 9, 0, 0, 0, 0, 15.7, 4, 3.67, 4, 1.8], "30": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 226.825, 268.99, 0, 254.634, 232.788, 253.527, 0, 0, 0, 0, 234.392, 229.932, 232.313, 223.324, 0], "31": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 241.168, 270.959, 0, 243.187, 231.099, 0, 0, 0, 0, 241.221, 208.67, 274.018, 265.842, 207.279], "32": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, 259.716, 270.959, 254.634, 235.3039, 235.0862, 0, 0, 0, 0, 235.0445, 223.5534, 266.4043, 255.2125, 207.279], "34": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.25, 0.075], "35": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.7561, 0.8646, 0.9032, 0.8488, 0.7843, 0.7836, 0, 0, 0, 0, 0.7835, 0.7452, 0.888, 0.2127, 0.0518], "37": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.075, 0.3276, 0.2917, 0.2417, 0.5167, 0.375, null, null, null, 0, 0.6542, 0.1667, 0.1529, 0.1667, 0.075], "38": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.1242, 0.1358, 0.1418, 0.0518], "39": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, null, null, null, null, null, 0, 0, 0, 0, 0, 1.8], "42": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 45.564, 33.318, null, 40.947, 33.718, 29.311, null, null, null, 0, 30.964, 45.12, 47.947, 46.923, 0], "43": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 37.162, 29.765, 0, 32.277, 32.158, null, null, null, 0, 31.465, 49.72, 40.831, 39.417, 54.537], "44": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45.564, 34.5078, 29.765, 40.947, 33.3577, 31.6122, 0, 0, 0, 0, 31.0131, 46.4081, 41.9639, 41.059, 54.537], "45": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 6.0847, 6.5152, 3.6974, 3.8751, 9.9057, 6.1971, 6.9179, 8.1608, 4.386], "48": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45.564, 34.5078, 29.765, 40.947, 33.3577, 31.6122, 0, 6.5152, 3.6974, 3.8751, 40.9188, 52.6052, 48.8817, 49.2198, 58.923], "52": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 20.29, 53.56, 0, 69.554, 94.371, 20.01, null, null, null, 0, 150.911, 27.644, 6.309, 10.995, 0], "53": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 4.76, 0, 0, 3.8, 4, 1, null, null, null, 0, 6.96, 0.96, 0.52, 0.6, 0], "54": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 387.995, 1355.95, 0, 1407.324, 2093.836, 385.632, null, null, null, 0, 3177.45, 616.166, 149.341, 212.329, 0], "55": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.0523, 0.0395, null, 0.0494, 0.0451, 0.0519, null, null, null, 0, 0.045, 0.043, 0.041, 0.049, 0], "56": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.9394, 0.962, null, 0.9505, 0.9551, 0.9483, null, null, null, 0, 0.955, 0.957, 0.959, 0.951, 0], "58": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 170.602, 499.458, 0, 165.531, 547.402, null, 0, 0, 0, 100.931, 68.559, 232.155, 231.53, 105.013], "59": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 18.956, 48.329, 0, 21.983, 60.828, null, 0, 0, 0, 12.384, 9.989, 33.404, 28.959, 13.108], "60": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 442.302, 1348.925, 0, 542.046, 1101.904, null, 0, 0, 0, 248.516, 171.856, 556.495, 537.036, 254.982], "61": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.0429, 0.0358, null, 0.0406, 0.0552, null, null, null, 0, 0.034, 0.04, 0.041, 0.036, 0.035], "62": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.7, 0.7112, null, 0.743, 0.6443, null, null, null, 0, 0.687, 0.686, 0.677, 0.673, 0.683], "63": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.27, 0.2633, null, 0.2269, 0.3201, null, null, null, 0, 0.279, 0.274, 0.282, 0.29, 0.281], "64": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 387.995, 1798.252, 1348.925, 1407.324, 2635.882, 1487.536, null, null, null, null, 3425.966, 788.022, 705.836, 749.365, 254.982], "65": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.0523, 0.0403, 0.0358, 0.0494, 0.0441, 0.0543, null, null, null, null, 0.0477, 0.0478, 0.0563, 0.0533, 0.0514], "110": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 37905, 80180, 65951, 69856, 108901, 76542, 16414, 0, 16372, 21468, 131417, 51503, 50415, 50698, 28398]}, "cur_day": {"4": 0.21, "5": 1, "6": 0.88, "8": 0, "9": 0, "10": 373.103, "11": 373.103, "12": 1, "13": 0, "15": 0, "16": 538.75, "17": 377, "18": 52, "19": 364, "20": 1331.75, "24": 0, "25": 0, "26": 1.8, "27": 1.8, "30": 0, "31": 207.279, "32": 207.279, "34": 0.075, "35": 0.0518, "37": 0.075, "38": 0.0518, "39": 1.8, "42": 0, "43": 54.537, "44": 54.537, "45": 4.386, "48": 58.923, "52": 0, "53": 0, "54": 0, "55": 0, "56": 0, "58": 105.013, "59": 13.108, "60": 254.982, "61": 0.035, "62": 0.683, "63": 0.281, "64": 254.982, "65": 0.0514, "110": 28398}, "cur_mtd": {"4": 0.77, "5": 0.81, "6": 0.64, "8": 0, "9": 12542.984, "10": 10373.103, "11": 22916.087, "12": 0.4527, "13": 0.5473, "15": 361, "16": 5301.04, "17": 3678, "18": 914, "19": 7803, "20": 18057.04, "24": 0, "25": 51.907, "26": 42.52, "27": 94.427, "30": 241.643, "31": 243.958, "32": 242.6854, "34": 0.7341, "35": 0.5937, "37": 0.1513, "38": 0.1224, "39": 94.44, "42": 39.377, "43": 43.669, "44": 41.3198, "45": 9.4138, "48": 50.7336, "52": 547.946, "53": 28.6, "54": 11995.036, "55": 0.044, "56": 0.956, "58": 2853.753, "59": 352.954, "60": 7166.395, "61": 0.034, "62": 0.691, "63": 0.275, "64": 19161.431, "65": 0.047, "110": 1167112}, "cur_ytd": {"4": 0.24, "5": 0.78, "6": 0.56, "8": 75, "9": 38229.195, "10": 27878.045, "11": 66182.24, "12": 0.4212, "13": 0.5776, "15": 376, "16": 14255.03, "17": 18807.19, "18": 1174, "19": 21326, "20": 55950.22, "24": 0.5, "25": 192.506, "26": 130.22, "27": 323.226, "30": 198.587, "31": 214.084, "32": 204.7552, "34": 0.8548, "35": 0, "37": 0.1053, "38": 0, "39": 323.94, "42": 49.442, "43": 41.75, "44": 46.2139, "45": 8.7435, "48": 54.9574, "52": 1774.475, "53": 50.58, "54": 36454.717, "55": 0.046, "56": 0.954, "58": 7068.022, "59": 1123.407, "60": 19686.615, "61": 0.04, "62": 0.706, "63": 0.254, "64": 56141.332, "65": 0.0516, "110": 4412892}, "months": {"labels": ["Jul-26", "Aug-26", "Sep-26", "Oct-26 MTD", "FY27 YTD"], "data": {"4": [null, 0.78, 0.93, 0.77, 0.24], "5": [null, 0.75, 0.81, 0.81, 0.78], "6": [0.45, 0.58, 0.54, 0.64, 0.56], "8": [0, 75, 0, 0, 75], "9": [8580.65, 13766.62, 1755.633, 12542.984, 38229.195], "10": [3261.28, 11112.62, 3086.042, 10373.103, 27878.045], "11": [11841.93, 24954.24, 4841.675, 22916.087, 66182.24], "12": [0.2754, 0.4453, 0.6374, 0.4527, 0.4212], "13": [0.7246, 0.5517, 0.3626, 0.5473, 0.5776], "15": [null, null, 15, 361, 376], "16": [2763.5, 5196, 994.49, 5301.04, 14255.03], "17": [3525.91, 11332.28, 271, 3678, 18807.19], "18": [null, null, 260, 914, 1174], "19": [861, 11558.5, 1103.5, 7803, 21326], "20": [7150.41, 28086.78, 2643.99, 18057.04, 55950.22], "24": [0, 0.5, 0, 0, 0.5], "25": [46, 76.169, 7.33, 51.907, 192.506], "26": [18.5, 57.25, 11.7, 42.52, 130.22], "27": [64.5, 133.419, 19.03, 94.427, 323.226], "30": [186.536, 180.738, 239.513, 241.643, 198.587], "31": [176.285, 194.107, 263.764, 243.958, 214.084], "32": [183.5958, 186.4746, 254.423, 242.6854, 204.7552], "34": [0.9072, 0.964, 1, 0.7341, 0.8548], "35": [0.5552, 0.5969, 0.5723, 0.5937, 0], "37": [0.0867, 0.18, 0.0264, 0.1513, 0.1053], "38": [0.0531, 0.1115, 0.0224, 0.1224, 0], "39": [21.5, 133.93, 9.52, 94.44, 323.94], "42": [47.866, 50.391, 134.162, 39.377, 49.442], "43": [50.533, 39.015, 35.989, 43.669, 41.75], "44": [48.6005, 45.1736, 71.5874, 41.3198, 46.2139], "45": [0, 0, 34.48, 9.4138, 8.7435], "48": [48.6005, 45.1736, 106.0673, 50.7336, 54.9574], "52": [407.73, 662.766, 86.791, 547.946, 1774.475], "53": [null, null, null, 28.6, 50.58], "54": [8172.92, 13103.854, 1668.842, 11995.036, 36454.717], "55": [0.0499, 0.0506, 0.052, 0.044, 0.046], "56": [0.9525, 0.9519, 0.9506, 0.956, 0.954], "58": [657.98, 2694.369, 848.42, 2853.753, 7068.022], "59": [154.65, 480.866, 133.362, 352.954, 1123.407], "60": [2448.65, 7937.385, 2104.26, 7166.395, 19686.615], "61": [0.0632, 0.0606, 0.0634, 0.034, 0.04], "62": [0.7508, 0.7143, 0.6819, 0.691, 0.706], "63": [0.2018, 0.2425, 0.2749, 0.275, 0.254], "64": [10621.57, 21041.239, 3773.102, 19161.431, 56141.332], "65": [0.0529, 0.0544, 0.0583, 0.047, 0.0516], "110": [1080888, 1524268, 517464, 1167112, 4412892]}}};
+
+// Initialize DATA from localStorage if previously saved, otherwise fallback to baseline DEFAULT_DATA
+let DATA = DEFAULT_DATA;
+(function loadSavedPlantData() {
+  try {
+    const saved = localStorage.getItem('limla_plant_data');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed && parsed.dates && parsed.dates.length) {
+        DATA = parsed;
+      }
+    }
+  } catch(e) {
+    console.warn("Could not load saved plant data from localStorage", e);
+  }
+})();
+
+let selectedDayIdx = DATA.dates.length - 1;
+let selectedMonthIdx = 3; // Oct-26 MTD
+let selectedYearIdx = 4;  // FY27 YTD
+
+const CHARTS = {};
+const PALETTE = ['#1e56a0', '#16a34a', '#f59e0b', '#dc2626', '#8b5cf6', '#06b6d4', '#ec4899', '#84cc16'];
+
+const GROUPS = {
+  '1. SERVICE METRICS': [
+    { k: '4', n: 'Market Service Agreement (MSA)', u: '%', d: 1, s: 100, g: 1, target: '≥ 90%' },
+    { k: '5', n: 'Delivery Service Agreement (DSA)', u: '%', d: 1, s: 100, g: 1, target: '≥ 90%' },
+    { k: '6', n: 'Order Execution Time (OET <12h)', u: '%', d: 1, s: 100, g: 1, target: '≥ 90%' }
+  ],
+  '2. CEMENT PRODUCTION': [
+    { k: '8', n: 'DOUBLE BULL / GGBS', u: 'MT', d: 1, s: 1, g: 1, target: 'Plant Mix' },
+    { k: '9', n: 'CM-2 OPC-53 Production', u: 'MT', d: 1, s: 1, g: 1, target: 'AOP Target' },
+    { k: '10', n: 'CM-2 PPC Production', u: 'MT', d: 1, s: 1, g: 1, target: 'AOP Target' },
+    { k: '11', n: 'TOTAL CEMENT PRODUCTION', u: 'MT', d: 1, s: 1, g: 1, target: 'Daily Target', bold: true },
+    { k: '12', n: 'PPC Production Share', u: '%', d: 1, s: 100, g: 0, target: 'Plan Mix' },
+    { k: '13', n: 'OPC Production Share', u: '%', d: 1, s: 100, g: 0, target: 'Plan Mix' }
+  ],
+  '3. CEMENT DISPATCH': [
+    { k: '15', n: 'OPC-53 Infracem (PP)', u: 'MT', d: 1, s: 1, g: 1, target: '-' },
+    { k: '16', n: 'OPC-53 Loose (Bulk)', u: 'MT', d: 1, s: 1, g: 1, target: '-' },
+    { k: '17', n: 'OPC-53 Rapid X (PP)', u: 'MT', d: 1, s: 1, g: 1, target: '-' },
+    { k: 'tot_opc_disp', n: 'TOTAL OPC DISPATCH', u: 'MT', d: 1, s: 1, g: 1, target: 'Plan Target', bold: true },
+    { k: '18', n: 'PPC Microfiber (PP)', u: 'MT', d: 1, s: 1, g: 1, target: '-' },
+    { k: '19', n: 'PPC Direct / DG (PP)', u: 'MT', d: 1, s: 1, g: 1, target: '-' },
+    { k: '20', n: 'TOTAL CEMENT DISPATCH', u: 'MT', d: 1, s: 1, g: 1, target: 'Despatch Plan', bold: true }
+  ],
+  '4. MILL RUNNING HOURS & UTILISATION': [
+    { k: '24', n: 'GGBS Grinding Hours', u: 'Hrs', d: 1, s: 1, g: 1, target: '-' },
+    { k: '25', n: 'CM-2 OPC-53 Run Hours', u: 'Hrs', d: 1, s: 1, g: 1, target: 'Max 24h' },
+    { k: '26', n: 'CM-2 PPC Run Hours', u: 'Hrs', d: 1, s: 1, g: 1, target: 'Max 24h' },
+    { k: '27', n: 'TOTAL MILL RUNNING HOURS', u: 'Hrs', d: 1, s: 1, g: 1, target: '24.0 Hrs', bold: true }
+  ],
+  '5. OUTPUT & THROUGHPUT (TPH)': [
+    { k: '30', n: 'CM-2 OPC-53 Output', u: 'TPH', d: 1, s: 1, g: 1, target: '≥ 200 TPH' },
+    { k: '31', n: 'CM-2 PPC Output', u: 'TPH', d: 1, s: 1, g: 1, target: '≥ 250 TPH' },
+    { k: '32', n: 'WEIGHTED AVERAGE TPH', u: 'TPH', d: 1, s: 1, g: 1, target: 'Benchmark', bold: true }
+  ],
+  '6. OPERATIONAL RELIABILITY & EFFICIENCY': [
+    { k: '34', n: 'Reliability Factor (CM-2)', u: '%', d: 1, s: 100, g: 1, target: '≥ 95%' },
+    { k: '35', n: 'Overall Equipment Effectiveness (OEE)', u: '%', d: 1, s: 100, g: 1, target: '≥ 90%' },
+    { k: '38', n: 'Operational Plant Efficiency (OPE)', u: '%', d: 1, s: 100, g: 1, target: '≥ 90%' },
+    { k: '39', n: 'Mean Time Between Failures (MTBF)', u: 'Hrs', d: 1, s: 1, g: 1, target: 'Target Hrs' }
+  ],
+  '7. SPECIFIC POWER CONSUMPTION (SPC)': [
+    { k: '42', n: 'CM-2 OPC-53 Grinding SPC', u: 'kWh/t', d: 2, s: 1, g: -1, target: '≤ 36.0' },
+    { k: '43', n: 'CM-2 PPC Grinding SPC', u: 'kWh/t', d: 2, s: 1, g: -1, target: '≤ 34.0' },
+    { k: '44', n: 'Total Cement Grinding SPC', u: 'kWh/t', d: 2, s: 1, g: -1, target: 'Weighted Avg' },
+    { k: '45', n: 'Packing Plant SPC', u: 'kWh/t', d: 2, s: 1, g: -1, target: '≤ 9.5' },
+    { k: '48', n: 'TOTAL GRINDING + PACKING SPC', u: 'kWh/t', d: 2, s: 1, g: -1, target: 'Total Target', bold: true }
+  ],
+  '8. RAW MATERIAL CONSUMPTION % (OPC, PPC & TOTAL)': [
+    { k: '56', n: 'OPC-53 Clinker Consumption %', u: '%', d: 1, s: 100, g: 0, target: '95.0% - 96.0%' },
+    { k: '55', n: 'OPC-53 Gypsum Consumption %', u: '%', d: 1, s: 100, g: 0, target: '4.0% - 5.0%' },
+    { k: '62', n: 'PPC Clinker Consumption %', u: '%', d: 1, s: 100, g: 0, target: '67.0% - 68.0%' },
+    { k: '63', n: 'PPC Fly Ash Consumption %', u: '%', d: 1, s: 100, g: 0, target: '28.0% - 29.0%' },
+    { k: '61', n: 'PPC Gypsum Consumption %', u: '%', d: 1, s: 100, g: 0, target: '3.5% - 4.5%' },
+    { k: 'tot_clk', n: 'TOTAL CLINKER CONSUMPTION % (Clinker Factor)', u: '%', d: 1, s: 100, g: -1, target: '≤ 84.5%', bold: true },
+    { k: 'tot_gyp', n: 'TOTAL GYPSUM CONSUMPTION % (on Total Cement)', u: '%', d: 1, s: 100, g: 0, target: 'Total %' }
+  ],
+  '9. TOTAL POWER RECEIPT': [
+    { k: '110', n: 'Power Receipt Unit', u: 'kWh', d: 0, s: 1, g: 0, target: 'Receipt Units', bold: true }
+  ]
+};
+
+const ALL_KPIS = [].concat(...Object.values(GROUPS));
+
+function getKpiVal(k, dayIdx) {
+  if (dayIdx < 0 || dayIdx >= DATA.dates.length) return null;
+  if (k === 'tot_opc_disp') {
+    const v15 = (DATA.daily['15'] && DATA.daily['15'][dayIdx]) || 0;
+    const v16 = (DATA.daily['16'] && DATA.daily['16'][dayIdx]) || 0;
+    const v17 = (DATA.daily['17'] && DATA.daily['17'][dayIdx]) || 0;
+    return (v15 + v16 + v17);
+  }
+  if (k === 'tot_clk') {
+    const clk = DATA.daily['64'] ? DATA.daily['64'][dayIdx] : null;
+    const cem = DATA.daily['11'] ? DATA.daily['11'][dayIdx] : null;
+    return (clk != null && cem) ? (clk / cem) : null;
+  }
+  if (k === 'tot_fa') {
+    const fa = DATA.daily['58'] ? DATA.daily['58'][dayIdx] : null;
+    const cem = DATA.daily['11'] ? DATA.daily['11'][dayIdx] : null;
+    return (fa != null && cem) ? (fa / cem) : null;
+  }
+  if (k === 'tot_gyp') {
+    const g1 = (DATA.daily['52'] && DATA.daily['52'][dayIdx]) || 0;
+    const g2 = (DATA.daily['59'] && DATA.daily['59'][dayIdx]) || 0;
+    const cem = DATA.daily['11'] ? DATA.daily['11'][dayIdx] : null;
+    return (cem) ? ((g1 + g2) / cem) : null;
+  }
+  const arr = DATA.daily[k];
+  return (arr && dayIdx in arr && typeof arr[dayIdx] === 'number') ? arr[dayIdx] : null;
+}
+
+function getPeriodVal(k, colIdx) {
+  if (colIdx == null) return null;
+  if (k === 'tot_opc_disp') {
+    const v15 = (DATA.months.data['15'] && DATA.months.data['15'][colIdx]) || 0;
+    const v16 = (DATA.months.data['16'] && DATA.months.data['16'][colIdx]) || 0;
+    const v17 = (DATA.months.data['17'] && DATA.months.data['17'][colIdx]) || 0;
+    return (v15 + v16 + v17);
+  }
+  if (k === 'tot_clk') {
+    const clk = DATA.months.data['64'] ? DATA.months.data['64'][colIdx] : null;
+    const cem = DATA.months.data['11'] ? DATA.months.data['11'][colIdx] : null;
+    return (clk != null && cem) ? (clk / cem) : null;
+  }
+  if (k === 'tot_fa') {
+    const fa = DATA.months.data['58'] ? DATA.months.data['58'][colIdx] : null;
+    const cem = DATA.months.data['11'] ? DATA.months.data['11'][colIdx] : null;
+    return (fa != null && cem) ? (fa / cem) : null;
+  }
+  if (k === 'tot_gyp') {
+    const g1 = (DATA.months.data['52'] && DATA.months.data['52'][colIdx]) || 0;
+    const g2 = (DATA.months.data['59'] && DATA.months.data['59'][colIdx]) || 0;
+    const cem = DATA.months.data['11'] ? DATA.months.data['11'][colIdx] : null;
+    return (cem) ? ((g1 + g2) / cem) : null;
+  }
+  const arr = DATA.months.data[k];
+  return (arr && colIdx in arr && typeof arr[colIdx] === 'number') ? arr[colIdx] : null;
+}
+
+function fmt(x, d, s) {
+  if (x == null || isNaN(x)) return '–';
+  return (x * (s || 1)).toLocaleString('en-IN', { minimumFractionDigits: d, maximumFractionDigits: d });
+}
+
+function formatDateLabel(isoStr) {
+  if (!isoStr) return '';
+  const parts = String(isoStr).slice(0, 10).split('-');
+  if (parts.length === 3) {
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const mIdx = parseInt(parts[1], 10) - 1;
+    return `${parts[2]} ${months[mIdx] || parts[1]}`;
+  }
+  return isoStr;
+}
+
+function calcDelta(val, ref, scale) {
+  if (val == null || ref == null) return null;
+  if (scale === 100) return { v: (val - ref) * 100, t: ' pp' };
+  if (ref === 0) return null;
+  return { v: ((val - ref) / Math.abs(ref)) * 100, t: '%' };
+}
+
+function createOrUpdateChart(id, type, data, options) {
+  if (CHARTS[id]) CHARTS[id].destroy();
+  const ctx = document.getElementById(id);
+  if (!ctx) return;
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const tickColor = isDark ? '#94a3b8' : '#64748b';
+  const gridColor = isDark ? '#27354f' : '#e2e8f0';
+
+  const defaultScales = type === 'doughnut' ? {} : {
+    x: { ticks: { color: tickColor, font: { size: 10 } }, grid: { color: gridColor } },
+    y: { ticks: { color: tickColor, font: { size: 10 } }, grid: { color: gridColor } }
+  };
+
+  CHARTS[id] = new Chart(ctx, {
+    type,
+    data,
+    options: Object.assign({
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: false,
+      plugins: {
+        legend: { labels: { color: tickColor, boxWidth: 10, font: { size: 11 } } }
+      },
+      scales: Object.assign(defaultScales, options && options.scales)
+    }, options)
+  });
+}
+
+function renderClosingStock() {
+  const i = selectedDayIdx;
+  const latestIdx = DATA.dates.length - 1;
+
+  let opcStk = (DATA.closing_stock && DATA.closing_stock.opc != null) ? DATA.closing_stock.opc : 3683.087;
+  let ppcStk = (DATA.closing_stock && DATA.closing_stock.ppc != null) ? DATA.closing_stock.ppc : 4093.645;
+
+  if (i < latestIdx) {
+    for (let j = latestIdx; j > i; j--) {
+      const opcProd = getKpiVal('9', j) || 0;
+      const opcDisp = getKpiVal('tot_opc_disp', j) || ((getKpiVal('15', j) || 0) + (getKpiVal('16', j) || 0) + (getKpiVal('17', j) || 0));
+      const ppcProd = getKpiVal('10', j) || 0;
+      const ppcDisp = (getKpiVal('18', j) || 0) + (getKpiVal('19', j) || 0);
+
+      opcStk = opcStk - opcProd + opcDisp;
+      ppcStk = ppcStk - ppcProd + ppcDisp;
+    }
+  }
+
+  const totalStk = opcStk + ppcStk;
+
+  const elTotal = document.getElementById('stkTotalVal');
+  const elOpc = document.getElementById('stkOpcVal');
+  const elPpc = document.getElementById('stkPpcVal');
+  const elDateNote = document.getElementById('stkDateNote');
+
+  if (elTotal) elTotal.innerHTML = `${fmt(totalStk, 1, 1)} <span style="font-size:12px;font-weight:500;color:var(--mu);">MT</span>`;
+  if (elOpc) elOpc.innerHTML = `${fmt(opcStk, 1, 1)} <span style="font-size:11px;font-weight:400;color:var(--mu);">MT</span>`;
+  if (elPpc) elPpc.innerHTML = `${fmt(ppcStk, 1, 1)} <span style="font-size:11px;font-weight:400;color:var(--mu);">MT</span>`;
+  if (elDateNote) elDateNote.innerText = `As on ${formatDateLabel(DATA.dates[i])}`;
+}
+
+function renderDashboard() {
+  const i = selectedDayIdx;
+  const prevIdx = i > 0 ? (i - 1) : -1;
+  const mIdx = selectedMonthIdx;
+  const yIdx = selectedYearIdx;
+
+  document.getElementById('ds').value = i;
+  document.getElementById('ms').value = mIdx;
+  document.getElementById('ys').value = yIdx;
+
+  // Resolve target month key
+  const activeMonthKey = resolveActiveMonthKey();
+  const subHdr = document.getElementById('tblSubHeaderNote');
+  if (subHdr) subHdr.innerText = `(Active Targets for ${activeMonthKey})`;
+
+  // 1. TOP SCORECARDS
+  const cardsConfig = [
+    { k: '11', title: 'Total Production', u: 'MT', d: 1, s: 1 },
+    { k: '20', title: 'Total Dispatch', u: 'MT', d: 1, s: 1 },
+    { k: '32', title: 'Average Output', u: 'TPH', d: 1, s: 1 },
+    { k: '48', title: 'Grind + Pack SPC', u: 'kWh/t', d: 2, s: 1 }
+  ];
+
+  let cardsHtml = '';
+  cardsConfig.forEach(c => {
+    const dayVal = getKpiVal(c.k, i);
+    const mtdVal = getPeriodVal(c.k, mIdx);
+    const ytdVal = getPeriodVal(c.k, yIdx);
+
+    cardsHtml += `
+      <div class="card-kpi">
+        <div class="lbl">${c.title}</div>
+        <div class="val-day">${fmt(dayVal, c.d, c.s)} <span>${c.u}</span></div>
+        <div class="mtd-box" style="margin-top:10px;">
+          <span>MTD (${DATA.months.labels[mIdx]}):</span>
+          <span class="mtd-val">${fmt(mtdVal, c.d, c.s)} ${c.u}</span>
+        </div>
+        <div class="mtd-box" style="border:none;padding-top:2px;">
+          <span>YTD (${DATA.months.labels[yIdx]}):</span>
+          <span class="mtd-val">${fmt(ytdVal, c.d, c.s)} ${c.u}</span>
+        </div>
+      </div>
+    `;
+  });
+  document.getElementById('topScorecards').innerHTML = cardsHtml;
+
+  // 2. SERVICE GAUGES
+  const svcMetrics = [
+    { k: '4', n: 'MSA' },
+    { k: '5', n: 'DSA' },
+    { k: '6', n: 'OET (<12h)' }
+  ];
+  let gaugesHtml = '';
+  svcMetrics.forEach(s => {
+    let val = getKpiVal(s.k, i);
+    let note = 'Selected Day';
+    if (val == null) {
+      val = getPeriodVal(s.k, mIdx);
+      note = 'MTD Fallback';
+    }
+    const pct = val != null ? Math.round(val * 100) : 0;
+    const color = pct >= 90 ? 'var(--g)' : (pct >= 75 ? 'var(--pr)' : 'var(--r)');
+    gaugesHtml += `
+      <div class="rg">
+        <i style="background: conic-gradient(${color} ${pct}%, var(--tr) 0)">
+          <b>${val != null ? pct + '%' : '–'}</b>
+        </i>
+        <div style="font-weight:700;margin-top:6px;">${s.n}</div>
+        <div class="n" style="font-size:10px;">${note}</div>
+      </div>
+    `;
+  });
+  document.getElementById('svGauges').innerHTML = gaugesHtml;
+
+  // 3. CHARTS ROW
+  const winLen = 15;
+  const startIdx = Math.max(0, i - winLen + 1);
+  const winDates = DATA.dates.slice(startIdx, i + 1);
+  const winLabels = winDates.map(formatDateLabel);
+  const winSeries = (k) => winDates.map((_, idx) => getKpiVal(k, startIdx + idx));
+
+  createOrUpdateChart('chartProdDisp', 'bar', {
+    labels: winLabels,
+    datasets: [
+      { label: 'Production (MT)', data: winSeries('11'), backgroundColor: '#1e56a0' },
+      { label: 'Dispatch (MT)', data: winSeries('20'), backgroundColor: '#f59e0b' }
+    ]
+  });
+
+  createOrUpdateChart('chartRunTPH', 'bar', {
+    labels: winLabels,
+    datasets: [
+      { label: 'OPC Hours', data: winSeries('25'), backgroundColor: '#1e56a0', stack: 'h' },
+      { label: 'PPC Hours', data: winSeries('26'), backgroundColor: '#16a34a', stack: 'h' },
+      { type: 'line', label: 'Output TPH', data: winSeries('32'), borderColor: '#dc2626', backgroundColor: '#dc2626', yAxisID: 'y2', tension: 0.2 }
+    ]
+  }, {
+    scales: {
+      x: { stacked: true },
+      y: { stacked: true, title: { display: true, text: 'Run Hours' } },
+      y2: { position: 'right', grid: { drawOnChartArea: false }, title: { display: true, text: 'TPH' } }
+    }
+  });
+
+  createOrUpdateChart('chartSPC', 'line', {
+    labels: winLabels,
+    datasets: [
+      { label: 'Grinding SPC', data: winSeries('44'), borderColor: '#1e56a0', backgroundColor: '#1e56a0', tension: 0.2 },
+      { label: 'Packing SPC', data: winSeries('45'), borderColor: '#f59e0b', backgroundColor: '#f59e0b', tension: 0.2 },
+      { label: 'Total Grind+Pack', data: winSeries('48'), borderColor: '#dc2626', backgroundColor: '#dc2626', tension: 0.2, borderWidth: 2 }
+    ]
+  });
+
+  const opcProd = getKpiVal('9', i) || 0;
+  const ppcProd = getKpiVal('10', i) || 0;
+  createOrUpdateChart('chartProdMix', 'doughnut', {
+    labels: ['OPC 53', 'PPC'],
+    datasets: [{ data: [opcProd, ppcProd], backgroundColor: ['#1e56a0', '#16a34a'] }]
+  });
+
+  createOrUpdateChart('chartDispMix', 'doughnut', {
+    labels: ['OPC Infracem', 'OPC Loose', 'OPC Rapid X', 'PPC Microfiber', 'PPC DG'],
+    datasets: [{
+      data: ['15','16','17','18','19'].map(k => getKpiVal(k, i) || 0),
+      backgroundColor: PALETTE
+    }]
+  });
+
+  const clkPct = (getKpiVal('tot_clk', i) || 0) * 100;
+  const faPct = ((getKpiVal('63', i) || getKpiVal('tot_fa', i) || 0) * 100);
+  const gypPct = (getKpiVal('tot_gyp', i) || 0) * 100;
+  createOrUpdateChart('chartRawMix', 'doughnut', {
+    labels: ['Total Clinker %', 'PPC Fly Ash %', 'Gypsum %'],
+    datasets: [{
+      data: [clkPct.toFixed(1), faPct.toFixed(1), gypPct.toFixed(1)],
+      backgroundColor: ['#1e56a0', '#16a34a', '#f59e0b']
+    }]
+  });
+
+  // 4. MASTER OPERATIONS COMPARISON TABLE (7 Columns)
+  const makeHeaderRow = () => `
+    <tr class="kpi-subhdr">
+      <th>Key Performance Indicator (KPI)</th>
+      <th>UOM</th>
+      <th>Selected Date (${formatDateLabel(DATA.dates[i])})</th>
+      <th>Current Day</th>
+      <th>MTD (${DATA.months.labels[mIdx]})</th>
+      <th>YTD (${DATA.months.labels[yIdx]})</th>
+      <th style="text-align:center;">Target (${activeMonthKey})</th>
+    </tr>
+  `;
+
+  let tblHtml = `<thead>${makeHeaderRow()}</thead><tbody>`;
+
+  for (const groupName in GROUPS) {
+    tblHtml += `<tr class="gh"><td colspan="7">${groupName}</td></tr>`;
+    tblHtml += makeHeaderRow();
+    GROUPS[groupName].forEach(kpi => {
+      const x = getKpiVal(kpi.k, i);
+      let curDayVal;
+      if (kpi.k === 'tot_opc_disp') {
+        const d15 = (DATA.cur_day && DATA.cur_day['15']) || 0;
+        const d16 = (DATA.cur_day && DATA.cur_day['16']) || 0;
+        const d17 = (DATA.cur_day && DATA.cur_day['17']) || 0;
+        curDayVal = (d15 + d16 + d17);
+      } else {
+        curDayVal = (DATA.cur_day && DATA.cur_day[kpi.k] != null) ? DATA.cur_day[kpi.k] : getKpiVal(kpi.k, DATA.dates.length - 1);
+      }
+      const mtd = getPeriodVal(kpi.k, mIdx);
+      const ytd = getPeriodVal(kpi.k, yIdx);
+      const boldStyle = kpi.bold ? 'font-weight:700;' : '';
+
+      // Direct lookup from Month-Wise Target Setup
+      const effectiveTgt = getEffectiveTarget(kpi, activeMonthKey);
+      const hasCustomEntry = TARGETS_STORE[activeMonthKey] && TARGETS_STORE[activeMonthKey][kpi.k] !== undefined && TARGETS_STORE[activeMonthKey][kpi.k].trim() !== '';
+      const tgtDisplay = hasCustomEntry ? `<span class="target-badge-custom">${effectiveTgt}</span>` : effectiveTgt;
+
+      tblHtml += `
+        <tr style="${boldStyle}">
+          <td>${kpi.n}</td>
+          <td style="text-align:center;color:var(--mu);">${kpi.u}</td>
+          <td><b>${fmt(x, kpi.d, kpi.s)}</b></td>
+          <td>${fmt(curDayVal, kpi.d, kpi.s)}</td>
+          <td>${fmt(mtd, kpi.d, kpi.s)}</td>
+          <td>${fmt(ytd, kpi.d, kpi.s)}</td>
+          <td style="text-align:center;">${tgtDisplay}</td>
+        </tr>
+      `;
+    });
+  }
+  tblHtml += '</tbody>';
+  document.getElementById('tblMaster').innerHTML = tblHtml;
+
+  // 5. AUTOMATED OPERATIONAL INSIGHTS
+  const insights = [];
+  const runHrs = getKpiVal('27', i);
+  if (runHrs != null && runHrs < 6) {
+    insights.push(`🚨 <b>Mill-2 ran only ${fmt(runHrs, 1, 1)} h</b>: Throughput stoppage detected. Investigate breakdown reasons.`);
+  } else if (runHrs != null && runHrs >= 20) {
+    insights.push(`✅ <b>High Mill Utilization</b>: Ran ${fmt(runHrs, 1, 1)} hours today.`);
+  }
+
+  const opcVal = getKpiVal('9', i) || 0;
+  const ppcVal = getKpiVal('10', i) || 0;
+  if (opcVal === 0 && ppcVal > 0) {
+    insights.push(`ℹ️ <b>100% PPC Grinding Today</b>: Mill ran exclusively on PPC (${fmt(ppcVal, 1, 1)} MT produced).`);
+  } else if (ppcVal === 0 && opcVal > 0) {
+    insights.push(`ℹ️ <b>100% OPC Grinding Today</b>: Mill ran exclusively on OPC 53 (${fmt(opcVal, 1, 1)} MT produced).`);
+  }
+
+  const prodVal = getKpiVal('11', i) || 0;
+  const dispVal = getKpiVal('20', i) || 0;
+  if (dispVal > prodVal && prodVal > 0) {
+    insights.push(`📦 <b>Dispatch exceeded production</b> by ${fmt(dispVal - prodVal, 0, 1)} MT (Silo drawdown).`);
+  } else if (prodVal > dispVal) {
+    insights.push(`🏭 <b>Production exceeded dispatch</b> by ${fmt(prodVal - dispVal, 0, 1)} MT (Silo stock buildup).`);
+  }
+
+  const spcVal = getKpiVal('48', i);
+  if (spcVal != null && spcVal > 55) {
+    insights.push(`⚠️ <b>High Specific Power</b>: Total SPC reached ${fmt(spcVal, 2, 1)} kWh/t.`);
+  }
+
+  document.getElementById('insightsList').innerHTML = (insights.length ? insights : ['<li>No major operational anomalies detected for this date.</li>'])
+    .map(txt => `<li>${txt}</li>`).join('');
+
+  renderExplorer();
+  renderClosingStock();
+}
+
+function renderExplorer() {
+  const k = document.getElementById('kpiExplorerSelect').value || '11';
+  const kpi = ALL_KPIS.find(x => x.k === k) || ALL_KPIS[3];
+  const allVals = DATA.dates.map((_, idx) => {
+    const v = getKpiVal(kpi.k, idx);
+    return v != null ? (v * kpi.s) : null;
+  });
+  const validVals = allVals.filter(v => v != null);
+  const avgVal = validVals.length ? (validVals.reduce((a, b) => a + b, 0) / validVals.length) : null;
+
+  createOrUpdateChart('chartExplorer', 'line', {
+    labels: DATA.dates.map(formatDateLabel),
+    datasets: [
+      {
+        label: `${kpi.n} (${kpi.u})`,
+        data: allVals,
+        borderColor: '#1e56a0',
+        backgroundColor: '#1e56a0',
+        spanGaps: true,
+        tension: 0.2
+      },
+      {
+        label: 'Historical Average',
+        data: DATA.dates.map(() => avgVal),
+        borderColor: '#f59e0b',
+        borderDash: [5, 4],
+        pointRadius: 0
+      }
+    ]
+  });
+}
+
+function initSelectors() {
+  const dateSel = document.getElementById('ds');
+  dateSel.innerHTML = DATA.dates.map((dStr, idx) => `
+    <option value="${idx}">${formatDateLabel(dStr)} (${dStr})</option>
+  `).join('');
+
+  const monthSel = document.getElementById('ms');
+  monthSel.innerHTML = DATA.months.labels.map((mLabel, idx) => `
+    <option value="${idx}">${mLabel}</option>
+  `).join('');
+
+  const yearSel = document.getElementById('ys');
+  yearSel.innerHTML = DATA.months.labels.map((yLabel, idx) => `
+    <option value="${idx}">${yLabel}</option>
+  `).join('');
+
+  monthSel.value = selectedMonthIdx;
+  yearSel.value = selectedYearIdx;
+
+  const expSel = document.getElementById('kpiExplorerSelect');
+  expSel.innerHTML = ALL_KPIS.map(k => `
+    <option value="${k.k}">${k.n} (${k.u})</option>
+  `).join('');
+  expSel.value = '11';
+
+  dateSel.onchange = (e) => {
+    selectedDayIdx = +e.target.value;
+    // Auto-align MTD dropdown month if date belongs to a standard month
+    const dMonth = getMonthKeyFromDate(DATA.dates[selectedDayIdx]);
+    const mIdxFound = DATA.months.labels.findIndex(l => l.indexOf(dMonth) !== -1);
+    if (mIdxFound >= 0) {
+      selectedMonthIdx = mIdxFound;
+      monthSel.value = mIdxFound;
+    }
+    renderDashboard();
+  };
+
+  monthSel.onchange = (e) => {
+    selectedMonthIdx = +e.target.value;
+    renderDashboard();
+  };
+
+  yearSel.onchange = (e) => {
+    selectedYearIdx = +e.target.value;
+    renderDashboard();
+  };
+
+  expSel.onchange = () => {
+    renderExplorer();
+    renderClosingStock();
+  };
+
+  document.getElementById('pv').onclick = () => {
+    if (selectedDayIdx > 0) {
+      selectedDayIdx--;
+      renderDashboard();
+    }
+  };
+  document.getElementById('nx').onclick = () => {
+    if (selectedDayIdx < DATA.dates.length - 1) {
+      selectedDayIdx++;
+      renderDashboard();
+    }
+  };
+  document.getElementById('lt').onclick = () => {
+    selectedDayIdx = DATA.dates.length - 1;
+    renderDashboard();
+  };
+  updateFileStatusDisplay();
+}
+
+function handleExcelUpload(file) {
+  if (!file) return;
+  const statusEl = document.getElementById('fileStatus');
+  statusEl.innerHTML = `Reading <b>${file.name}</b>...`;
+
+  const reader = new FileReader();
+  reader.onload = async function(e) {
+    try {
+      const data = new Uint8Array(e.target.result);
+      const workbook = XLSX.read(data, { type: 'array', cellDates: true });
+      const sheet = workbook.Sheets['Record & Analysis'];
+      const misSheet = workbook.Sheets['MIS - Interface'];
+      if (misSheet) {
+        const cellK6 = misSheet['K6'] || misSheet[XLSX.utils.encode_cell({ r: 5, c: 10 })];
+        const cellK7 = misSheet['K7'] || misSheet[XLSX.utils.encode_cell({ r: 6, c: 10 })];
+
+        const opcVal = (cellK6 && typeof cellK6.v === 'number') ? cellK6.v : 3683.087;
+        const ppcVal = (cellK7 && typeof cellK7.v === 'number') ? cellK7.v : 4093.645;
+
+        DATA.closing_stock = {
+          opc: opcVal,
+          ppc: ppcVal,
+          total: opcVal + ppcVal
+        };
+      }
+
+      if (!sheet) {
+        alert("Error: Sheet 'Record & Analysis' was not found in this file!");
+        statusEl.innerHTML = `<span style="color:var(--r)">Sheet 'Record & Analysis' missing!</span>`;
+        return;
+      }
+
+      const range = XLSX.utils.decode_range(sheet['!ref']);
+      const maxR = range.e.r;
+      const maxC = range.e.c;
+
+      let curDateCol = -1;
+      let curMonthCol = -1;
+      let curYearCol = -1;
+      const dateCols = [];
+      const dateStrings = [];
+
+      for (let c = 0; c <= maxC; c++) {
+        const cellR2 = sheet[XLSX.utils.encode_cell({ r: 1, c: c })];
+        const cellR3 = sheet[XLSX.utils.encode_cell({ r: 2, c: c })];
+
+        const v2 = cellR2 ? String(cellR2.v).trim().toLowerCase() : '';
+        if (v2.includes('current date')) curDateCol = c;
+        else if (v2.includes('current month')) curMonthCol = c;
+        else if (v2.includes('current year')) curYearCol = c;
+
+        if (cellR3 && cellR3.v != null) {
+          let dStr = null;
+
+          if (typeof cellR3.v === 'number' && cellR3.v >= 30000 && cellR3.v <= 60000) {
+            if (window.XLSX && XLSX.SSF && XLSX.SSF.parse_date_code) {
+              const p = XLSX.SSF.parse_date_code(cellR3.v);
+              if (p && p.y && p.M && p.D) {
+                dStr = `${p.y}-${String(p.M).padStart(2, '0')}-${String(p.D).padStart(2, '0')}`;
+              }
+            }
+            if (!dStr) {
+              const utcMs = (cellR3.v - 25569) * 86400 * 1000;
+              const d = new Date(utcMs);
+              dStr = `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}-${String(d.getUTCDate()).padStart(2, '0')}`;
+            }
+          } else if (cellR3.v instanceof Date) {
+            const yr = cellR3.v.getFullYear();
+            const mo = String(cellR3.v.getMonth() + 1).padStart(2, '0');
+            const da = String(cellR3.v.getDate()).padStart(2, '0');
+            dStr = `${yr}-${mo}-${da}`;
+          } else if (typeof cellR3.v === 'string') {
+            const s = cellR3.v.trim();
+            if (/^\d{4}-\d{2}-\d{2}/.test(s)) dStr = s.slice(0, 10);
+            else if (/^\d{2}\.\d{2}\.\d{4}/.test(s)) {
+              const p = s.split('.');
+              dStr = `${p[2]}-${p[1]}-${p[0]}`;
+            } else if (/^\d{2}-\d{2}-\d{4}/.test(s)) {
+              const p = s.split('-');
+              dStr = `${p[2]}-${p[1]}-${p[0]}`;
+            }
+          }
+
+          if (dStr && c !== curDateCol && c !== curMonthCol && c !== curYearCol) {
+            dateCols.push(c);
+            dateStrings.push(dStr);
+          }
+        }
+      }
+
+      if (!dateStrings.length) {
+        alert("Could not detect date columns in row 3 of 'Record & Analysis'.");
+        return;
+      }
+
+      const targetRowKeys = [4, 5, 6, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 24, 25, 26, 27, 30, 31, 32, 34, 35, 37, 38, 39, 42, 43, 44, 45, 48, 52, 53, 54, 55, 56, 58, 59, 60, 61, 62, 63, 64, 65, 110];
+      const newDaily = {};
+      const newCurDay = {};
+      const newCurMtd = {};
+      const newCurYtd = {};
+
+      targetRowKeys.forEach(r => {
+        const rIdx = r - 1;
+        newDaily[String(r)] = dateCols.map(c => {
+          const cell = sheet[XLSX.utils.encode_cell({ r: rIdx, c: c })];
+          return (cell && typeof cell.v === 'number') ? cell.v : null;
+        });
+
+        if (curDateCol >= 0) {
+          const cell = sheet[XLSX.utils.encode_cell({ r: rIdx, c: curDateCol })];
+          newCurDay[String(r)] = (cell && typeof cell.v === 'number') ? cell.v : null;
+        }
+        if (curMonthCol >= 0) {
+          const cell = sheet[XLSX.utils.encode_cell({ r: rIdx, c: curMonthCol })];
+          newCurMtd[String(r)] = (cell && typeof cell.v === 'number') ? cell.v : null;
+        }
+        if (curYearCol >= 0) {
+          const cell = sheet[XLSX.utils.encode_cell({ r: rIdx, c: curYearCol })];
+          newCurYtd[String(r)] = (cell && typeof cell.v === 'number') ? cell.v : null;
+        }
+      });
+
+      // Name current month accurately according to the latest detected date
+      const latestMonthStr = getMonthKeyFromDate(dateStrings[dateStrings.length - 1]) || "Oct-26";
+      const newMonthLabels = ["Jul-26", "Aug-26", "Sep-26", `${latestMonthStr} MTD`, "FY27 YTD"];
+      const newMonthlyData = {};
+      const mCols = [1, 2, 3, curMonthCol >= 0 ? curMonthCol : 94, curYearCol >= 0 ? curYearCol : 95];
+
+      targetRowKeys.forEach(r => {
+        const rIdx = r - 1;
+        newMonthlyData[String(r)] = mCols.map(c => {
+          const cell = sheet[XLSX.utils.encode_cell({ r: rIdx, c: c })];
+          return (cell && typeof cell.v === 'number') ? cell.v : null;
+        });
+      });
+
+      DATA = {
+        closing_stock: (DATA.closing_stock && DATA.closing_stock.opc != null)
+          ? DATA.closing_stock
+          : { opc: 3683.087, ppc: 4093.645, total: 7776.732 },
+        dates: dateStrings,
+        daily: newDaily,
+        cur_day: newCurDay,
+        cur_mtd: newCurMtd,
+        cur_ytd: newCurYtd,
+        months: {
+          labels: newMonthLabels,
+          data: newMonthlyData
+        }
+      };
+
+      // Publish to the shared database before announcing success.
+      if (cloudConfigured) {
+        if (!cloudUser) {
+          throw new Error("Sign in as an authorized admin before publishing.");
+        }
+        await cloudSavePlantData(DATA);
+      } else {
+        setCloudStatus("Local-only mode: configure Supabase to share updates.");
+      }
+
+      try {
+        localStorage.setItem('limla_plant_data', JSON.stringify(DATA));
+        localStorage.setItem('limla_plant_file_meta', JSON.stringify({
+          name: file.name,
+          time: new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
+          days: DATA.dates.length,
+          latestDate: formatDateLabel(DATA.dates[DATA.dates.length - 1])
+        }));
+      } catch (errStorage) {}
+
+      selectedDayIdx = DATA.dates.length - 1;
+      selectedMonthIdx = Math.min(3, DATA.months.labels.length - 1);
+      selectedYearIdx = Math.min(4, DATA.months.labels.length - 1);
+
+      initSelectors();
+      renderDashboard();
+      updateFileStatusDisplay();
+    } catch (err) {
+      console.error(err);
+      alert("Error processing or publishing Excel file: " + err.message);
+      statusEl.innerHTML = `<span style="color:var(--r)">Failed to read file!</span>`;
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+const fileInput = document.getElementById('fileInput');
+fileInput.addEventListener('change', (e) => {
+  if (e.target.files.length) handleExcelUpload(e.target.files[0]);
+});
+
+const dropZone = document.getElementById('dropZone');
+dropZone.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  dropZone.classList.add('dragover');
+});
+dropZone.addEventListener('dragleave', () => {
+  dropZone.classList.remove('dragover');
+});
+dropZone.addEventListener('drop', (e) => {
+  e.preventDefault();
+  dropZone.classList.remove('dragover');
+  if (e.dataTransfer.files.length) {
+    handleExcelUpload(e.dataTransfer.files[0]);
+  }
+});
+
+
+// ---------------- Shared cloud sync (Supabase) ----------------
+// Use the project's public/publishable key here. NEVER put a service-role
+// or secret key in a browser HTML file.
+const SUPABASE_URL = "https://yesumjcwwgehscvmqoyb.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_kbZZ3GjlWAu8kyleisi8VQ_TraYqwRC";
+const cloudConfigured =
+  /^https:\/\/.+/.test(SUPABASE_URL) &&
+  !SUPABASE_URL.includes("YOUR_SUPABASE") &&
+  SUPABASE_PUBLISHABLE_KEY &&
+  !SUPABASE_PUBLISHABLE_KEY.includes("YOUR_SUPABASE");
+
+let cloudClient = null;
+let cloudUser = null;
+let cloudLoadInProgress = false;
+
+function setCloudStatus(text) {
+  const el = document.getElementById("cloudSyncStatus");
+  if (el) el.textContent = text;
+}
+
+function updateCloudControls() {
+  const signIn = document.getElementById("cloudSignInBtn");
+  const signOut = document.getElementById("cloudSignOutBtn");
+  const uploadLabel = document.querySelector('label[for="fileInput"]');
+  if (signIn) signIn.style.display = cloudUser ? "none" : "inline-block";
+  if (signOut) signOut.style.display = cloudUser ? "inline-block" : "none";
+  // If cloud is configured, only a signed-in user sees the upload control.
+  if (uploadLabel && cloudConfigured) {
+    uploadLabel.style.display = cloudUser ? "inline-flex" : "none";
+  }
+  if (cloudConfigured) {
+    setCloudStatus(cloudUser ? "Admin signed in · shared sync enabled" : "Public view · sign in to upload");
+  } else {
+    setCloudStatus("Cloud not configured · uploads stay in this browser");
+  }
+}
+
+async function cloudSavePlantData(dataset) {
+  const { error } = await cloudClient
+    .from("dashboard_data")
+    .update({
+      data: dataset,
+      updated_at: new Date().toISOString()
+    })
+    .eq("id", 1);
+  if (error) throw error;
+  setCloudStatus("Published · syncing viewers");
+}
+
+async function cloudLoadPlantData() {
+  if (!cloudClient || cloudLoadInProgress) return;
+  cloudLoadInProgress = true;
+  try {
+    const { data, error } = await cloudClient
+      .from("dashboard_data")
+      .select("data, updated_at")
+      .eq("id", 1)
+      .single();
+
+    if (error) throw error;
+
+    if (data && data.data && Array.isArray(data.data.dates) &&
+        data.data.dates.length) {
+      DATA = data.data;
+      selectedDayIdx = DATA.dates.length - 1;
+      selectedMonthIdx = Math.min(3, DATA.months.labels.length - 1);
+      selectedYearIdx = Math.min(4, DATA.months.labels.length - 1);
+
+      try {
+        localStorage.setItem("limla_plant_data", JSON.stringify(DATA));
+        localStorage.setItem("limla_plant_file_meta", JSON.stringify({
+          name: "Shared cloud dataset",
+          time: new Date(data.updated_at).toLocaleTimeString("en-IN"),
+          days: DATA.dates.length,
+          latestDate: formatDateLabel(DATA.dates[DATA.dates.length - 1])
+        }));
+      } catch (storageError) {}
+
+      initSelectors();
+      renderDashboard();
+      updateFileStatusDisplay();
+      setCloudStatus("Live · updated " + new Date(data.updated_at).toLocaleTimeString());
+    } else {
+      setCloudStatus("Cloud connected · awaiting first upload");
+    }
+  } catch (error) {
+    console.error("Cloud load error:", error);
+    setCloudStatus("Cloud read failed · check setup/policies");
+  } finally {
+    cloudLoadInProgress = false;
+  }
+}
+
+async function initializeCloudSync() {
+  const signInButton = document.getElementById("cloudSignInBtn");
+  const signOutButton = document.getElementById("cloudSignOutBtn");
+  const dialog = document.getElementById("cloudLoginDialog");
+  const loginForm = document.getElementById("cloudLoginForm");
+
+  signInButton.addEventListener("click", () => {
+    if (!cloudConfigured) {
+      alert("First add your Supabase Project URL and publishable key in index.html.");
+      return;
+    }
+    document.getElementById("cloudLoginMessage").textContent = "";
+    dialog.showModal();
+  });
+
+  document.getElementById("cloudLoginCancel").addEventListener("click", () => dialog.close());
+
+  loginForm.addEventListener("submit", async event => {
+    event.preventDefault();
+    if (!cloudClient) return;
+    const submit = loginForm.querySelector('button[type="submit"]');
+    submit.disabled = true;
+    document.getElementById("cloudLoginMessage").textContent = "Signing in…";
+    const { error } = await cloudClient.auth.signInWithPassword({
+      email: document.getElementById("cloudAdminEmail").value.trim(),
+      password: document.getElementById("cloudAdminPassword").value
+    });
+    submit.disabled = false;
+    if (error) {
+      document.getElementById("cloudLoginMessage").textContent = error.message;
+    } else {
+      document.getElementById("cloudAdminPassword").value = "";
+      dialog.close();
+      setCloudStatus("Signed in · checking access…");
+    }
+  });
+
+  signOutButton.addEventListener("click", async () => {
+    if (cloudClient) {
+      const { error } = await cloudClient.auth.signOut();
+      if (error) alert("Sign out failed: " + error.message);
+    }
+  });
+
+  if (!cloudConfigured) {
+    updateCloudControls();
+    return;
+  }
+
+  if (!window.supabase || !window.supabase.createClient) {
+    setCloudStatus("Supabase library failed to load");
+    return;
+  }
+
+  cloudClient = window.supabase.createClient(
+    SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY
+  );
+
+  cloudClient.auth.onAuthStateChange((_event, session) => {
+    cloudUser = session ? session.user : null;
+    updateCloudControls();
+  });
+
+  const { data: sessionData } = await cloudClient.auth.getSession();
+  cloudUser = sessionData.session ? sessionData.session.user : null;
+  updateCloudControls();
+
+  cloudClient.channel("lcp-dashboard-live")
+    .on("postgres_changes", {
+      event: "*",
+      schema: "public",
+      table: "dashboard_data",
+      filter: "id=eq.1"
+    }, () => {
+      cloudLoadPlantData();
+    })
+    .subscribe(status => {
+      if (status === "SUBSCRIBED") setCloudStatus("Live connection active");
+      if (status === "CHANNEL_ERROR" || status === "TIMED_OUT") {
+        setCloudStatus("Live connection issue · refresh to retry");
+      }
+    });
+
+  await cloudLoadPlantData();
+}
+
+try {
+  initSelectors();
+  renderDashboard();
+  initializeCloudSync();
+} catch (e) {
+  console.error("Dashboard initialization error:", e);
+}
+
+function updateFileStatusDisplay() {
+  const statusEl = document.getElementById('fileStatus');
+  const dateInfoEl = document.getElementById('fileDateInfo');
+  if (!statusEl) return;
+
+  try {
+    const metaStr = localStorage.getItem('limla_plant_file_meta');
+    if (metaStr) {
+      const meta = JSON.parse(metaStr);
+      statusEl.innerHTML = `<span class="file-info">💾 Saved File Active: <b>${meta.name}</b> (${meta.days} days, Latest: ${meta.latestDate})</span> ` +
+        `<button type="button" onclick="resetPlantDataToDefault()" title="Revert to baseline data (Password Protected)" style="margin-left:8px;padding:3px 8px;font-size:11px;font-weight:600;border-radius:4px;border:1px solid var(--bd);background:var(--tr);color:var(--tx);cursor:pointer;">↺ Reset to Baseline 🔒</button>`;
+      if (dateInfoEl) dateInfoEl.innerText = `Uploaded: ${meta.time}`;
+      return;
+    }
+  } catch(e) {}
+
+  statusEl.innerHTML = `Using pre-loaded plant baseline data (${DATA.dates.length} days logged through ${formatDateLabel(DATA.dates[DATA.dates.length - 1])}).`;
+  if (dateInfoEl) dateInfoEl.innerText = `Baseline (Oct-26)`;
+}
+
+async function resetPlantDataToDefault() {
+  if (cloudConfigured && !cloudUser) {
+    alert("Sign in as an authorized cloud admin before resetting shared data.");
+    return;
+  }
+  if (!checkAdminPassword("Enter password to Reset to Baseline Data:")) {
+    return;
+  }
+  if (confirm("Reset back to standard plant baseline data (Oct-26)? Any uploaded data stored in your browser will be cleared.")) {
+    try {
+      localStorage.removeItem('limla_plant_data');
+      localStorage.removeItem('limla_plant_file_meta');
+    } catch(e) {}
+    DATA = JSON.parse(JSON.stringify(DEFAULT_DATA));
+    selectedDayIdx = DATA.dates.length - 1;
+    selectedMonthIdx = Math.min(3, DATA.months.labels.length - 1);
+    selectedYearIdx = Math.min(4, DATA.months.labels.length - 1);
+    initSelectors();
+    renderDashboard();
+    if (cloudConfigured) {
+      try {
+        await cloudSavePlantData(DATA);
+      } catch (err) {
+        alert("Local baseline loaded, but cloud publish failed: " + err.message);
+        return;
+      }
+    }
+    alert("✅ Reset to baseline dataset completed successfully.");
+  }
+}
+
+</script>
+
+</body></html>
