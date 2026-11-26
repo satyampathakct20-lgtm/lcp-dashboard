@@ -1108,7 +1108,7 @@ li { margin: 3px 0; font-size: 12px; }
   <div class="cd" id="qualityDataCard">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;">
       <h2 style="margin:0;">🧪 Quality Data <small id="qualityDateNote" style="margin-left:6px;">As on 24 Nov</small></h2>
-      <button type="button" onclick="toggleManualEditor('quality')" style="padding:4px 10px;font-size:11px;font-weight:600;border-radius:6px;border:1px solid var(--bd);background:var(--tr);color:var(--tx);cursor:pointer;">✏️ Edit Day / MTD / YTD</button>
+      <button type="button" id="btnEditQuality" onclick="toggleManualEditor('quality')" style="padding:4px 10px;font-size:11px;font-weight:600;border-radius:6px;border:1px solid var(--bd);background:var(--tr);color:var(--tx);cursor:pointer;">✏️ Edit Day / MTD / YTD</button>
     </div>
     <div class="quality-grid" id="qualityGrid">
       <div class="quality-tile">
@@ -1216,7 +1216,7 @@ li { margin: 3px 0; font-size: 12px; }
   <div class="cd" id="prodTatCard">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;">
       <h2 style="margin:0;">👷 Labour Productivity, Cement TAT, CO₂ &amp; Water <small id="prodTatDateNote" style="margin-left:6px;">As on 24 Nov</small></h2>
-      <button type="button" onclick="toggleManualEditor('prodtat')" style="padding:4px 10px;font-size:11px;font-weight:600;border-radius:6px;border:1px solid var(--bd);background:var(--tr);color:var(--tx);cursor:pointer;">✏️ Edit ATD / MTD / YTD</button>
+      <button type="button" id="btnEditProdTat" onclick="toggleManualEditor('prodtat')" style="padding:4px 10px;font-size:11px;font-weight:600;border-radius:6px;border:1px solid var(--bd);background:var(--tr);color:var(--tx);cursor:pointer;">✏️ Edit ATD / MTD / YTD</button>
     </div>
     <div class="quality-grid" id="prodTatGrid">
       <div class="quality-tile">
@@ -2050,7 +2050,11 @@ li { margin: 3px 0; font-size: 12px; }
         <div style="font-size: 11px; margin-top: 2px;">Drag &amp; drop your SAP Stock Excel file here or click <b>Upload Stock Excel</b>. Click <b>Save &amp; Share HTML</b> above to embed this stock data for sharing.</div>
       </div>
     </div>
-    <div id="stockDateInfo" style="text-align:right;font-size:11px;">Stock Date: 24 Nov</div>
+    <div style="text-align:right;font-size:11px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end;">
+      <label for="stockDateSelect" style="font-weight:600;color:var(--tx);">View Stock Date:</label>
+      <select id="stockDateSelect" onchange="onStockDateChange(this.value)" style="padding:4px 8px;border-radius:6px;border:1px solid var(--bd);background:var(--cd);color:var(--tx);font-weight:600;font-size:11px;"></select>
+      <span id="stockDateInfo">Stock Date: 24 Nov</span>
+    </div>
   </div>
 
   <!-- Category Summary Cards -->
@@ -2802,6 +2806,39 @@ const STOCK_CATEGORIES = [
 
 let STOCK_DATA = DEFAULT_STOCK_DATA;
 let selectedStockCategory = 'ALL';
+let selectedStockDate = null;
+
+function ensureStockHistory() {
+  if (!STOCK_DATA || typeof STOCK_DATA !== 'object') STOCK_DATA = { items: [], history: {} };
+  if (!STOCK_DATA.history || typeof STOCK_DATA.history !== 'object') STOCK_DATA.history = {};
+  if (Array.isArray(STOCK_DATA.items) && STOCK_DATA.items.length && Object.keys(STOCK_DATA.history).length === 0) {
+    const firstDt = STOCK_DATA.items.find(x => x.toDate)?.toDate || 'latest';
+    STOCK_DATA.history[firstDt] = {
+      items: STOCK_DATA.items,
+      fileName: STOCK_DATA.fileName || 'SAP_Stock_Report.xlsx',
+      dateLabel: STOCK_DATA.dateLabel || (firstDt !== 'latest' ? formatDateLabel(firstDt) : ''),
+      uploadedAt: STOCK_DATA.uploadedAt || ''
+    };
+  }
+  const keys = Object.keys(STOCK_DATA.history).sort().reverse();
+  if (!selectedStockDate || !STOCK_DATA.history[selectedStockDate]) {
+    selectedStockDate = keys[0] || null;
+  }
+  return keys;
+}
+
+function getActiveStockSnapshot() {
+  ensureStockHistory();
+  if (selectedStockDate && STOCK_DATA.history[selectedStockDate]) {
+    return STOCK_DATA.history[selectedStockDate];
+  }
+  return STOCK_DATA;
+}
+
+function onStockDateChange(dtKey) {
+  selectedStockDate = dtKey;
+  renderStockView();
+}
 
 (function loadSavedStockData() {
   try {
@@ -3107,6 +3144,10 @@ function renderQualityDataCard() {
 }
 
 function toggleManualEditor(section, forceState) {
+  if (forceState !== false && typeof cloudConfigured !== 'undefined' && cloudConfigured && !cloudUser) {
+    alert("Please sign in as Admin first to edit this section.");
+    return;
+  }
   const isQuality = (section === 'quality');
   const panel = document.getElementById(isQuality ? 'qualityEditPanel' : 'prodTatEditPanel');
   if (!panel) return;
@@ -3169,6 +3210,10 @@ function toggleManualEditor(section, forceState) {
 }
 
 function saveManualSectionData(section) {
+  if (typeof cloudConfigured !== 'undefined' && cloudConfigured && !cloudUser) {
+    alert("Please sign in as Admin first to save changes.");
+    return;
+  }
   ensureQualityKeys();
   const isQuality = (section === 'quality');
   const kpis = isQuality ? QUALITY_ONLY_KPIS : PROD_TAT_KPIS;
@@ -3834,7 +3879,12 @@ function handleExcelUpload(file) {
           return (typeof cell.v === 'number' && isFinite(cell.v)) ? cell.v : null;
         };
         if (matchedRow >= 0) {
-          newDaily[q.k] = dateCols.map(c => readQualityCell(sheet[XLSX.utils.encode_cell({ r: matchedRow, c: c })]));
+          newDaily[q.k] = dateCols.map((c, idx) => {
+            const xlVal = readQualityCell(sheet[XLSX.utils.encode_cell({ r: matchedRow, c: c })]);
+            if (xlVal != null) return xlVal;
+            const pIdx = prevDates.indexOf(dateStrings[idx]);
+            return (pIdx >= 0 && prevDaily[q.k] && typeof prevDaily[q.k][pIdx] === 'number') ? prevDaily[q.k][pIdx] : null;
+          });
           if (curDateCol >= 0) {
             newCurDay[q.k] = readQualityCell(sheet[XLSX.utils.encode_cell({ r: matchedRow, c: curDateCol })]);
           }
@@ -3849,7 +3899,10 @@ function handleExcelUpload(file) {
               const mVal = readQualityCell(sheet[XLSX.utils.encode_cell({ r: matchedRow, c: curMonthCol })]);
               if (mVal != null) return mVal;
             }
-            return readQualityCell(sheet[XLSX.utils.encode_cell({ r: matchedRow, c: c })]);
+            const xlM = readQualityCell(sheet[XLSX.utils.encode_cell({ r: matchedRow, c: c })]);
+            if (xlM != null) return xlM;
+            const pmIdx = prevMonthLabels.indexOf(finalMonthLabels[idx]);
+            return (pmIdx >= 0 && prevMonthsData[q.k] && typeof prevMonthsData[q.k][pmIdx] === 'number') ? prevMonthsData[q.k][pmIdx] : null;
           });
         } else {
           // Preserve any manually entered Quality Data mapped by date string
@@ -3968,6 +4021,16 @@ function updateCloudControls() {
   }
   if (stockUploadLabel && cloudConfigured) {
     stockUploadLabel.style.display = cloudUser ? "inline-flex" : "none";
+  }
+  const btnEditQ = document.getElementById("btnEditQuality");
+  const btnEditP = document.getElementById("btnEditProdTat");
+  if (btnEditQ && cloudConfigured) btnEditQ.style.display = cloudUser ? "inline-block" : "none";
+  if (btnEditP && cloudConfigured) btnEditP.style.display = cloudUser ? "inline-block" : "none";
+  if (cloudConfigured && !cloudUser) {
+    const qp = document.getElementById("qualityEditPanel");
+    const pp = document.getElementById("prodTatEditPanel");
+    if (qp) qp.style.display = "none";
+    if (pp) pp.style.display = "none";
   }
   if (cloudConfigured) {
     setCloudStatus(cloudUser ? "Admin signed in · shared sync enabled" : "Public view · sign in to upload");
@@ -4332,15 +4395,24 @@ function fmtStockQty(val, uom) {
 }
 
 function updateStockFileStatus() {
+  const keys = ensureStockHistory();
+  const snap = getActiveStockSnapshot();
   const stEl = document.getElementById('stockFileStatus');
   const dtEl = document.getElementById('stockDateInfo');
+  const selEl = document.getElementById('stockDateSelect');
+  if (selEl) {
+    selEl.innerHTML = keys.length
+      ? keys.map(k => `<option value="${k}">${formatDateLabel(k)} (${k})</option>`).join('')
+      : '<option value="">No dates</option>';
+    if (selectedStockDate) selEl.value = selectedStockDate;
+  }
   if (stEl) {
-    const count = (STOCK_DATA && STOCK_DATA.items) ? STOCK_DATA.items.length : 0;
-    const fName = (STOCK_DATA && STOCK_DATA.fileName) ? STOCK_DATA.fileName : 'SAP_Stock_Sample_Template.xlsx';
-    stEl.innerHTML = `<span class="file-info">💾 Active: <b>${fName}</b> (${count} materials)</span>`;
+    const count = (snap && snap.items) ? snap.items.length : 0;
+    const fName = (snap && snap.fileName) ? snap.fileName : 'SAP_Stock_Sample_Template.xlsx';
+    stEl.innerHTML = `<span class="file-info">💾 Active: <b>${fName}</b> (${count} materials, ${keys.length} day${keys.length === 1 ? '' : 's'} saved)</span>`;
   }
   if (dtEl) {
-    dtEl.innerText = (STOCK_DATA && STOCK_DATA.dateLabel) ? `Stock Date: ${STOCK_DATA.dateLabel}` : '';
+    dtEl.innerText = (snap && snap.dateLabel) ? `Stock Date: ${snap.dateLabel}` : '';
   }
 }
 
@@ -4351,7 +4423,8 @@ function setStockFilter(catId) {
 
 function renderStockView() {
   updateStockFileStatus();
-  const items = (STOCK_DATA && Array.isArray(STOCK_DATA.items)) ? STOCK_DATA.items : [];
+  const snap = getActiveStockSnapshot();
+  const items = (snap && Array.isArray(snap.items)) ? snap.items : [];
 
   // Aggregate by category
   const catStats = {};
@@ -4568,12 +4641,30 @@ function handleStockExcelUpload(file) {
       }
 
       const firstToDate = parsedItems.find(x => x.toDate)?.toDate || '';
-      STOCK_DATA = {
+      const nowIso = new Date().toISOString().slice(0, 10);
+      const stockDateKey = (/^\d{4}-\d{2}-\d{2}$/.test(firstToDate)) ? firstToDate : nowIso;
+      const dateLbl = firstToDate ? formatDateLabel(firstToDate) : new Date().toLocaleDateString('en-IN');
+      const upTime = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+
+      ensureStockHistory();
+      const prevHistory = Object.assign({}, STOCK_DATA.history || {});
+      prevHistory[stockDateKey] = {
         items: parsedItems,
         fileName: file.name,
-        dateLabel: firstToDate ? formatDateLabel(firstToDate) : new Date().toLocaleDateString('en-IN'),
-        uploadedAt: new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })
+        dateLabel: dateLbl,
+        uploadedAt: upTime
       };
+      const sortedKeys = Object.keys(prevHistory).sort().reverse();
+      const latestSnap = prevHistory[sortedKeys[0]];
+
+      STOCK_DATA = {
+        items: latestSnap.items,
+        fileName: latestSnap.fileName,
+        dateLabel: latestSnap.dateLabel,
+        uploadedAt: latestSnap.uploadedAt,
+        history: prevHistory
+      };
+      selectedStockDate = stockDateKey;
 
       const clkMatch = parsedItems.find(it => String(it.code || '').trim() === '8000100009' || String(it.desc || '').toUpperCase().includes('CLINKER'));
       if (clkMatch) {
