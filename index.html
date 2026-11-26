@@ -3737,10 +3737,20 @@ function handleExcelUpload(file) {
             }
           }
 
-          if (dStr && c !== curDateCol && c !== curMonthCol && c !== curYearCol) {
+          if (dStr && c !== curDateCol && c !== curMonthCol && c !== curYearCol && dateStrings[dateStrings.length - 1] !== dStr) {
             dateCols.push(c);
             dateStrings.push(dStr);
           }
+        }
+      }
+
+      if (curDateCol < 0 && curMonthCol > 0) {
+        const prevCol = curMonthCol - 1;
+        const idx = dateCols.indexOf(prevCol);
+        if (idx !== -1) {
+          curDateCol = prevCol;
+          dateCols.splice(idx, 1);
+          dateStrings.splice(idx, 1);
         }
       }
 
