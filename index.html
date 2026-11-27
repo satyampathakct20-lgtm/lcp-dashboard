@@ -601,9 +601,9 @@ li { margin: 3px 0; font-size: 12px; }
     <h2 style="margin-top:0;">Admin sign in</h2>
     <p style="color:var(--mu);font-size:12px;">Sign in to upload and publish a new Excel dataset to all dashboard viewers.</p>
     <label for="cloudAdminEmail">Admin email</label>
-    <input id="cloudAdminEmail" type="email" autocomplete="username" required>
+    <input id="cloudAdminEmail" type="email" autocomplete="username" required="">
     <label for="cloudAdminPassword">Password</label>
-    <input id="cloudAdminPassword" type="password" autocomplete="current-password" required>
+    <input id="cloudAdminPassword" type="password" autocomplete="current-password" required="">
     <p id="cloudLoginMessage" style="font-size:12px;color:var(--r);"></p>
     <div style="display:flex;gap:8px;justify-content:flex-end;">
       <button type="button" id="cloudLoginCancel" style="background:var(--tr);color:var(--tx);border:1px solid var(--bd);">Cancel</button>
@@ -620,10 +620,10 @@ li { margin: 3px 0; font-size: 12px; }
     <small>Operational Review</small>
   </div>
   <div class="ct">
-    <button type="button" id="cloudSignInBtn" title="Sign in to publish Excel updates">☁ Admin Sign in</button>
+    <button type="button" id="cloudSignInBtn" title="Sign in to publish Excel updates" style="display: inline-block;">☁ Admin Sign in</button>
     <button type="button" id="cloudSignOutBtn" style="display:none;">Sign out</button>
-    <span id="cloudSyncStatus" style="font-size:11px;max-width:180px;">Connecting cloud sync…</span>
-    <label class="btn-upload" for="fileInput">
+    <span id="cloudSyncStatus" style="font-size:11px;max-width:180px;">Live connection active</span>
+    <label class="btn-upload" for="fileInput" style="display: none;">
       <span>📂 Upload Excel File</span>
       <input type="file" id="fileInput" accept=".xlsx, .xlsm, .xls" style="display:none">
     </label>
@@ -872,7 +872,9 @@ li { margin: 3px 0; font-size: 12px; }
   
     <option value="120">24 Nov (2026-11-24)</option>
   
-    <option value="121">24 Nov (2026-11-24)</option>
+    <option value="121">25 Nov (2026-11-25)</option>
+  
+    <option value="122">26 Nov (2026-11-26)</option>
   </select>
     <button id="nx">Next Day ›</button>
     <button id="lt">Latest Day</button>
@@ -925,10 +927,10 @@ li { margin: 3px 0; font-size: 12px; }
 
 <div class="drop-zone" id="dropZone">
   <div>
-    <strong>Excel Sync Active:</strong> <span id="fileStatus"><span class="file-info">💾 Saved File Active: <b>DPR_LCP.xlsx</b> (122 days, Latest: 24 Nov)</span> <button type="button" onclick="resetPlantDataToDefault()" title="Revert to baseline data (Password Protected)" style="margin-left:8px;padding:3px 8px;font-size:11px;font-weight:600;border-radius:4px;border:1px solid var(--bd);background:var(--tr);color:var(--tx);cursor:pointer;">↺ Reset to Baseline 🔒</button></span>
+    <strong>Excel Sync Active:</strong> <span id="fileStatus"><span class="file-info">💾 Saved File Active: <b>DPR_LCP.xlsx</b> (123 days, Latest: 26 Nov)</span> <button type="button" onclick="resetPlantDataToDefault()" title="Revert to baseline data (Password Protected)" style="margin-left:8px;padding:3px 8px;font-size:11px;font-weight:600;border-radius:4px;border:1px solid var(--bd);background:var(--tr);color:var(--tx);cursor:pointer;">↺ Reset to Baseline 🔒</button></span>
     <div style="font-size: 11px; margin-top: 2px;">Whenever you update your Excel file, drag &amp; drop it here or click <b>Upload Excel File</b>. Click <b>Save &amp; Share HTML</b> to save a standalone HTML copy with your latest uploaded data permanently embedded for sharing!</div>
   </div>
-  <div id="fileDateInfo" style="text-align:right;font-size:11px;">Uploaded: 09:09:14 am</div>
+  <div id="fileDateInfo" style="text-align:right;font-size:11px;">Uploaded: 09:20:08 am</div>
 </div>
 
 <!-- Top Scorecards (Daily & MTD) -->
@@ -948,14 +950,14 @@ li { margin: 3px 0; font-size: 12px; }
     
       <div class="card-kpi">
         <div class="lbl">Total Dispatch</div>
-        <div class="val-day">533.6 <span>MT</span></div>
+        <div class="val-day">551.9 <span>MT</span></div>
         <div class="mtd-box" style="margin-top:10px;">
           <span>MTD (Nov-26):</span>
-          <span class="mtd-val">10,079.7 MT</span>
+          <span class="mtd-val">10,993.9 MT</span>
         </div>
         <div class="mtd-box" style="border:none;padding-top:2px;">
           <span>YTD (FY27 YTD):</span>
-          <span class="mtd-val">71,230.8 MT</span>
+          <span class="mtd-val">72,145.1 MT</span>
         </div>
       </div>
     
@@ -976,20 +978,20 @@ li { margin: 3px 0; font-size: 12px; }
         <div class="lbl">Grind + Pack SPC</div>
         
         <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
-          <div class="val-day">10.95 <span>kWh/t</span></div>
+          <div class="val-day">9.83 <span>kWh/t</span></div>
           <div style="text-align:right;font-size:11px;line-height:1.45;background:var(--tr);padding:4px 9px;border-radius:6px;border:1px solid var(--bd);">
             <div><span style="color:var(--mu);">Grinding:</span> <b style="color:var(--tx);">0.00</b></div>
-            <div><span style="color:var(--mu);">Packing:</span> <b style="color:var(--tx);">10.95</b></div>
+            <div><span style="color:var(--mu);">Packing:</span> <b style="color:var(--tx);">9.83</b></div>
           </div>
         </div>
       
         <div class="mtd-box" style="margin-top:10px;">
           <span>MTD (Nov-26):</span>
-          <span class="mtd-val"><span style="color:var(--mu);font-weight:500;font-size:10px;margin-right:4px;">(G: 51.56 | P: 10.56)</span> 62.12 kWh/t</span>
+          <span class="mtd-val"><span style="color:var(--mu);font-weight:500;font-size:10px;margin-right:4px;">(G: 52.22 | P: 10.59)</span> 62.81 kWh/t</span>
         </div>
         <div class="mtd-box" style="border:none;padding-top:2px;">
           <span>YTD (FY27 YTD):</span>
-          <span class="mtd-val"><span style="color:var(--mu);font-weight:500;font-size:10px;margin-right:4px;">(G: 45.46 | P: 8.90)</span> 54.36 kWh/t</span>
+          <span class="mtd-val"><span style="color:var(--mu);font-weight:500;font-size:10px;margin-right:4px;">(G: 45.54 | P: 8.93)</span> 54.47 kWh/t</span>
         </div>
       </div>
     </div>
@@ -1006,7 +1008,7 @@ li { margin: 3px 0; font-size: 12px; }
         <div style="font-weight:700;margin-top:6px;">MSA</div>
         <div class="n" style="font-size:10px;">Selected Day</div>
         <div style="font-size:10.5px;margin-top:4px;line-height:1.45;border-top:1px dashed var(--bd);padding-top:4px;">
-          <div><span style="color:var(--mu);">MTD:</span> <b>45%</b></div>
+          <div><span style="color:var(--mu);">MTD:</span> <b>34%</b></div>
           <div><span style="color:var(--mu);">YTD:</span> <b>68%</b></div>
         </div>
       </div>
@@ -1030,7 +1032,7 @@ li { margin: 3px 0; font-size: 12px; }
         <div style="font-weight:700;margin-top:6px;">OET (&lt;12h)</div>
         <div class="n" style="font-size:10px;">Selected Day</div>
         <div style="font-size:10.5px;margin-top:4px;line-height:1.45;border-top:1px dashed var(--bd);padding-top:4px;">
-          <div><span style="color:var(--mu);">MTD:</span> <b>89%</b></div>
+          <div><span style="color:var(--mu);">MTD:</span> <b>90%</b></div>
           <div><span style="color:var(--mu);">YTD:</span> <b>56%</b></div>
         </div>
       </div>
@@ -1043,12 +1045,12 @@ li { margin: 3px 0; font-size: 12px; }
   </div>
 
   <div class="cd" id="closingStockCard">
-    <h2>Cement &amp; Clinker Closing Stock <small id="stkDateNote">As on 24 Nov</small></h2>
+    <h2>Cement &amp; Clinker Closing Stock <small id="stkDateNote">As on 26 Nov</small></h2>
     <div style="display: flex; flex-direction: column; justify-content: space-around; height: calc(100% - 28px); gap: 8px;">
       <div style="background: var(--tr); padding: 10px 14px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
         <div>
           <span style="font-size: 11px; font-weight: 700; color: var(--mu); text-transform: uppercase;">Total Cement Stock</span>
-          <div id="stkTotalVal" style="font-size: 24px; font-weight: 800; color: var(--pr); line-height: 1.1;">12,960.3 <span style="font-size:12px;font-weight:500;color:var(--mu);">MT</span></div>
+          <div id="stkTotalVal" style="font-size: 24px; font-weight: 800; color: var(--pr); line-height: 1.1;">12,046.1 <span style="font-size:12px;font-weight:500;color:var(--mu);">MT</span></div>
         </div>
         <div style="font-size: 26px;">🏭</div>
       </div>
@@ -1056,11 +1058,11 @@ li { margin: 3px 0; font-size: 12px; }
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
         <div style="border: 1px solid var(--bd); padding: 8px 10px; border-radius: 6px; background: var(--cd);">
           <div style="font-size: 11px; font-weight: 700; color: #1e56a0;">OPC-53 (Loose)</div>
-          <div id="stkOpcVal" style="font-size: 16px; font-weight: 700; color: var(--tx); margin-top: 2px;">7,142.8 <span style="font-size:11px;font-weight:400;color:var(--mu);">MT</span></div>
+          <div id="stkOpcVal" style="font-size: 16px; font-weight: 700; color: var(--tx); margin-top: 2px;">6,659.6 <span style="font-size:11px;font-weight:400;color:var(--mu);">MT</span></div>
         </div>
         <div style="border: 1px solid var(--bd); padding: 8px 10px; border-radius: 6px; background: var(--cd);">
           <div style="font-size: 11px; font-weight: 700; color: #16a34a;">PPC (Loose)</div>
-          <div id="stkPpcVal" style="font-size: 16px; font-weight: 700; color: var(--tx); margin-top: 2px;">5,817.5 <span style="font-size:11px;font-weight:400;color:var(--mu);">MT</span></div>
+          <div id="stkPpcVal" style="font-size: 16px; font-weight: 700; color: var(--tx); margin-top: 2px;">5,386.5 <span style="font-size:11px;font-weight:400;color:var(--mu);">MT</span></div>
         </div>
         <div style="border: 1px solid var(--bd); padding: 8px 10px; border-radius: 6px; background: var(--cd);">
           <div style="font-size: 11px; font-weight: 700; color: #d97706;">Clinker Stock</div>
@@ -1075,15 +1077,15 @@ li { margin: 3px 0; font-size: 12px; }
 <div class="g2">
   <div class="cd">
     <h2>Production vs Dispatch (15 Days Trend)</h2>
-    <div class="cv"><canvas id="chartProdDisp" style="box-sizing: border-box; display: block; height: 220px; width: 479.7px;" width="479" height="220"></canvas></div>
+    <div class="cv"><canvas id="chartProdDisp" style="box-sizing: border-box; display: block; height: 220px; width: 373px;" width="560" height="330"></canvas></div>
   </div>
   <div class="cd">
     <h2>Mill Run Hours &amp; TPH</h2>
-    <div class="cv"><canvas id="chartRunTPH" style="box-sizing: border-box; display: block; height: 220px; width: 479.7px;" width="479" height="220"></canvas></div>
+    <div class="cv"><canvas id="chartRunTPH" style="box-sizing: border-box; display: block; height: 220px; width: 373px;" width="560" height="330"></canvas></div>
   </div>
   <div class="cd">
     <h2>Specific Power Consumption (SPC kWh/t)</h2>
-    <div class="cv"><canvas id="chartSPC" style="box-sizing: border-box; display: block; height: 220px; width: 479.7px;" width="479" height="220"></canvas></div>
+    <div class="cv"><canvas id="chartSPC" style="box-sizing: border-box; display: block; height: 220px; width: 373px;" width="560" height="330"></canvas></div>
   </div>
 </div>
 
@@ -1091,15 +1093,15 @@ li { margin: 3px 0; font-size: 12px; }
 <div class="g2">
   <div class="cd">
     <h2>Cement Production Mix (Selected Day)</h2>
-    <div class="cv"><canvas id="chartProdMix" style="box-sizing: border-box; display: block; height: 220px; width: 479.7px;" width="479" height="220"></canvas></div>
+    <div class="cv"><canvas id="chartProdMix" style="box-sizing: border-box; display: block; height: 220px; width: 373px;" width="560" height="330"></canvas></div>
   </div>
   <div class="cd">
     <h2>Dispatch by Packaging Type</h2>
-    <div class="cv"><canvas id="chartDispMix" style="box-sizing: border-box; display: block; height: 220px; width: 479.7px;" width="479" height="220"></canvas></div>
+    <div class="cv"><canvas id="chartDispMix" style="box-sizing: border-box; display: block; height: 220px; width: 373px;" width="560" height="330"></canvas></div>
   </div>
   <div class="cd">
     <h2>Raw Material Consumption % </h2>
-    <div class="cv"><canvas id="chartRawMix" style="box-sizing: border-box; display: block; height: 220px; width: 479.7px;" width="479" height="220"></canvas></div>
+    <div class="cv"><canvas id="chartRawMix" style="box-sizing: border-box; display: block; height: 220px; width: 373px;" width="560" height="330"></canvas></div>
   </div>
 </div>
 
@@ -1107,8 +1109,8 @@ li { margin: 3px 0; font-size: 12px; }
 <div class="g2" style="grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));">
   <div class="cd" id="qualityDataCard">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;">
-      <h2 style="margin:0;">🧪 Quality Data <small id="qualityDateNote" style="margin-left:6px;">As on 24 Nov</small></h2>
-      <button type="button" id="btnEditQuality" onclick="toggleManualEditor('quality')" style="padding:4px 10px;font-size:11px;font-weight:600;border-radius:6px;border:1px solid var(--bd);background:var(--tr);color:var(--tx);cursor:pointer;">✏️ Edit Day / MTD / YTD</button>
+      <h2 style="margin:0;">🧪 Quality Data <small id="qualityDateNote" style="margin-left:6px;">As on 26 Nov</small></h2>
+      <button type="button" id="btnEditQuality" onclick="toggleManualEditor('quality')" style="padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 6px; border: 1px solid var(--bd); background: var(--tr); color: var(--tx); cursor: pointer; display: none;">✏️ Edit Day / MTD / YTD</button>
     </div>
     <div class="quality-grid" id="qualityGrid">
       <div class="quality-tile">
@@ -1215,13 +1217,13 @@ li { margin: 3px 0; font-size: 12px; }
 
   <div class="cd" id="prodTatCard">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;">
-      <h2 style="margin:0;">👷 Labour Productivity, Cement TAT, CO₂ &amp; Water <small id="prodTatDateNote" style="margin-left:6px;">As on 24 Nov</small></h2>
-      <button type="button" id="btnEditProdTat" onclick="toggleManualEditor('prodtat')" style="padding:4px 10px;font-size:11px;font-weight:600;border-radius:6px;border:1px solid var(--bd);background:var(--tr);color:var(--tx);cursor:pointer;">✏️ Edit ATD / MTD / YTD</button>
+      <h2 style="margin:0;">👷 Labour Productivity, Cement TAT, CO₂ &amp; Water <small id="prodTatDateNote" style="margin-left:6px;">As on 26 Nov</small></h2>
+      <button type="button" id="btnEditProdTat" onclick="toggleManualEditor('prodtat')" style="padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 6px; border: 1px solid var(--bd); background: var(--tr); color: var(--tx); cursor: pointer; display: none;">✏️ Edit ATD / MTD / YTD</button>
     </div>
     <div class="quality-grid" id="prodTatGrid">
       <div class="quality-tile">
         <div class="q-lbl">Labour Productivity (Head Count)</div>
-        <div class="q-val"><small style="font-size:10px;font-weight:700;color:var(--mu);margin-right:4px;vertical-align:middle;">ATD:</small>– <span>Man/day</span></div>
+        <div class="q-val"><small style="font-size:10px;font-weight:700;color:var(--mu);margin-right:4px;vertical-align:middle;">ATD:</small>104 <span>Man/day</span></div>
         <div class="q-sub">
           <span>MTD (Nov-26): <b>–</b></span>
           <span>YTD (FY27 YTD): <b>–</b></span>
@@ -1230,10 +1232,10 @@ li { margin: 3px 0; font-size: 12px; }
     
       <div class="quality-tile">
         <div class="q-lbl">Cement - Turn Around Time (TAT)</div>
-        <div class="q-val"><small style="font-size:10px;font-weight:700;color:var(--mu);margin-right:4px;vertical-align:middle;">ATD:</small>– <span>HH:MM:SS</span></div>
+        <div class="q-val"><small style="font-size:10px;font-weight:700;color:var(--mu);margin-right:4px;vertical-align:middle;">ATD:</small>3:46:05 <span>HH:MM:SS</span></div>
         <div class="q-sub">
-          <span>MTD (Nov-26): <b>2:31:51</b></span>
-          <span>YTD (FY27 YTD): <b>–</b></span>
+          <span>MTD (Nov-26): <b>2:45:34</b></span>
+          <span>YTD (FY27 YTD): <b>3:03:17</b></span>
         </div>
       </div>
     
@@ -1241,8 +1243,8 @@ li { margin: 3px 0; font-size: 12px; }
         <div class="q-lbl">CO₂ Intensity - Scope 1</div>
         <div class="q-val"><small style="font-size:10px;font-weight:700;color:var(--mu);margin-right:4px;vertical-align:middle;">ATD:</small>– <span>kg CO₂/TCM</span></div>
         <div class="q-sub">
-          <span>MTD (Nov-26): <b>58.05</b></span>
-          <span>YTD (FY27 YTD): <b>28.70</b></span>
+          <span>MTD (Nov-26): <b>58.04</b></span>
+          <span>YTD (FY27 YTD): <b>28.69</b></span>
         </div>
       </div>
     
@@ -1250,8 +1252,8 @@ li { margin: 3px 0; font-size: 12px; }
         <div class="q-lbl">CO₂ Intensity - Scope 2</div>
         <div class="q-val"><small style="font-size:10px;font-weight:700;color:var(--mu);margin-right:4px;vertical-align:middle;">ATD:</small>– <span>kg CO₂/TCM</span></div>
         <div class="q-sub">
-          <span>MTD (Nov-26): <b>44.59</b></span>
-          <span>YTD (FY27 YTD): <b>42.92</b></span>
+          <span>MTD (Nov-26): <b>45.88</b></span>
+          <span>YTD (FY27 YTD): <b>43.07</b></span>
         </div>
       </div>
     
@@ -1309,7 +1311,7 @@ li { margin: 3px 0; font-size: 12px; }
     <tr class="kpi-subhdr">
       <th>Key Performance Indicator (KPI)</th>
       <th>UOM</th>
-      <th>Selected Date (24 Nov)</th>
+      <th>Selected Date (26 Nov)</th>
       <th>Current Day</th>
       <th>MTD (Nov-26)</th>
       <th>YTD (FY27 YTD)</th>
@@ -1319,7 +1321,7 @@ li { margin: 3px 0; font-size: 12px; }
     <tr class="kpi-subhdr">
       <th>Key Performance Indicator (KPI)</th>
       <th>UOM</th>
-      <th>Selected Date (24 Nov)</th>
+      <th>Selected Date (26 Nov)</th>
       <th>Current Day</th>
       <th>MTD (Nov-26)</th>
       <th>YTD (FY27 YTD)</th>
@@ -1331,7 +1333,7 @@ li { margin: 3px 0; font-size: 12px; }
           <td style="text-align:center;color:var(--mu);">%</td>
           <td><b>0.0</b></td>
           <td>0.0</td>
-          <td>45.0</td>
+          <td>34.0</td>
           <td>68.0</td>
           <td style="text-align:center;"><span class="target-badge-custom">≥ 95%</span></td>
         </tr>
@@ -1351,7 +1353,7 @@ li { margin: 3px 0; font-size: 12px; }
           <td style="text-align:center;color:var(--mu);">%</td>
           <td><b>100.0</b></td>
           <td>100.0</td>
-          <td>89.0</td>
+          <td>90.0</td>
           <td>56.0</td>
           <td style="text-align:center;"><span class="target-badge-custom">≥ 95%</span></td>
         </tr>
@@ -1359,7 +1361,7 @@ li { margin: 3px 0; font-size: 12px; }
     <tr class="kpi-subhdr">
       <th>Key Performance Indicator (KPI)</th>
       <th>UOM</th>
-      <th>Selected Date (24 Nov)</th>
+      <th>Selected Date (26 Nov)</th>
       <th>Current Day</th>
       <th>MTD (Nov-26)</th>
       <th>YTD (FY27 YTD)</th>
@@ -1429,7 +1431,7 @@ li { margin: 3px 0; font-size: 12px; }
     <tr class="kpi-subhdr">
       <th>Key Performance Indicator (KPI)</th>
       <th>UOM</th>
-      <th>Selected Date (24 Nov)</th>
+      <th>Selected Date (26 Nov)</th>
       <th>Current Day</th>
       <th>MTD (Nov-26)</th>
       <th>YTD (FY27 YTD)</th>
@@ -1449,67 +1451,67 @@ li { margin: 3px 0; font-size: 12px; }
         <tr style="">
           <td>OPC-53 Loose (Bulk)</td>
           <td style="text-align:center;color:var(--mu);">MT</td>
-          <td><b>156.6</b></td>
-          <td>156.6</td>
-          <td>4,149.7</td>
-          <td>20,472.7</td>
+          <td><b>243.9</b></td>
+          <td>243.9</td>
+          <td>4,487.9</td>
+          <td>20,810.9</td>
           <td style="text-align:center;"><span class="target-badge-custom">-</span></td>
         </tr>
       
         <tr style="">
           <td>OPC-53 Rapid X (PP)</td>
           <td style="text-align:center;color:var(--mu);">MT</td>
-          <td><b>137.0</b></td>
-          <td>137.0</td>
-          <td>2,311.0</td>
-          <td>22,257.2</td>
+          <td><b>50.0</b></td>
+          <td>50.0</td>
+          <td>2,456.0</td>
+          <td>22,402.2</td>
           <td style="text-align:center;"><span class="target-badge-custom">-</span></td>
         </tr>
       
         <tr style="font-weight:700;">
           <td>TOTAL OPC DISPATCH</td>
           <td style="text-align:center;color:var(--mu);">MT</td>
-          <td><b>293.6</b></td>
+          <td><b>293.9</b></td>
           <td>0.0</td>
-          <td>6,725.7</td>
-          <td>43,437.8</td>
+          <td>7,208.9</td>
+          <td>43,921.1</td>
           <td style="text-align:center;"><span class="target-badge-custom">33061</span></td>
         </tr>
       
         <tr style="">
           <td>PPC Microfiber (PP)</td>
           <td style="text-align:center;color:var(--mu);">MT</td>
-          <td><b>26.0</b></td>
-          <td>26.0</td>
-          <td>648.0</td>
-          <td>2,283.0</td>
+          <td><b>52.0</b></td>
+          <td>52.0</td>
+          <td>713.0</td>
+          <td>2,348.0</td>
           <td style="text-align:center;"><span class="target-badge-custom">-</span></td>
         </tr>
       
         <tr style="">
           <td>PPC Direct / DG (PP)</td>
           <td style="text-align:center;color:var(--mu);">MT</td>
-          <td><b>214.0</b></td>
-          <td>214.0</td>
-          <td>2,706.0</td>
-          <td>25,510.0</td>
+          <td><b>206.0</b></td>
+          <td>206.0</td>
+          <td>3,072.0</td>
+          <td>25,876.0</td>
           <td style="text-align:center;"><span class="target-badge-custom">-</span></td>
         </tr>
       
         <tr style="font-weight:700;">
           <td>TOTAL CEMENT DISPATCH</td>
           <td style="text-align:center;color:var(--mu);">MT</td>
-          <td><b>533.6</b></td>
-          <td>533.6</td>
-          <td>10,079.7</td>
-          <td>71,230.8</td>
+          <td><b>551.9</b></td>
+          <td>551.9</td>
+          <td>10,993.9</td>
+          <td>72,145.1</td>
           <td style="text-align:center;"><span class="target-badge-custom">38035</span></td>
         </tr>
       <tr class="gh"><td colspan="7">4. MILL RUNNING HOURS &amp; UTILISATION</td></tr>
     <tr class="kpi-subhdr">
       <th>Key Performance Indicator (KPI)</th>
       <th>UOM</th>
-      <th>Selected Date (24 Nov)</th>
+      <th>Selected Date (26 Nov)</th>
       <th>Current Day</th>
       <th>MTD (Nov-26)</th>
       <th>YTD (FY27 YTD)</th>
@@ -1559,7 +1561,7 @@ li { margin: 3px 0; font-size: 12px; }
     <tr class="kpi-subhdr">
       <th>Key Performance Indicator (KPI)</th>
       <th>UOM</th>
-      <th>Selected Date (24 Nov)</th>
+      <th>Selected Date (26 Nov)</th>
       <th>Current Day</th>
       <th>MTD (Nov-26)</th>
       <th>YTD (FY27 YTD)</th>
@@ -1599,7 +1601,7 @@ li { margin: 3px 0; font-size: 12px; }
     <tr class="kpi-subhdr">
       <th>Key Performance Indicator (KPI)</th>
       <th>UOM</th>
-      <th>Selected Date (24 Nov)</th>
+      <th>Selected Date (26 Nov)</th>
       <th>Current Day</th>
       <th>MTD (Nov-26)</th>
       <th>YTD (FY27 YTD)</th>
@@ -1631,7 +1633,7 @@ li { margin: 3px 0; font-size: 12px; }
           <td style="text-align:center;color:var(--mu);">%</td>
           <td><b>0.0</b></td>
           <td>0.0</td>
-          <td>6.1</td>
+          <td>5.6</td>
           <td>8.2</td>
           <td style="text-align:center;"><span class="target-badge-custom">≥ 95%</span></td>
         </tr>
@@ -1649,7 +1651,7 @@ li { margin: 3px 0; font-size: 12px; }
     <tr class="kpi-subhdr">
       <th>Key Performance Indicator (KPI)</th>
       <th>UOM</th>
-      <th>Selected Date (24 Nov)</th>
+      <th>Selected Date (26 Nov)</th>
       <th>Current Day</th>
       <th>MTD (Nov-26)</th>
       <th>YTD (FY27 YTD)</th>
@@ -1661,8 +1663,8 @@ li { margin: 3px 0; font-size: 12px; }
           <td style="text-align:center;color:var(--mu);">kWh/t</td>
           <td><b>0.00</b></td>
           <td>0.00</td>
-          <td>49.53</td>
-          <td>48.04</td>
+          <td>49.98</td>
+          <td>48.11</td>
           <td style="text-align:center;"><span class="target-badge-custom">≤ 36.0</span></td>
         </tr>
       
@@ -1671,8 +1673,8 @@ li { margin: 3px 0; font-size: 12px; }
           <td style="text-align:center;color:var(--mu);">kWh/t</td>
           <td><b>0.00</b></td>
           <td>0.00</td>
-          <td>57.01</td>
-          <td>41.61</td>
+          <td>58.23</td>
+          <td>41.71</td>
           <td style="text-align:center;"><span class="target-badge-custom">≤ 34.0</span></td>
         </tr>
       
@@ -1681,35 +1683,35 @@ li { margin: 3px 0; font-size: 12px; }
           <td style="text-align:center;color:var(--mu);">kWh/t</td>
           <td><b>0.00</b></td>
           <td>0.00</td>
-          <td>51.56</td>
-          <td>45.46</td>
+          <td>52.22</td>
+          <td>45.54</td>
           <td style="text-align:center;"><span class="target-badge-custom">35</span></td>
         </tr>
       
         <tr style="">
           <td>Packing Plant SPC</td>
           <td style="text-align:center;color:var(--mu);">kWh/t</td>
-          <td><b>10.95</b></td>
-          <td>10.95</td>
-          <td>10.56</td>
-          <td>8.90</td>
+          <td><b>9.83</b></td>
+          <td>9.83</td>
+          <td>10.59</td>
+          <td>8.93</td>
           <td style="text-align:center;"><span class="target-badge-custom">≤ 2.5</span></td>
         </tr>
       
         <tr style="font-weight:700;">
           <td>TOTAL GRINDING + PACKING SPC</td>
           <td style="text-align:center;color:var(--mu);">kWh/t</td>
-          <td><b>10.95</b></td>
-          <td>10.95</td>
-          <td>62.12</td>
-          <td>54.36</td>
+          <td><b>9.83</b></td>
+          <td>9.83</td>
+          <td>62.81</td>
+          <td>54.47</td>
           <td style="text-align:center;"><span class="target-badge-custom">≤ 37.5</span></td>
         </tr>
       <tr class="gh"><td colspan="7">8. RAW MATERIAL CONSUMPTION % (OPC, PPC &amp; TOTAL)</td></tr>
     <tr class="kpi-subhdr">
       <th>Key Performance Indicator (KPI)</th>
       <th>UOM</th>
-      <th>Selected Date (24 Nov)</th>
+      <th>Selected Date (26 Nov)</th>
       <th>Current Day</th>
       <th>MTD (Nov-26)</th>
       <th>YTD (FY27 YTD)</th>
@@ -1741,8 +1743,8 @@ li { margin: 3px 0; font-size: 12px; }
           <td style="text-align:center;color:var(--mu);">%</td>
           <td><b>0.0</b></td>
           <td>0.0</td>
-          <td>2.5</td>
-          <td>3.7</td>
+          <td>67.5</td>
+          <td>70.0</td>
           <td style="text-align:center;"><span class="target-badge-custom">65.0%</span></td>
         </tr>
       
@@ -1751,8 +1753,8 @@ li { margin: 3px 0; font-size: 12px; }
           <td style="text-align:center;color:var(--mu);">%</td>
           <td><b>0.0</b></td>
           <td>0.0</td>
-          <td>67.5</td>
-          <td>70.0</td>
+          <td>30.0</td>
+          <td>26.3</td>
           <td style="text-align:center;"><span class="target-badge-custom">30%</span></td>
         </tr>
       
@@ -1761,8 +1763,8 @@ li { margin: 3px 0; font-size: 12px; }
           <td style="text-align:center;color:var(--mu);">%</td>
           <td><b>0.0</b></td>
           <td>0.0</td>
-          <td>1,93,776.4</td>
-          <td>24,42,922.7</td>
+          <td>2.5</td>
+          <td>3.7</td>
           <td style="text-align:center;"><span class="target-badge-custom">4.5%</span></td>
         </tr>
       
@@ -1771,8 +1773,8 @@ li { margin: 3px 0; font-size: 12px; }
           <td style="text-align:center;color:var(--mu);">%</td>
           <td><b>–</b></td>
           <td>–</td>
-          <td>0.0</td>
-          <td>0.0</td>
+          <td>88.0</td>
+          <td>85.1</td>
           <td style="text-align:center;"><span class="target-badge-custom">≤ 84.5%</span></td>
         </tr>
       
@@ -1789,7 +1791,7 @@ li { margin: 3px 0; font-size: 12px; }
     <tr class="kpi-subhdr">
       <th>Key Performance Indicator (KPI)</th>
       <th>UOM</th>
-      <th>Selected Date (24 Nov)</th>
+      <th>Selected Date (26 Nov)</th>
       <th>Current Day</th>
       <th>MTD (Nov-26)</th>
       <th>YTD (FY27 YTD)</th>
@@ -1799,17 +1801,17 @@ li { margin: 3px 0; font-size: 12px; }
         <tr style="font-weight:700;">
           <td>Power Receipt Unit</td>
           <td style="text-align:center;color:var(--mu);">kWh</td>
-          <td><b>5,842</b></td>
-          <td>5,842</td>
-          <td>1,06,447</td>
-          <td>6,34,250</td>
+          <td><b>5,424</b></td>
+          <td>5,424</td>
+          <td>1,16,458</td>
+          <td>6,44,261</td>
           <td style="text-align:center;"><span class="target-badge-custom">Receipt Units</span></td>
         </tr>
       <tr class="gh"><td colspan="7">10. QUALITY DATA</td></tr>
     <tr class="kpi-subhdr">
       <th>Key Performance Indicator (KPI)</th>
       <th>UOM</th>
-      <th>Selected Date (24 Nov)</th>
+      <th>Selected Date (26 Nov)</th>
       <th>Current Day</th>
       <th>MTD (Nov-26)</th>
       <th>YTD (FY27 YTD)</th>
@@ -1869,7 +1871,7 @@ li { margin: 3px 0; font-size: 12px; }
     <tr class="kpi-subhdr">
       <th>Key Performance Indicator (KPI)</th>
       <th>UOM</th>
-      <th>Selected Date (24 Nov)</th>
+      <th>Selected Date (26 Nov)</th>
       <th>Current Day</th>
       <th>MTD (Nov-26)</th>
       <th>YTD (FY27 YTD)</th>
@@ -1879,8 +1881,8 @@ li { margin: 3px 0; font-size: 12px; }
         <tr style="">
           <td>Labour Productivity (Head Count)</td>
           <td style="text-align:center;color:var(--mu);">Man/day</td>
-          <td><b>–</b></td>
-          <td>–</td>
+          <td><b>104</b></td>
+          <td>104</td>
           <td>–</td>
           <td>–</td>
           <td style="text-align:center;">-</td>
@@ -1889,10 +1891,10 @@ li { margin: 3px 0; font-size: 12px; }
         <tr style="">
           <td>Cement - Turn Around Time (TAT)</td>
           <td style="text-align:center;color:var(--mu);">HH:MM:SS</td>
-          <td><b>–</b></td>
-          <td>–</td>
-          <td>2:31:51</td>
-          <td>–</td>
+          <td><b>3:46:05</b></td>
+          <td>3:46:05</td>
+          <td>2:45:34</td>
+          <td>3:03:17</td>
           <td style="text-align:center;">-</td>
         </tr>
       
@@ -1901,8 +1903,8 @@ li { margin: 3px 0; font-size: 12px; }
           <td style="text-align:center;color:var(--mu);">kg CO₂/TCM</td>
           <td><b>–</b></td>
           <td>–</td>
-          <td>58.05</td>
-          <td>28.70</td>
+          <td>58.04</td>
+          <td>28.69</td>
           <td style="text-align:center;">-</td>
         </tr>
       
@@ -1911,8 +1913,8 @@ li { margin: 3px 0; font-size: 12px; }
           <td style="text-align:center;color:var(--mu);">kg CO₂/TCM</td>
           <td><b>–</b></td>
           <td>–</td>
-          <td>44.59</td>
-          <td>42.92</td>
+          <td>45.88</td>
+          <td>43.07</td>
           <td style="text-align:center;">-</td>
         </tr>
       
@@ -2000,11 +2002,11 @@ li { margin: 3px 0; font-size: 12px; }
   
     <option value="55">OPC-53 Gypsum Consumption % (%)</option>
   
-    <option value="62">PPC Clinker Consumption % (%)</option>
+    <option value="63">PPC Clinker Consumption % (%)</option>
   
-    <option value="63">PPC Fly Ash Consumption % (%)</option>
+    <option value="64">PPC Fly Ash Consumption % (%)</option>
   
-    <option value="61">PPC Gypsum Consumption % (%)</option>
+    <option value="62">PPC Gypsum Consumption % (%)</option>
   
     <option value="tot_clk">TOTAL CLINKER CONSUMPTION % (Clinker Factor) (%)</option>
   
@@ -2032,7 +2034,7 @@ li { margin: 3px 0; font-size: 12px; }
   
     <option value="q_water_cons">Water Consumption (Lit/TCM)</option>
   </select></h2>
-  <div class="cv" style="height:240px;"><canvas id="chartExplorer" style="box-sizing: border-box; display: block; height: 240px; width: 1523px;" width="1523" height="240"></canvas></div>
+  <div class="cv" style="height:240px;"><canvas id="chartExplorer" style="box-sizing: border-box; display: block; height: 240px; width: 1203px;" width="1804" height="360"></canvas></div>
 </div>
 
 </div><!-- /#viewDashboard -->
@@ -2041,19 +2043,19 @@ li { margin: 3px 0; font-size: 12px; }
 <div id="viewStock" style="display: none;">
   <div class="drop-zone" id="stockDropZone">
     <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-      <label class="btn-upload" for="stockFileInput" style="margin:0;">
+      <label class="btn-upload" for="stockFileInput" style="margin: 0px; display: none;">
         <span>📂 Upload Stock Excel</span>
         <input type="file" id="stockFileInput" accept=".xlsx, .xlsm, .xls, .csv" style="display:none">
       </label>
       <div>
-        <strong>SAP Stock Sync:</strong> <span id="stockFileStatus"><span class="file-info">💾 Active: <b>SAP_Stock_Report.xlsx</b> (16 materials)</span></span>
+        <strong>SAP Stock Sync:</strong> <span id="stockFileStatus"><span class="file-info">💾 Active: <b>SAP_Stock_Report.xlsx</b> (16 materials, 2 days saved)</span></span>
         <div style="font-size: 11px; margin-top: 2px;">Drag &amp; drop your SAP Stock Excel file here or click <b>Upload Stock Excel</b>. Click <b>Save &amp; Share HTML</b> above to embed this stock data for sharing.</div>
       </div>
     </div>
     <div style="text-align:right;font-size:11px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end;">
       <label for="stockDateSelect" style="font-weight:600;color:var(--tx);">View Stock Date:</label>
-      <select id="stockDateSelect" onchange="onStockDateChange(this.value)" style="padding:4px 8px;border-radius:6px;border:1px solid var(--bd);background:var(--cd);color:var(--tx);font-weight:600;font-size:11px;"></select>
-      <span id="stockDateInfo">Stock Date: 24 Nov</span>
+      <select id="stockDateSelect" onchange="onStockDateChange(this.value)" style="padding:4px 8px;border-radius:6px;border:1px solid var(--bd);background:var(--cd);color:var(--tx);font-weight:600;font-size:11px;"><option value="2026-11-26">26 Nov (2026-11-26)</option><option value="2026-11-25">25 Nov (2026-11-25)</option></select>
+      <span id="stockDateInfo">Stock Date: 26 Nov</span>
     </div>
   </div>
 
@@ -2064,9 +2066,9 @@ li { margin: 3px 0; font-size: 12px; }
             <span>🏗️ Cement</span>
             <span>5 items</span>
           </div>
-          <div class="cat-val">12,960.30 <span>MT</span></div>
+          <div class="cat-val">12,046.08 <span>MT</span></div>
           <div class="cat-sub">
-            <span>Open: 13,493.93</span>
+            <span>Open: 12,597.99</span>
             <span>Rcpt: 0.00</span>
           </div>
         </div>
@@ -2136,9 +2138,9 @@ li { margin: 3px 0; font-size: 12px; }
             <span>⚙️ Slag</span>
             <span>1 item</span>
           </div>
-          <div class="cat-val">10,544.47 <span>MT</span></div>
+          <div class="cat-val">11,333.04 <span>MT</span></div>
           <div class="cat-sub">
-            <span>Open: 10,544.47</span>
+            <span>Open: 11,333.04</span>
             <span>Rcpt: 0.00</span>
           </div>
         </div>
@@ -2148,9 +2150,9 @@ li { margin: 3px 0; font-size: 12px; }
             <span>🧵 Fibre</span>
             <span>1 item</span>
           </div>
-          <div class="cat-val">2.73 <span>MT</span></div>
+          <div class="cat-val">2.66 <span>MT</span></div>
           <div class="cat-sub">
-            <span>Open: 2.76</span>
+            <span>Open: 2.72</span>
             <span>Rcpt: 0.00</span>
           </div>
         </div>
@@ -2160,10 +2162,10 @@ li { margin: 3px 0; font-size: 12px; }
             <span>🛍️ Cement Bag</span>
             <span>4 items</span>
           </div>
-          <div class="cat-val">8,99,681 <span>EA</span></div>
+          <div class="cat-val">8,88,161 <span>EA</span></div>
           <div class="cat-sub">
-            <span>Open: 9,07,221</span>
-            <span>Rcpt: 144</span>
+            <span>Open: 8,94,321</span>
+            <span>Rcpt: 140</span>
           </div>
         </div>
       </div>
@@ -2192,10 +2194,10 @@ li { margin: 3px 0; font-size: 12px; }
     </thead><tbody>
         <tr class="gh">
           <td colspan="6">🏗️ CEMENT (5 items)</td>
-          <td style="text-align:right;">13,493.93</td>
+          <td style="text-align:right;">12,597.99</td>
           <td style="text-align:right;" class="up">0.00</td>
-          <td style="text-align:right;" class="dn">-533.63</td>
-          <td style="text-align:right;"><b>12,960.30</b></td>
+          <td style="text-align:right;" class="dn">-551.91</td>
+          <td style="text-align:right;"><b>12,046.08</b></td>
           <td style="text-align:center;">MT</td>
         </tr>
       
@@ -2204,12 +2206,12 @@ li { margin: 3px 0; font-size: 12px; }
             <td style="text-align:left;font-weight:600;">9010200001</td>
             <td style="text-align:left;">OPC-53</td>
             <td style="text-align:left;color:var(--mu);">OPC-53; LOOSE</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td>7,436.47</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td>6,953.53</td>
             <td class="">0.00</td>
-            <td class="dn">-293.63</td>
-            <td><b>7,142.84</b></td>
+            <td class="dn">-293.91</td>
+            <td><b>6,659.62</b></td>
             <td style="text-align:center;color:var(--mu);">MT</td>
           </tr>
         
@@ -2218,8 +2220,8 @@ li { margin: 3px 0; font-size: 12px; }
             <td style="text-align:left;font-weight:600;">9010300001</td>
             <td style="text-align:left;">OPC-43</td>
             <td style="text-align:left;color:var(--mu);">OPC-43; LOOSE</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td style="text-align:center;">24 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
             <td>0.00</td>
             <td class="">0.00</td>
             <td class="">0.00</td>
@@ -2232,12 +2234,12 @@ li { margin: 3px 0; font-size: 12px; }
             <td style="text-align:left;font-weight:600;">9020100001</td>
             <td style="text-align:left;">PPC</td>
             <td style="text-align:left;color:var(--mu);">PPC; LOOSE</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td>6,057.46</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td>5,644.46</td>
             <td class="">0.00</td>
-            <td class="dn">-240.00</td>
-            <td><b>5,817.46</b></td>
+            <td class="dn">-258.00</td>
+            <td><b>5,386.46</b></td>
             <td style="text-align:center;color:var(--mu);">MT</td>
           </tr>
         
@@ -2246,8 +2248,8 @@ li { margin: 3px 0; font-size: 12px; }
             <td style="text-align:left;font-weight:600;">9040100001</td>
             <td style="text-align:left;">PSC</td>
             <td style="text-align:left;color:var(--mu);">PSC; LOOSE</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td style="text-align:center;">24 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
             <td>0.00</td>
             <td class="">0.00</td>
             <td class="">0.00</td>
@@ -2260,8 +2262,8 @@ li { margin: 3px 0; font-size: 12px; }
             <td style="text-align:left;font-weight:600;">9205000191</td>
             <td style="text-align:left;">GGBS</td>
             <td style="text-align:left;color:var(--mu);">OTHER-NVL</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td style="text-align:center;">24 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
             <td>0.00</td>
             <td class="">0.00</td>
             <td class="">0.00</td>
@@ -2283,8 +2285,8 @@ li { margin: 3px 0; font-size: 12px; }
             <td style="text-align:left;font-weight:600;">8000100009</td>
             <td style="text-align:left;">Clinker</td>
             <td style="text-align:left;color:var(--mu);">CLINKER</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td style="text-align:center;">24 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
             <td>1,883.56</td>
             <td class="">0.00</td>
             <td class="">0.00</td>
@@ -2306,8 +2308,8 @@ li { margin: 3px 0; font-size: 12px; }
             <td style="text-align:left;font-weight:600;">1003000002</td>
             <td style="text-align:left;">Flyash</td>
             <td style="text-align:left;color:var(--mu);">DRY FLY ASH</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td style="text-align:center;">24 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
             <td>4,981.58</td>
             <td class="">0.00</td>
             <td class="">0.00</td>
@@ -2329,8 +2331,8 @@ li { margin: 3px 0; font-size: 12px; }
             <td style="text-align:left;font-weight:600;">1005500001</td>
             <td style="text-align:left;">Gypsum Imp</td>
             <td style="text-align:left;color:var(--mu);">GPSM-MNRL-IMPORT</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td style="text-align:center;">24 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
             <td>1,015.93</td>
             <td class="">0.00</td>
             <td class="">0.00</td>
@@ -2352,8 +2354,8 @@ li { margin: 3px 0; font-size: 12px; }
             <td style="text-align:left;font-weight:600;">8040000003</td>
             <td style="text-align:left;">Fine Coal</td>
             <td style="text-align:left;color:var(--mu);">COAL</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td style="text-align:center;">24 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
             <td>33.55</td>
             <td class="">0.00</td>
             <td class="">0.00</td>
@@ -2375,8 +2377,8 @@ li { margin: 3px 0; font-size: 12px; }
             <td style="text-align:left;font-weight:600;">1100300004</td>
             <td style="text-align:left;">Coal Imp</td>
             <td style="text-align:left;color:var(--mu);">COAL IMPORTED</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td style="text-align:center;">24 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
             <td>654.50</td>
             <td class="">0.00</td>
             <td class="">0.00</td>
@@ -2386,10 +2388,10 @@ li { margin: 3px 0; font-size: 12px; }
         
         <tr class="gh">
           <td colspan="6">⚙️ SLAG (1 items)</td>
-          <td style="text-align:right;">10,544.47</td>
+          <td style="text-align:right;">11,333.04</td>
           <td style="text-align:right;" class="up">0.00</td>
           <td style="text-align:right;" class="dn">0.00</td>
-          <td style="text-align:right;"><b>10,544.47</b></td>
+          <td style="text-align:right;"><b>11,333.04</b></td>
           <td style="text-align:center;">MT</td>
         </tr>
       
@@ -2398,21 +2400,21 @@ li { margin: 3px 0; font-size: 12px; }
             <td style="text-align:left;font-weight:600;">1008000001</td>
             <td style="text-align:left;">G Slag</td>
             <td style="text-align:left;color:var(--mu);">GRANULATED SLAG</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td>10,544.47</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td>11,333.04</td>
             <td class="">0.00</td>
             <td class="">0.00</td>
-            <td><b>10,544.47</b></td>
+            <td><b>11,333.04</b></td>
             <td style="text-align:center;color:var(--mu);">MT</td>
           </tr>
         
         <tr class="gh">
           <td colspan="6">🧵 FIBRE (1 items)</td>
-          <td style="text-align:right;">2.76</td>
+          <td style="text-align:right;">2.72</td>
           <td style="text-align:right;" class="up">0.00</td>
-          <td style="text-align:right;" class="dn">-0.03</td>
-          <td style="text-align:right;"><b>2.73</b></td>
+          <td style="text-align:right;" class="dn">-0.06</td>
+          <td style="text-align:right;"><b>2.66</b></td>
           <td style="text-align:center;">MT</td>
         </tr>
       
@@ -2421,21 +2423,21 @@ li { margin: 3px 0; font-size: 12px; }
             <td style="text-align:left;font-weight:600;">1018000001</td>
             <td style="text-align:left;">MicroFibre</td>
             <td style="text-align:left;color:var(--mu);">FIBRE</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td>2.76</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td>2.72</td>
             <td class="">0.00</td>
-            <td class="dn">-0.03</td>
-            <td><b>2.73</b></td>
+            <td class="dn">-0.06</td>
+            <td><b>2.66</b></td>
             <td style="text-align:center;color:var(--mu);">MT</td>
           </tr>
         
         <tr class="gh">
           <td colspan="6">🛍️ CEMENT BAG (4 items)</td>
-          <td style="text-align:right;">9,07,221</td>
-          <td style="text-align:right;" class="up">144</td>
-          <td style="text-align:right;" class="dn">-7,684</td>
-          <td style="text-align:right;"><b>8,99,681</b></td>
+          <td style="text-align:right;">8,94,321</td>
+          <td style="text-align:right;" class="up">140</td>
+          <td style="text-align:right;" class="dn">-6,300</td>
+          <td style="text-align:right;"><b>8,88,161</b></td>
           <td style="text-align:center;">EA</td>
         </tr>
       
@@ -2444,12 +2446,12 @@ li { margin: 3px 0; font-size: 12px; }
             <td style="text-align:left;font-weight:600;">2011200002</td>
             <td style="text-align:left;">PPC DGMF WH</td>
             <td style="text-align:left;color:var(--mu);">PACKING BAG-LPP-LCP</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td>1,74,523</td>
-            <td class="up">20</td>
-            <td class="dn">-540</td>
-            <td><b>1,74,003</b></td>
+            <td style="text-align:center;">26 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td>1,73,743</td>
+            <td class="up">30</td>
+            <td class="dn">-1,070</td>
+            <td><b>1,72,703</b></td>
             <td style="text-align:center;color:var(--mu);">EA</td>
           </tr>
         
@@ -2458,12 +2460,12 @@ li { margin: 3px 0; font-size: 12px; }
             <td style="text-align:left;font-weight:600;">2021200001</td>
             <td style="text-align:left;">PPC DG GR</td>
             <td style="text-align:left;color:var(--mu);">PACKING BAG-PP-LCP</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td>3,62,881</td>
-            <td class="up">99</td>
-            <td class="dn">-4,379</td>
-            <td><b>3,58,601</b></td>
+            <td style="text-align:center;">26 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td>3,55,401</td>
+            <td class="up">70</td>
+            <td class="dn">-4,190</td>
+            <td><b>3,51,281</b></td>
             <td style="text-align:center;color:var(--mu);">EA</td>
           </tr>
         
@@ -2472,12 +2474,12 @@ li { margin: 3px 0; font-size: 12px; }
             <td style="text-align:left;font-weight:600;">2021200003</td>
             <td style="text-align:left;">OPC 53 DG</td>
             <td style="text-align:left;color:var(--mu);">PACKING BAG-PP-LCP</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td>2,66,631</td>
-            <td class="up">25</td>
-            <td class="dn">-2,765</td>
-            <td><b>2,63,891</b></td>
+            <td style="text-align:center;">26 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td>2,61,991</td>
+            <td class="up">40</td>
+            <td class="dn">-1,040</td>
+            <td><b>2,60,991</b></td>
             <td style="text-align:center;color:var(--mu);">EA</td>
           </tr>
         
@@ -2486,8 +2488,8 @@ li { margin: 3px 0; font-size: 12px; }
             <td style="text-align:left;font-weight:600;">2021200005</td>
             <td style="text-align:left;">OPC 53 IFC</td>
             <td style="text-align:left;color:var(--mu);">PACKING BAG-PP-LCP</td>
-            <td style="text-align:center;">24 Nov</td>
-            <td style="text-align:center;">24 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
+            <td style="text-align:center;">26 Nov</td>
             <td>1,03,186</td>
             <td class="">0</td>
             <td class="">0</td>
@@ -2532,11 +2534,11 @@ li { margin: 3px 0; font-size: 12px; }
 // MONTH-WISE TARGET SETUP & STORAGE
 // ==========================================
 /*__EMBEDDED_STATE_START__*/
-var EMBEDDED_FILE_META = {"name":"DPR_LCP.xlsx","time":"09:09:14 am","days":122,"latestDate":"24 Nov"};
-var EMBEDDED_DATA_TS = 1795577967318;
-var DEFAULT_TARGETS_STORE = {"Oct-26":{"4":"≥ 95","5":"≥ 95","6":"≥ 95","8":"-","9":"30035","10":"1376","11":"31410","12":"8","13":"92","15":"-","16":"-","17":"-","18":"510","19":"885","20":"31400","24":"-","25":"Max 24h/d","26":"Max 24h/d","27":"Max 24h/d","30":"≥ 250","31":"≥ 260","32":"≥ 250","34":"≥ 95","35":"≥ 95","38":"≥ 95","39":"≥ 250","42":"≤ 36","43":"≤ 34","44":"≤ 35","45":"≤ 4.5","48":"39.5","55":"4.5","56":"95.5","61":"4.5","62":"65.5","63":"30","110":"-","tot_opc_disp":"30035","tot_clk":"92","tot_gyp":"4.5"},"Nov-26":{"4":"≥ 95%","5":"≥ 95%","6":"≥ 95%","8":"2000","9":"33061","10":"2075","11":"38035","12":"8","13":"92","15":"-","16":"-","17":"-","18":"-","19":"-","20":"38035","24":"-","25":"Max 24h","26":"Max 24h","27":"24.0 Hrs","30":"≥ 300 TPH","31":"≥ 300 TPH","32":"≥ 300 TPH","34":"≥ 95%","35":"≥ 95%","38":"≥ 95%","39":"250","42":"≤ 36.0","43":"≤ 34.0","44":"35","45":"≤ 2.5","48":"≤ 37.5","55":"5.0%","56":"95.0%","61":"4.5%","62":"65.0%","63":"30%","110":"Receipt Units","tot_opc_disp":"33061","tot_clk":"≤ 84.5%","tot_gyp":"5%"}};
-var DEFAULT_STOCK_DATA = {"items":[{"sl":1,"plant":"","sloc":"","code":"1003000002","desc":"Flyash","group":"DRY FLY ASH","fromDate":"2026-11-24","toDate":"2026-11-24","opening":4981.577,"receipt":0,"issue":0,"closing":4981.577,"uom":"MT"},{"sl":2,"plant":"","sloc":"","code":"1005500001","desc":"Gypsum Imp","group":"GPSM-MNRL-IMPORT","fromDate":"2026-11-24","toDate":"2026-11-24","opening":1015.93,"receipt":0,"issue":0,"closing":1015.93,"uom":"MT"},{"sl":3,"plant":"","sloc":"","code":"1008000001","desc":"G Slag","group":"GRANULATED SLAG","fromDate":"2026-11-24","toDate":"2026-11-24","opening":10544.474,"receipt":0,"issue":0,"closing":10544.474,"uom":"MT"},{"sl":4,"plant":"","sloc":"","code":"1018000001","desc":"MicroFibre","group":"FIBRE","fromDate":"2026-11-24","toDate":"2026-11-24","opening":2.764,"receipt":0,"issue":-0.031,"closing":2.733,"uom":"MT"},{"sl":5,"plant":"","sloc":"","code":"1100300004","desc":"Coal Imp","group":"COAL IMPORTED","fromDate":"2026-11-24","toDate":"2026-11-24","opening":654.495,"receipt":0,"issue":0,"closing":654.495,"uom":"MT"},{"sl":6,"plant":"","sloc":"","code":"2011200002","desc":"PPC DGMF WH","group":"PACKING BAG-LPP-LCP","fromDate":"2026-11-24","toDate":"2026-11-24","opening":174523,"receipt":20,"issue":-540,"closing":174003,"uom":"EA"},{"sl":7,"plant":"","sloc":"","code":"2021200001","desc":"PPC DG GR","group":"PACKING BAG-PP-LCP","fromDate":"2026-11-24","toDate":"2026-11-24","opening":362881,"receipt":99,"issue":-4379,"closing":358601,"uom":"EA"},{"sl":8,"plant":"","sloc":"","code":"2021200003","desc":"OPC 53 DG","group":"PACKING BAG-PP-LCP","fromDate":"2026-11-24","toDate":"2026-11-24","opening":266631,"receipt":25,"issue":-2765,"closing":263891,"uom":"EA"},{"sl":9,"plant":"","sloc":"","code":"2021200005","desc":"OPC 53 IFC","group":"PACKING BAG-PP-LCP","fromDate":"2026-11-24","toDate":"2026-11-24","opening":103186,"receipt":0,"issue":0,"closing":103186,"uom":"EA"},{"sl":10,"plant":"","sloc":"","code":"8000100009","desc":"Clinker","group":"CLINKER","fromDate":"2026-11-24","toDate":"2026-11-24","opening":1883.555,"receipt":0,"issue":0,"closing":1883.555,"uom":"MT"},{"sl":11,"plant":"","sloc":"","code":"8040000003","desc":"Fine Coal","group":"COAL","fromDate":"2026-11-24","toDate":"2026-11-24","opening":33.549,"receipt":0,"issue":0,"closing":33.549,"uom":"MT"},{"sl":12,"plant":"","sloc":"","code":"9010200001","desc":"OPC-53","group":"OPC-53; LOOSE","fromDate":"2026-11-24","toDate":"2026-11-24","opening":7436.472,"receipt":0,"issue":-293.63,"closing":7142.842,"uom":"MT"},{"sl":13,"plant":"","sloc":"","code":"9010300001","desc":"OPC-43","group":"OPC-43; LOOSE","fromDate":"2026-11-24","toDate":"2026-11-24","opening":0,"receipt":0,"issue":0,"closing":0,"uom":"MT"},{"sl":14,"plant":"","sloc":"","code":"9020100001","desc":"PPC","group":"PPC; LOOSE","fromDate":"2026-11-24","toDate":"2026-11-24","opening":6057.455,"receipt":0,"issue":-240,"closing":5817.455,"uom":"MT"},{"sl":15,"plant":"","sloc":"","code":"9040100001","desc":"PSC","group":"PSC; LOOSE","fromDate":"2026-11-24","toDate":"2026-11-24","opening":0,"receipt":0,"issue":0,"closing":0,"uom":"MT"},{"sl":16,"plant":"","sloc":"","code":"9205000191","desc":"GGBS","group":"OTHER-NVL","fromDate":"2026-11-24","toDate":"2026-11-24","opening":0,"receipt":0,"issue":0,"closing":0,"uom":"MT"}],"fileName":"SAP_Stock_Report.xlsx","dateLabel":"24 Nov","uploadedAt":"09:09 am"};
-const DEFAULT_DATA = {"closing_stock":{"opc":7142.842,"ppc":5817.455,"total":12960.296999999999,"clinker":1883.555},"dates":["2026-07-01","2026-08-01","2026-09-01","2026-10-01","2026-11-01","2026-08-01","2026-08-02","2026-08-03","2026-08-04","2026-08-05","2026-08-06","2026-08-07","2026-08-08","2026-08-09","2026-08-10","2026-08-11","2026-08-12","2026-08-13","2026-08-14","2026-08-15","2026-08-16","2026-08-17","2026-08-18","2026-08-19","2026-08-20","2026-08-21","2026-08-22","2026-08-23","2026-08-24","2026-08-25","2026-08-26","2026-08-27","2026-08-28","2026-08-29","2026-08-30","2026-08-31","2026-09-01","2026-09-02","2026-09-03","2026-09-04","2026-09-05","2026-09-06","2026-09-07","2026-09-08","2026-09-09","2026-09-10","2026-09-11","2026-09-12","2026-09-13","2026-09-14","2026-09-15","2026-09-16","2026-09-17","2026-09-18","2026-09-19","2026-09-20","2026-09-21","2026-09-22","2026-09-23","2026-09-24","2026-09-25","2026-09-26","2026-09-27","2026-09-28","2026-09-29","2026-09-30","2026-10-01","2026-10-02","2026-10-03","2026-10-04","2026-10-05","2026-10-06","2026-10-07","2026-10-08","2026-10-09","2026-10-10","2026-10-11","2026-10-12","2026-10-13","2026-10-14","2026-10-15","2026-10-16","2026-10-17","2026-10-18","2026-10-19","2026-10-20","2026-10-21","2026-10-22","2026-10-23","2026-10-24","2026-10-25","2026-10-26","2026-10-27","2026-10-28","2026-10-29","2026-10-30","2026-10-31","2026-11-01","2026-11-02","2026-11-03","2026-11-04","2026-11-05","2026-11-06","2026-11-07","2026-11-08","2026-11-09","2026-11-10","2026-11-11","2026-11-12","2026-11-13","2026-11-14","2026-11-15","2026-11-16","2026-11-17","2026-11-18","2026-11-19","2026-11-20","2026-11-21","2026-11-22","2026-11-23","2026-11-24","2026-11-24"],"daily":{"4":[null,0.78,0.93,0.88,0.45,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,1,0.9211811559009228,0.6284591489361702,1,null,null,null,null,0,0.93,1,0.5,0.5672222222222222,0.21,1,1,0.98,0.98,1,1,1,0.9,1,0.92,0.92,0.56,0,0,0,0,0,0,0,0,0,0,0,0.33,1,0,0,0,0,0],"5":[null,0.75,0.81,0.84,0.99,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,0.3,0.42,0.25,0.75,1,1,1,0.82,0.58,0.78,0.91,1,0.96,1,1,1,1,1,0.87,0.88,0.84,0.99,0.88,0.83,1,1,0.96,0.86,0.79,0.93,0.96,0.5,0.92,0.5,0.5,0.68,0.68,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"6":[0.45,0.58,0.54,0.61,0.89,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.74,0.79,0.95,0.91,null,null,null,null,null,0.6,0.61,0.7,0.74,0.88,1,0.74,0.62,0.6,0.44,1,0.66,0.69,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"8":[0,75,0,0,0,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"9":[8580.65,13766.62,1755.633,18311.347,7691.012,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,408.285,1409.51,0,1476.879,2188.207,405.643,0,0,0,0,3328.361,643.81,155.65,223.324,0,0,934.811,2056.849,2060.143,716.562,524.332,0,667.571,493.471,1632.955,0,1072.297,0,0,0,0,0,0,0,0,0,0,0,716.695,2583.691,0,0,0,0,0],"10":[3261.28,11112.62,3086.042,14519.128,2870.785,0,0,0,179.3,2439.5,1593.66,1402.11,844.49,554.21,2469.69,439.84,0,0,0,493.79,1862.8,2330.83,2861.3,2556.14,0,0,0,2030,1535,0,0,1286,0,0,0,0,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,631.86,1896.712,0,729.56,1710.134,0,0,0,0,361.832,250.404,822.054,797.525,373.103,1867.332,299.324,0,0,1979.37,0,0,1136.412,1534.693,199.68,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"11":[11841.93,24954.24,4841.675,32830.475000000006,10561.796999999999,0,0,0,179.3,2439.5,1593.66,1402.11,844.49,554.21,2469.69,439.84,0,0,0,493.79,1862.8,2330.83,2861.3,2556.14,0,0,0,2030,1535,0,0,1286,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,408.285,2041.37,1896.712,1476.879,2917.767,2115.777,0,0,0,0,3690.1929999999998,894.2139999999999,977.704,1020.8489999999999,373.103,1867.332,1234.135,2056.849,2060.143,2695.932,524.332,0,1803.9830000000002,2028.164,1832.635,0,1072.297,0,0,0,0,0,0,0,0,0,0,0,716.695,2583.691,0,0,0,0,0],"12":[0.27540105371337276,0.44531991356979816,0.6373913986378681,0.4422454442099908,0.2718083863948531,7,7,7,1,1,1,1,1,1,1,1,7,7,7,1,1,1,1,1,7,7,7,1,1,7,7,1,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,0,0.3095274252095407,1,0,0.2500405275678284,0.8082770537726802,null,null,null,null,0.09805232409253392,0.2800269286770281,0.8408004876731608,0.7812369899955821,1,1,0.24253748576938505,0,0,0.7342062040140479,0,null,0.6299460693365735,0.7566907804299849,0.10895786667830747,null,0,null,null,null,null,null,null,null,null,null,null,null,0,0,null,null,null,null,null],"13":[0.7245989462866272,0.5516745851606781,0.3626086013621319,0.5577545557900091,0.728191613605147,7,7,7,0,0,0,0,0,0,0,0,7,7,7,0,0,0,0,0,7,7,7,0,0,7,7,0,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,1,0.6904725747904594,0,1,0.7499594724321716,0.19172294622731978,null,null,null,null,0.9019476759074662,0.719973071322972,0.1591995123268392,0.21876301000441792,0,0,0.757462514230615,1,1,0.2657937959859522,1,null,0.3700539306634264,0.24330921957001506,0.8910421333216925,null,1,null,null,null,null,null,null,null,null,null,null,null,1,1,null,null,null,null,null],"15":[null,null,15,428,265,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,50,null,null,63,null,null,39,null,22,82,0,57,null,0,null,null,32,null,35,null,null,null,null,null,52,null,null,null,null,null,null,null,null,null,null,null,null,null,0,142,45,26,0,0],"16":[2763.5,5196,994.4900000000001,7369.009999999999,4149.65,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,142,175.49,127.80000000000001,452.53000000000003,236.81,123.21000000000001,99.71000000000001,114.97999999999999,386.33000000000004,338.06,298.95000000000005,476.03999999999996,407.7699999999999,392.96,538.75,594.66,295.12,339.58000000000004,358.33000000000004,480.28,150.38,354.95,185.53,126.03,601.0199999999999,231.41,239.74,0,0,0,185.27999999999997,null,140.62,202.93,302.09999999999997,null,358.73,34.69,64.18,385.55,59.39,0,370.49,156.63,156.63],"17":[3525.91,11332.28,271,4817,2311,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,233,362,351,167,78,91,91,116,344,164,120,70,38,377,96,297,288,91,367,155,362,176,163,91,null,13,0,0,0,52,null,26,78,108,130,13,56,236,39,97,210,169,137,137],"18":[null,null,260,1375,648,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,13,13,null,52,39,26,13,71,39,62,123,52,143,78,52,130,58,207,13,68,null,null,null,null,0,0,0,null,null,13,26,26,null,null,52,13,37,89,39,39,26,26],"19":[861,11558.5,1103.5,9281,2706,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,305,143,149,174,277,321,252,365,238,280,536,394,294,364,213,233,323,282,427,142,371,176,52,71,26,51,0,0,0,13,117,26,151,13,91,206,155,156,143,200,97,235,214,214],"20":[7150.41,28086.78,2643.9900000000002,23270.01,10079.65,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,142,763.49,632.8,965.53,653.81,478.21000000000004,563.71,535.98,893.33,955.06,895.95,1171.04,990.77,847.96,1331.75,1046.6599999999999,903.12,1034.58,861.33,1367.28,654.38,1100.95,605.53,341.03,763.0199999999999,309.40999999999997,303.74,0,0,0,250.27999999999997,117,205.62,457.93,449.09999999999997,221,577.73,297.69,469.18,604.55,587.39,391,839.49,533.63,533.63],"24":[0,0.5,0,0,0,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"25":[46,76.169,7.33,75.807,32.97,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,1.8,5.24,0,5.8,9.4,1.6,0,0,0,0,14.2,2.8,0.67,1,0,0,3.6,8.5,8.6,3.2,2.41,0,3.4,2.6,6.46,0,4.1,0,0,0,0,0,0,0,0,0,0,0,3,11,0,0,0,0,0],"26":[18.5,57.25,11.7,57.52,10.94,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,2.62,7,0,3,7.4,0,0,0,0,1.5,1.2,3,3,1.8,6.4,1.1,0,0,7.5,0,0,4.9,5.3,0.74,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"27":[64.5,133.41899999999998,19.03,133.327,43.91,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1.8,7.86,7,5.8,12.4,9,0,0,0,0,15.7,4,3.67,4,1.8,6.4,4.7,8.5,8.6,10.7,2.41,0,8.3,7.9,7.2,0,4.1,0,0,0,0,0,0,0,0,0,0,0,3,11,0,0,0,0,0],"30":[186.536,180.738,239.513,241.552,233.273,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,226.825,268.99,0,254.634,232.788,253.527,0,0,0,0,234.392,229.932,232.313,223.324,0,0,259.67,241.982,239.552,223.926,217.565,0,196.344,189.797,252.779,0,261.536,0,0,0,0,0,0,0,0,0,0,0,238.898,234.881,0,0,0,0,0],"31":[176.285,194.107,263.764,252.419,262.412,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,241.168,270.959,0,243.187,231.099,0,0,0,0,241.221,208.67,274.018,265.842,207.279,291.771,272.113,0,0,263.916,0,0,231.921,289.565,269.838,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"32":[183.59579069767446,186.47462859113023,254.42296847083549,246.24024649170835,240.53286472329768,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,null,259.716,270.959,254.634,235.30388709677422,235.0862,0,0,0,0,235.0444522292994,223.55339999999998,266.40428065395093,255.21249999999998,207.279,291.771,262.5821914893617,241.98200000000003,239.552,251.95637383177572,217.56500000000003,0,217.3472891566265,256.7299620253164,254.53228611111112,0,261.536,0,0,0,0,0,0,0,0,0,0,0,238.898,234.88099999999997,0,0,0,0,0],"34":[0.9072,0.964,1,0.7959,1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,1,1,1,1,1,1,1,1,1,1,1,1,1,0.25,0.075,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"35":[0.5552,0.5969,0.5723,0.6531999999999999,1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.7561,0.8646,0.9032,0.8488,0.7843,0.7836,0,0,0,0,0.7835,0.7452,0.888,0.2127,0.0518,0.9726,0.8753,0.8066,0.7985,0.8399,0.7222,0,0.7245,0.8558,0.8484,0,0,0,0,0,0,0,0,0,0,0,0,0,0.7963,0.7829,0,0,0,0,0],"37":[0.0867,0.18,0.0264,0.17920000000000003,0.0762,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.075,0.3276,0.2917,0.2417,0.5167,0.375,null,null,null,0,0.6542,0.16670000000000001,0.15289999999999998,0.16670000000000001,0.075,0.2667,0.19579999999999997,0.3542,0.3583,0.4458,0.1005,0,0.3458,0.3292,0.3,0,0.17079999999999998,0,0,0,0,0,0,0,0,0,0,0,0.125,0.4583,0,0,0,0,0],"38":[0.0531,0.1115,0.0224,0.1471,0.061200000000000004,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.1242,0.1358,0.1418,0.0518,0,0,0,0,0.37439999999999996,0.0728,0,0.2505,0.2817,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.09949999999999999,0.3588,0,0,0,0,0],"39":[21.5,133.93,9.52,133.327,43.91,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,null,null,null,null,null,null,null,null,0,0,0,0,0,1.8,6.4,4.7,8.5,8.5,10.7,2.41,0,8.3,7.9,7.2,0,4.1,0,0,0,0,0,0,0,0,0,0,0,3,11,0,0,0,0,0],"42":[47.866,50.391,134.162,38.549,49.525,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,45.564,33.318,null,40.947,33.718,29.311,null,null,null,0,30.964,45.12,47.947,46.923,0,0,36.801,36.775,37.766,33.67,39.975,0,40.856,45.573,39.003,0,44.515,0,0,0,0,0,0,0,0,0,0,0,45.909,35.445,0,0,0,0,0],"43":[50.533,39.015,35.989,39.764,57.01,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,37.162,29.765,0,32.277,32.158,null,null,null,0,31.465,49.72,40.831,39.417,54.537,30.685,35.119,0,0,28.568,0,0,34.588,29.871,36.043,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"44":[48.600494610253556,45.1735904487574,71.58737422152457,39.0863282147151,51.55948577216547,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,45.564,34.507823422505474,29.765,40.947,33.35769159977476,31.612164772090818,0,0,0,0,31.01312421437036,46.40812387191433,41.963863729717794,41.05903515309317,54.537,30.685,36.3930519489359,36.775,37.766,29.924079947120333,39.975,0,36.907498037398355,33.69144136568838,38.680484714632215,0,44.515,0,0,0,0,0,0,0,0,0,0,0,45.909,35.445,0,0,0,0,0],"45":[0,0,34.47995461422088,8.963812220106481,10.560584940945372,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,6.084688935800322,6.515168476435688,3.6974018559770743,3.875149205285532,9.905686701266811,6.197055608689712,6.917851771854215,8.160762300108495,4.385958325511545,6.520742170332296,7.006820799007884,8.572560845947148,9.803443511778296,5.9505002632964725,10.475564656621534,7.41632226713293,11.939953429227288,18.238864616016187,6.930355691856047,9.317733751333183,14.196352143280436,0,0,0,10.09269618027809,21.752136752136753,13.627079077910707,7.011988731902256,7.343576040970831,25.38,9.095944472331366,15.149988242802916,9.66579990621936,9.689851956000332,7.082177088476141,11.631713554987213,6.204957771980608,10.947660363922568,10.947660363922568],"48":[48.600494610253556,45.1735904487574,106.06732883574546,48.050140434821614,62.12007071311085,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,45.564,34.507823422505474,29.765,40.947,33.35769159977476,31.612164772090818,0,6.515168476435688,3.6974018559770743,3.875149205285532,40.918810915637174,52.605179480604036,48.88171550157201,49.219797453201664,58.922958325511544,37.20574217033229,43.39987274794378,45.34756084594714,47.569443511778296,35.87458021041681,50.45056465662154,7.41632226713293,48.84745146662564,51.930305981704564,45.610840406488265,9.317733751333183,58.711352143280436,0,0,0,10.09269618027809,21.752136752136753,13.627079077910707,7.011988731902256,7.343576040970831,25.38,9.095944472331366,15.149988242802916,55.57479990621936,45.13485195600033,7.082177088476141,11.631713554987213,6.204957771980608,10.947660363922568,10.947660363922568],"52":[407.73,662.766,86.791,830.206,337.094,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,20.29,53.56,0,69.554,94.371,20.01,null,null,null,0,150.911,27.644,6.309,10.995,0,0,41.631,104.248,99.598,36.783,23.974,0,32.016,21.863,73.865,0,51.56,0,0,0,0,0,0,0,0,0,0,0,31.185,102.631,0,0,0,0,0],"53":[null,null,null,40.89,25.02,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,4.76,0,0,3.8,4,1,null,null,null,0,6.96,0.96,0.52,0.6,0,0,1.25,6.9,4.14,0,1.82,0,2.3,1,0.7,0,4.5,0,0,0,0,0,0,0,0,0,0,0,3.4,11.3,0,0,0,0,0],"54":[8172.92,13103.854,1668.842,17481.141,7353.918,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,387.995,1355.95,0,1407.324,2093.836,385.632,null,null,null,0,3177.45,616.166,149.341,212.329,0,0,893.18,1952.601,1960.545,679.779,500.358,0,635.555,471.608,1559.09,0,1020.737,0,0,0,0,0,0,0,0,0,0,0,685.51,2481.06,0,0,0,0,0],"55":[0.04988792255399539,0.05057794447343507,0.05200672082797532,0.045,0.044,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,0.05229448833103519,0.03949998156274199,null,0.049422876324144265,0.045070865148941944,0.05188884739855614,null,null,null,0,0.045,0.043,0.041,0.049,0,0,0.045,0.051,0.048,0.051,0.046,0,0.048,0.044,0.045,0,0.048,0,0,0,0,0,0,0,0,0,0,0,0.044,0.04,0,0,0,0,0],"56":[0.9524826207804771,0.9518570280867781,0.9505642694116595,0.955,0.956,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,0.9393528550157972,0.9620009790636462,null,0.9504591815371066,0.9551269565328456,0.9483329316696258,null,null,null,0,0.955,0.957,0.959,0.951,0,0,0.955,0.949,0.952,0.949,0.954,0,0.952,0.956,0.955,0,0.952,0,0,0,0,0,0,0,0,0,0,0,0.956,0.96,0,0,0,0,0],"58":[657.98,2694.369,848.42,4091.748,860.992,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,170.602,499.458,0,165.531,547.402,null,0,0,0,100.931,68.559,232.155,231.53,105.013,578.872,92.702,0,0,566.421,0,0,345,460.177,55.815,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"59":[154.65,480.866,133.362,456.137,72.029,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,18.956,48.329,0,21.983,60.828,null,0,0,0,12.384,9.989,33.404,28.959,13.108,38.834,11.856,0,0,52.493,0,0,36.528,28.436,7.065,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"60":[null,null,null,null,10.4,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,0,0,0,0,0],"61":[2448.65,7937.385,2104.26,9971.243,1937.764,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,442.302,1348.925,0,542.046,1101.904,null,0,0,0,248.516,171.856,556.495,537.036,254.982,1249.626,194.766,0,0,1360.456,0,0,754.884,1046.08,136.8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"62":[0.06315724991321749,0.060582421036651235,0.06337714921159932,0.031,0.025,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,0.04285759503687525,0.03582778879478103,null,0.04055559860233264,0.05520263108219954,null,null,null,0,0.034,0.04,0.041,0.036,0.035,0.021,0.04,0,0,0.027,0,0,0.032,0.019,0.035,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"63":[0.7508248295147917,0.7142676524527969,0.681863694661317,0.687,0.675,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,0.7000000000000001,0.7111912615093909,null,0.7429765886287626,0.6443378121246639,null,null,null,0,0.687,0.686,0.677,0.673,0.683,0.669,0.651,0,0,0.687,0,0,0.664,0.682,0.685,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"64":[0.20175513908649365,0.24246028389344726,0.27492172822016026,0.282,0.3,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,7,0.26999968347418735,0.2633283281805567,null,0.22689155107187894,0.3200930453403067,null,null,null,0,0.279,0.274,0.282,0.29,0.281,0.31,0.31,0,0,0.286,0,0,0.304,0.3,0.28,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"65":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"110":[0,0,0,208588,106447,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,null,null,null,null,null,null,null,null,null,null,null,null,null,null,7573,8496,7530,5095,5166,4989,5612,8875,7257,6854,6920,5841,6825,6328,8869,8444,8136,6855,8165,7230,6220,5288,2883,4312,1865,1809,1913,2526,2545,2802,3211,3298,5608,5255,4510,4535,5858,4160,4548,5209,5842,5842],"q_str_opc":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"q_str_ppc":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"q_cust_comp":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,null,null,null,null,null,null,null,null],"q_ist_opc":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"q_ist_ppc":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"q_labour_prod":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"q_cem_tat":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,7983,null,null,null,null,null,null,null,null],"q_co2_scope1":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,168.6243844452456,null,null,null,null,null],"q_co2_scope2":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,27.426754979600886,null,null,null,null,null],"q_water_cons":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]},"cur_day":{},"cur_mtd":{"4":0.45,"5":0.99,"6":0.89,"8":0,"9":7691.012,"10":2870.785,"11":10561.796999999999,"12":0.2718083863948531,"13":0.728191613605147,"15":265,"16":4149.65,"17":2311,"18":648,"19":2706,"20":10079.65,"24":0,"25":32.97,"26":10.94,"27":43.91,"30":233.273,"31":262.412,"32":240.53286472329768,"34":1,"35":1,"37":0.0762,"38":0.061200000000000004,"39":43.91,"42":49.525,"43":57.01,"44":51.55948577216547,"45":10.560584940945372,"48":62.12007071311085,"52":337.094,"53":25.02,"54":7353.918,"55":0.044,"56":0.956,"58":860.992,"59":72.029,"60":10.4,"61":1937.764,"62":0.025,"63":0.675,"64":0.3,"65":null,"110":106447,"q_str_opc":22.4,"q_str_ppc":14.09,"q_cust_comp":0,"q_ist_opc":144,"q_ist_ppc":151,"q_labour_prod":null,"q_cem_tat":9111,"q_co2_scope1":58.04763411928525,"q_co2_scope2":44.59380349764345,"q_water_cons":null},"cur_ytd":{"4":0.68,"5":0.8,"6":0.56,"8":75,"9":51688.57,"10":34894.855,"11":86658.425,"12":0.4026712347933857,"13":0.5964632982886545,"15":708,"16":20472.65,"17":22257.190000000002,"18":2283,"19":25510,"20":71230.84,"24":0.5,"25":249.376,"26":156.16,"27":406.036,"30":207.272,"31":223.456,"32":213.425783014314,"34":0.8808,"35":0.6078,"37":0.8683,"38":0.0816,"39":58.00514285714286,"42":48.038,"43":41.608,"44":45.45917667555116,"45":8.904148820932058,"48":54.36332549648322,"52":2393.829,"53":87.89,"54":49294.74,"55":0.046,"56":0.954,"58":9167.009,"59":1298.619,"60":72.209,"61":24429.227,"62":0.037,"63":0.7,"64":0.263,"65":null,"110":634250,"q_str_opc":20.1,"q_str_ppc":14.6,"q_cust_comp":12,"q_ist_opc":140,"q_ist_ppc":145,"q_labour_prod":null,"q_cem_tat":null,"q_co2_scope1":28.69797510642914,"q_co2_scope2":42.916354641801995,"q_water_cons":null},"months":{"labels":["Jul-26","Aug-26","Sep-26","Oct-26","Nov-26","FY27 YTD"],"data":{"4":[null,0.78,0.93,0.88,0.45,0.68],"5":[null,0.75,0.81,0.84,0.99,0.8],"6":[0.45,0.58,0.54,0.61,0.89,0.56],"8":[0,75,0,0,0,75],"9":[8580.65,13766.62,1755.633,18311.347,7691.012,51688.57],"10":[3261.28,11112.62,3086.042,14519.128,2870.785,34894.855],"11":[11841.93,24954.24,4841.675,32830.475000000006,10561.796999999999,86658.425],"12":[0.27540105371337276,0.44531991356979816,0.6373913986378681,0.4422454442099908,0.2718083863948531,0.4026712347933857],"13":[0.7245989462866272,0.5516745851606781,0.3626086013621319,0.5577545557900091,0.728191613605147,0.5964632982886545],"15":[null,null,15,428,265,708],"16":[2763.5,5196,994.4900000000001,7369.009999999999,4149.65,20472.65],"17":[3525.91,11332.28,271,4817,2311,22257.190000000002],"18":[null,null,260,1375,648,2283],"19":[861,11558.5,1103.5,9281,2706,25510],"20":[7150.41,28086.78,2643.9900000000002,23270.01,10079.65,71230.84],"24":[0,0.5,0,0,0,0.5],"25":[46,76.169,7.33,75.807,32.97,249.376],"26":[18.5,57.25,11.7,57.52,10.94,156.16],"27":[64.5,133.41899999999998,19.03,133.327,43.91,406.036],"30":[186.536,180.738,239.513,241.552,233.273,207.272],"31":[176.285,194.107,263.764,252.419,262.412,223.456],"32":[183.59579069767446,186.47462859113023,254.42296847083549,246.24024649170835,240.53286472329768,213.425783014314],"34":[0.9072,0.964,1,0.7959,1,0.8808],"35":[0.5552,0.5969,0.5723,0.6531999999999999,1,0.6078],"37":[0.0867,0.18,0.0264,0.17920000000000003,0.0762,0.8683],"38":[0.0531,0.1115,0.0224,0.1471,0.061200000000000004,0.0816],"39":[21.5,133.93,9.52,133.327,43.91,58.00514285714286],"42":[47.866,50.391,134.162,38.549,49.525,48.038],"43":[50.533,39.015,35.989,39.764,57.01,41.608],"44":[48.600494610253556,45.1735904487574,71.58737422152457,39.0863282147151,51.55948577216547,45.45917667555116],"45":[0,0,34.47995461422088,8.963812220106481,10.560584940945372,8.904148820932058],"48":[48.600494610253556,45.1735904487574,106.06732883574546,48.050140434821614,62.12007071311085,54.36332549648322],"52":[407.73,662.766,86.791,830.206,337.094,2393.829],"53":[null,null,null,40.89,25.02,87.89],"54":[8172.92,13103.854,1668.842,17481.141,7353.918,49294.74],"55":[0.04988792255399539,0.05057794447343507,0.05200672082797532,0.045,0.044,0.046],"56":[0.9524826207804771,0.9518570280867781,0.9505642694116595,0.955,0.956,0.954],"58":[657.98,2694.369,848.42,4091.748,860.992,9167.009],"59":[154.65,480.866,133.362,456.137,72.029,1298.619],"60":[null,null,null,null,10.4,72.209],"61":[2448.65,7937.385,2104.26,9971.243,1937.764,24429.227],"62":[0.06315724991321749,0.060582421036651235,0.06337714921159932,0.031,0.025,0.037],"63":[0.7508248295147917,0.7142676524527969,0.681863694661317,0.687,0.675,0.7],"64":[0.20175513908649365,0.24246028389344726,0.27492172822016026,0.282,0.3,0.263],"65":[null,null,null,null,null,null],"110":[0,0,0,208588,106447,634250],"q_str_opc":[null,null,null,null,22.4,20.1],"q_str_ppc":[null,null,null,null,14.09,14.6],"q_cust_comp":[null,null,null,null,0,12],"q_ist_opc":[null,null,null,null,144,140],"q_ist_ppc":[null,null,null,null,151,145],"q_labour_prod":[null,null,null,null,null,null],"q_cem_tat":[null,null,null,null,9111,null],"q_co2_scope1":[null,null,null,null,58.04763411928525,28.69797510642914],"q_co2_scope2":[null,null,null,null,44.59380349764345,42.916354641801995],"q_water_cons":[null,null,null,null,null,null]}}};
+var EMBEDDED_FILE_META = {"days":123,"name":"DPR_LCP.xlsx","time":"09:20:08 am","latestDate":"26 Nov"};
+var EMBEDDED_DATA_TS = 1795756800000;
+var DEFAULT_TARGETS_STORE = {"Nov-26":{"4":"≥ 95%","5":"≥ 95%","6":"≥ 95%","8":"2000","9":"33061","10":"2075","11":"38035","12":"8","13":"92","15":"-","16":"-","17":"-","18":"-","19":"-","20":"38035","24":"-","25":"Max 24h","26":"Max 24h","27":"24.0 Hrs","30":"≥ 300 TPH","31":"≥ 300 TPH","32":"≥ 300 TPH","34":"≥ 95%","35":"≥ 95%","38":"≥ 95%","39":"250","42":"≤ 36.0","43":"≤ 34.0","44":"35","45":"≤ 2.5","48":"≤ 37.5","55":"5.0%","56":"95.0%","62":"4.5%","63":"65.0%","64":"30%","110":"Receipt Units","tot_clk":"≤ 84.5%","tot_gyp":"5%","tot_opc_disp":"33061"},"Oct-26":{"4":"≥ 95","5":"≥ 95","6":"≥ 95","8":"-","9":"30035","10":"1376","11":"31410","12":"8","13":"92","15":"-","16":"-","17":"-","18":"510","19":"885","20":"31400","24":"-","25":"Max 24h/d","26":"Max 24h/d","27":"Max 24h/d","30":"≥ 250","31":"≥ 260","32":"≥ 250","34":"≥ 95","35":"≥ 95","38":"≥ 95","39":"≥ 250","42":"≤ 36","43":"≤ 34","44":"≤ 35","45":"≤ 4.5","48":"39.5","55":"4.5","56":"95.5","62":"4.5","63":"65.5","64":"30","110":"-","tot_clk":"92","tot_gyp":"4.5","tot_opc_disp":"30035"}};
+var DEFAULT_STOCK_DATA = {"items":[{"sl":1,"uom":"MT","code":"1003000002","desc":"Flyash","sloc":"","group":"DRY FLY ASH","issue":0,"plant":"","toDate":"2026-11-26","closing":4981.577,"opening":4981.577,"receipt":0,"fromDate":"2026-11-26"},{"sl":2,"uom":"MT","code":"1005500001","desc":"Gypsum Imp","sloc":"","group":"GPSM-MNRL-IMPORT","issue":0,"plant":"","toDate":"2026-11-26","closing":1015.93,"opening":1015.93,"receipt":0,"fromDate":"2026-11-26"},{"sl":3,"uom":"MT","code":"1008000001","desc":"G Slag","sloc":"","group":"GRANULATED SLAG","issue":0,"plant":"","toDate":"2026-11-26","closing":11333.035,"opening":11333.035,"receipt":0,"fromDate":"2026-11-26"},{"sl":4,"uom":"MT","code":"1018000001","desc":"MicroFibre","sloc":"","group":"FIBRE","issue":-0.062,"plant":"","toDate":"2026-11-26","closing":2.655,"opening":2.717,"receipt":0,"fromDate":"2026-11-26"},{"sl":5,"uom":"MT","code":"1100300004","desc":"Coal Imp","sloc":"","group":"COAL IMPORTED","issue":0,"plant":"","toDate":"2026-11-26","closing":654.495,"opening":654.495,"receipt":0,"fromDate":"2026-11-26"},{"sl":6,"uom":"EA","code":"2011200002","desc":"PPC DGMF WH","sloc":"","group":"PACKING BAG-LPP-LCP","issue":-1070,"plant":"","toDate":"2026-11-26","closing":172703,"opening":173743,"receipt":30,"fromDate":"2026-11-26"},{"sl":7,"uom":"EA","code":"2021200001","desc":"PPC DG GR","sloc":"","group":"PACKING BAG-PP-LCP","issue":-4190,"plant":"","toDate":"2026-11-26","closing":351281,"opening":355401,"receipt":70,"fromDate":"2026-11-26"},{"sl":8,"uom":"EA","code":"2021200003","desc":"OPC 53 DG","sloc":"","group":"PACKING BAG-PP-LCP","issue":-1040,"plant":"","toDate":"2026-11-26","closing":260991,"opening":261991,"receipt":40,"fromDate":"2026-11-26"},{"sl":9,"uom":"EA","code":"2021200005","desc":"OPC 53 IFC","sloc":"","group":"PACKING BAG-PP-LCP","issue":0,"plant":"","toDate":"2026-11-26","closing":103186,"opening":103186,"receipt":0,"fromDate":"2026-11-26"},{"sl":10,"uom":"MT","code":"8000100009","desc":"Clinker","sloc":"","group":"CLINKER","issue":0,"plant":"","toDate":"2026-11-26","closing":1883.555,"opening":1883.555,"receipt":0,"fromDate":"2026-11-26"},{"sl":11,"uom":"MT","code":"8040000003","desc":"Fine Coal","sloc":"","group":"COAL","issue":0,"plant":"","toDate":"2026-11-26","closing":33.549,"opening":33.549,"receipt":0,"fromDate":"2026-11-26"},{"sl":12,"uom":"MT","code":"9010200001","desc":"OPC-53","sloc":"","group":"OPC-53; LOOSE","issue":-293.91,"plant":"","toDate":"2026-11-26","closing":6659.622,"opening":6953.532,"receipt":0,"fromDate":"2026-11-26"},{"sl":13,"uom":"MT","code":"9010300001","desc":"OPC-43","sloc":"","group":"OPC-43; LOOSE","issue":0,"plant":"","toDate":"2026-11-26","closing":0,"opening":0,"receipt":0,"fromDate":"2026-11-26"},{"sl":14,"uom":"MT","code":"9020100001","desc":"PPC","sloc":"","group":"PPC; LOOSE","issue":-258,"plant":"","toDate":"2026-11-26","closing":5386.455,"opening":5644.455,"receipt":0,"fromDate":"2026-11-26"},{"sl":15,"uom":"MT","code":"9040100001","desc":"PSC","sloc":"","group":"PSC; LOOSE","issue":0,"plant":"","toDate":"2026-11-26","closing":0,"opening":0,"receipt":0,"fromDate":"2026-11-26"},{"sl":16,"uom":"MT","code":"9205000191","desc":"GGBS","sloc":"","group":"OTHER-NVL","issue":0,"plant":"","toDate":"2026-11-26","closing":0,"opening":0,"receipt":0,"fromDate":"2026-11-26"}],"history":{"2026-11-25":{"items":[{"sl":1,"uom":"MT","code":"1003000002","desc":"Flyash","sloc":"","group":"DRY FLY ASH","issue":0,"plant":"","toDate":"2026-11-25","closing":4981.577,"opening":4981.577,"receipt":0,"fromDate":"2026-11-25"},{"sl":2,"uom":"MT","code":"1005500001","desc":"Gypsum Imp","sloc":"","group":"GPSM-MNRL-IMPORT","issue":0,"plant":"","toDate":"2026-11-25","closing":1015.93,"opening":1015.93,"receipt":0,"fromDate":"2026-11-25"},{"sl":3,"uom":"MT","code":"1008000001","desc":"G Slag","sloc":"","group":"GRANULATED SLAG","issue":0,"plant":"","toDate":"2026-11-25","closing":10544.474,"opening":10544.474,"receipt":0,"fromDate":"2026-11-25"},{"sl":4,"uom":"MT","code":"1018000001","desc":"MicroFibre","sloc":"","group":"FIBRE","issue":-0.016,"plant":"","toDate":"2026-11-25","closing":2.717,"opening":2.733,"receipt":0,"fromDate":"2026-11-25"},{"sl":5,"uom":"MT","code":"1100300004","desc":"Coal Imp","sloc":"","group":"COAL IMPORTED","issue":0,"plant":"","toDate":"2026-11-25","closing":654.495,"opening":654.495,"receipt":0,"fromDate":"2026-11-25"},{"sl":6,"uom":"EA","code":"2011200002","desc":"PPC DGMF WH","sloc":"","group":"PACKING BAG-LPP-LCP","issue":-270,"plant":"","toDate":"2026-11-25","closing":173743,"opening":174003,"receipt":10,"fromDate":"2026-11-25"},{"sl":7,"uom":"EA","code":"2021200001","desc":"PPC DG GR","sloc":"","group":"PACKING BAG-PP-LCP","issue":-3270,"plant":"","toDate":"2026-11-25","closing":355401,"opening":358601,"receipt":70,"fromDate":"2026-11-25"},{"sl":8,"uom":"EA","code":"2021200003","desc":"OPC 53 DG","sloc":"","group":"PACKING BAG-PP-LCP","issue":-1945,"plant":"","toDate":"2026-11-25","closing":261991,"opening":263891,"receipt":45,"fromDate":"2026-11-25"},{"sl":9,"uom":"EA","code":"2021200005","desc":"OPC 53 IFC","sloc":"","group":"PACKING BAG-PP-LCP","issue":0,"plant":"","toDate":"2026-11-25","closing":103186,"opening":103186,"receipt":0,"fromDate":"2026-11-25"},{"sl":10,"uom":"MT","code":"8000100009","desc":"Clinker","sloc":"","group":"CLINKER","issue":0,"plant":"","toDate":"2026-11-25","closing":1883.555,"opening":1883.555,"receipt":0,"fromDate":"2026-11-25"},{"sl":11,"uom":"MT","code":"8040000003","desc":"Fine Coal","sloc":"","group":"COAL","issue":0,"plant":"","toDate":"2026-11-25","closing":33.549,"opening":33.549,"receipt":0,"fromDate":"2026-11-25"},{"sl":12,"uom":"MT","code":"9010200001","desc":"OPC-53","sloc":"","group":"OPC-53; LOOSE","issue":-189.31,"plant":"","toDate":"2026-11-25","closing":6953.532,"opening":7142.842,"receipt":0,"fromDate":"2026-11-25"},{"sl":13,"uom":"MT","code":"9010300001","desc":"OPC-43","sloc":"","group":"OPC-43; LOOSE","issue":0,"plant":"","toDate":"2026-11-25","closing":0,"opening":0,"receipt":0,"fromDate":"2026-11-25"},{"sl":14,"uom":"MT","code":"9020100001","desc":"PPC","sloc":"","group":"PPC; LOOSE","issue":-173,"plant":"","toDate":"2026-11-25","closing":5644.455,"opening":5817.455,"receipt":0,"fromDate":"2026-11-25"},{"sl":15,"uom":"MT","code":"9040100001","desc":"PSC","sloc":"","group":"PSC; LOOSE","issue":0,"plant":"","toDate":"2026-11-25","closing":0,"opening":0,"receipt":0,"fromDate":"2026-11-25"},{"sl":16,"uom":"MT","code":"9205000191","desc":"GGBS","sloc":"","group":"OTHER-NVL","issue":0,"plant":"","toDate":"2026-11-25","closing":0,"opening":0,"receipt":0,"fromDate":"2026-11-25"}],"fileName":"SAP_Stock_Report.xlsx","dateLabel":"25 Nov","uploadedAt":"11:33 am"},"2026-11-26":{"items":[{"sl":1,"uom":"MT","code":"1003000002","desc":"Flyash","sloc":"","group":"DRY FLY ASH","issue":0,"plant":"","toDate":"2026-11-26","closing":4981.577,"opening":4981.577,"receipt":0,"fromDate":"2026-11-26"},{"sl":2,"uom":"MT","code":"1005500001","desc":"Gypsum Imp","sloc":"","group":"GPSM-MNRL-IMPORT","issue":0,"plant":"","toDate":"2026-11-26","closing":1015.93,"opening":1015.93,"receipt":0,"fromDate":"2026-11-26"},{"sl":3,"uom":"MT","code":"1008000001","desc":"G Slag","sloc":"","group":"GRANULATED SLAG","issue":0,"plant":"","toDate":"2026-11-26","closing":11333.035,"opening":11333.035,"receipt":0,"fromDate":"2026-11-26"},{"sl":4,"uom":"MT","code":"1018000001","desc":"MicroFibre","sloc":"","group":"FIBRE","issue":-0.062,"plant":"","toDate":"2026-11-26","closing":2.655,"opening":2.717,"receipt":0,"fromDate":"2026-11-26"},{"sl":5,"uom":"MT","code":"1100300004","desc":"Coal Imp","sloc":"","group":"COAL IMPORTED","issue":0,"plant":"","toDate":"2026-11-26","closing":654.495,"opening":654.495,"receipt":0,"fromDate":"2026-11-26"},{"sl":6,"uom":"EA","code":"2011200002","desc":"PPC DGMF WH","sloc":"","group":"PACKING BAG-LPP-LCP","issue":-1070,"plant":"","toDate":"2026-11-26","closing":172703,"opening":173743,"receipt":30,"fromDate":"2026-11-26"},{"sl":7,"uom":"EA","code":"2021200001","desc":"PPC DG GR","sloc":"","group":"PACKING BAG-PP-LCP","issue":-4190,"plant":"","toDate":"2026-11-26","closing":351281,"opening":355401,"receipt":70,"fromDate":"2026-11-26"},{"sl":8,"uom":"EA","code":"2021200003","desc":"OPC 53 DG","sloc":"","group":"PACKING BAG-PP-LCP","issue":-1040,"plant":"","toDate":"2026-11-26","closing":260991,"opening":261991,"receipt":40,"fromDate":"2026-11-26"},{"sl":9,"uom":"EA","code":"2021200005","desc":"OPC 53 IFC","sloc":"","group":"PACKING BAG-PP-LCP","issue":0,"plant":"","toDate":"2026-11-26","closing":103186,"opening":103186,"receipt":0,"fromDate":"2026-11-26"},{"sl":10,"uom":"MT","code":"8000100009","desc":"Clinker","sloc":"","group":"CLINKER","issue":0,"plant":"","toDate":"2026-11-26","closing":1883.555,"opening":1883.555,"receipt":0,"fromDate":"2026-11-26"},{"sl":11,"uom":"MT","code":"8040000003","desc":"Fine Coal","sloc":"","group":"COAL","issue":0,"plant":"","toDate":"2026-11-26","closing":33.549,"opening":33.549,"receipt":0,"fromDate":"2026-11-26"},{"sl":12,"uom":"MT","code":"9010200001","desc":"OPC-53","sloc":"","group":"OPC-53; LOOSE","issue":-293.91,"plant":"","toDate":"2026-11-26","closing":6659.622,"opening":6953.532,"receipt":0,"fromDate":"2026-11-26"},{"sl":13,"uom":"MT","code":"9010300001","desc":"OPC-43","sloc":"","group":"OPC-43; LOOSE","issue":0,"plant":"","toDate":"2026-11-26","closing":0,"opening":0,"receipt":0,"fromDate":"2026-11-26"},{"sl":14,"uom":"MT","code":"9020100001","desc":"PPC","sloc":"","group":"PPC; LOOSE","issue":-258,"plant":"","toDate":"2026-11-26","closing":5386.455,"opening":5644.455,"receipt":0,"fromDate":"2026-11-26"},{"sl":15,"uom":"MT","code":"9040100001","desc":"PSC","sloc":"","group":"PSC; LOOSE","issue":0,"plant":"","toDate":"2026-11-26","closing":0,"opening":0,"receipt":0,"fromDate":"2026-11-26"},{"sl":16,"uom":"MT","code":"9205000191","desc":"GGBS","sloc":"","group":"OTHER-NVL","issue":0,"plant":"","toDate":"2026-11-26","closing":0,"opening":0,"receipt":0,"fromDate":"2026-11-26"}],"fileName":"SAP_Stock_Report.xlsx","dateLabel":"26 Nov","uploadedAt":"09:20 am"}},"fileName":"SAP_Stock_Report.xlsx","dateLabel":"26 Nov","uploadedAt":"09:20 am"};
+const DEFAULT_DATA = {"daily":{"4":[null,0.78,0.93,0.88,0.34,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,1,0.9211811559009228,0.6284591489361702,1,null,null,null,null,0,0.93,1,0.5,0.5672222222222222,0.21,1,1,0.98,0.98,1,1,1,0.9,1,0.92,0.92,0.56,0,0,0,0,0,0,0,0,0,0,0,0.33,1,0,0,0,0,0,0],"5":[null,0.75,0.81,0.84,0.99,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,0.3,0.42,0.25,0.75,1,1,1,0.82,0.58,0.78,0.91,1,0.96,1,1,1,1,1,0.87,0.88,0.84,0.99,0.88,0.83,1,1,0.96,0.86,0.79,0.93,0.96,0.5,0.92,0.5,0.5,0.68,0.68,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"6":[0.45,0.58,0.54,0.61,0.9,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.74,0.79,0.95,0.91,null,null,null,null,null,0.6,0.61,0.7,0.74,0.88,1,0.74,0.62,0.6,0.44,1,0.66,0.69,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.95,1],"8":[0,75,0,0,0,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"9":[8580.65,13766.62,1755.633,18311.347,7691.012,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,408.285,1409.51,0,1476.879,2188.207,405.643,0,0,0,0,3328.361,643.81,155.65,223.324,0,0,934.811,2056.849,2060.143,716.562,524.332,0,667.571,493.471,1632.955,0,1072.297,0,0,0,0,0,0,0,0,0,0,0,716.695,2583.691,0,0,0,0,0,0],"10":[3261.28,11112.62,3086.042,14519.128,2870.785,0,0,0,179.3,2439.5,1593.66,1402.11,844.49,554.21,2469.69,439.84,0,0,0,493.79,1862.8,2330.83,2861.3,2556.14,0,0,0,2030,1535,0,0,1286,0,0,0,0,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,631.86,1896.712,0,729.56,1710.134,0,0,0,0,361.832,250.404,822.054,797.525,373.103,1867.332,299.324,0,0,1979.37,0,0,1136.412,1534.693,199.68,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"11":[11841.93,24954.24,4841.675,32830.475000000006,10561.796999999999,0,0,0,179.3,2439.5,1593.66,1402.11,844.49,554.21,2469.69,439.84,0,0,0,493.79,1862.8,2330.83,2861.3,2556.14,0,0,0,2030,1535,0,0,1286,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,408.285,2041.37,1896.712,1476.879,2917.767,2115.777,0,0,0,0,3690.1929999999998,894.2139999999999,977.704,1020.8489999999999,373.103,1867.332,1234.135,2056.849,2060.143,2695.932,524.332,0,1803.9830000000002,2028.164,1832.635,0,1072.297,0,0,0,0,0,0,0,0,0,0,0,716.695,2583.691,0,0,0,0,0,0],"12":[0.27540105371337276,0.44531991356979816,0.6373913986378681,0.4422454442099908,0.2718083863948531,7,7,7,1,1,1,1,1,1,1,1,7,7,7,1,1,1,1,1,7,7,7,1,1,7,7,1,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,0,0.3095274252095407,1,0,0.2500405275678284,0.8082770537726802,null,null,null,null,0.09805232409253392,0.2800269286770281,0.8408004876731608,0.7812369899955821,1,1,0.24253748576938505,0,0,0.7342062040140479,0,null,0.6299460693365735,0.7566907804299849,0.10895786667830747,null,0,null,null,null,null,null,null,null,null,null,null,null,0,0,null,null,null,null,null,null],"13":[0.7245989462866272,0.5516745851606781,0.3626086013621319,0.5577545557900091,0.728191613605147,7,7,7,0,0,0,0,0,0,0,0,7,7,7,0,0,0,0,0,7,7,7,0,0,7,7,0,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,1,0.6904725747904594,0,1,0.7499594724321716,0.19172294622731978,null,null,null,null,0.9019476759074662,0.719973071322972,0.1591995123268392,0.21876301000441792,0,0,0.757462514230615,1,1,0.2657937959859522,1,null,0.3700539306634264,0.24330921957001506,0.8910421333216925,null,1,null,null,null,null,null,null,null,null,null,null,null,1,1,null,null,null,null,null,null],"15":[null,null,15,428,265,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,50,null,null,63,null,null,39,null,22,82,0,57,null,0,null,null,32,null,35,null,null,null,null,null,52,null,null,null,null,null,null,null,null,null,null,null,null,null,0,142,45,26,0,0,0],"16":[2763.5,5196,994.4900000000001,7369.009999999999,4487.87,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,142,175.49,127.80000000000001,452.53000000000003,236.81,123.21000000000001,99.71000000000001,114.97999999999999,386.33000000000004,338.06,298.95000000000005,476.03999999999996,407.7699999999999,392.96,538.75,594.66,295.12,339.58000000000004,358.33000000000004,480.28,150.38,354.95,185.53,126.03,601.0199999999999,231.41,239.74,0,0,0,185.27999999999997,null,140.62,202.93,302.09999999999997,null,358.73,34.69,64.18,385.55,59.39,0,370.49,156.63,94.31,243.91],"17":[3525.91,11332.28,271,4817,2456,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,233,362,351,167,78,91,91,116,344,164,120,70,38,377,96,297,288,91,367,155,362,176,163,91,null,13,0,0,0,52,null,26,78,108,130,13,56,236,39,97,210,169,137,95,50],"18":[null,null,260,1375,713,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,13,13,null,52,39,26,13,71,39,62,123,52,143,78,52,130,58,207,13,68,null,null,null,null,0,0,0,null,null,13,26,26,null,null,52,13,37,89,39,39,26,13,52],"19":[861,11558.5,1103.5,9281,3072,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,305,143,149,174,277,321,252,365,238,280,536,394,294,364,213,233,323,282,427,142,371,176,52,71,26,51,0,0,0,13,117,26,151,13,91,206,155,156,143,200,97,235,214,160,206],"20":[7150.41,28086.78,2643.9900000000002,23270.01,10993.869999999999,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,142,763.49,632.8,965.53,653.81,478.21000000000004,563.71,535.98,893.33,955.06,895.95,1171.04,990.77,847.96,1331.75,1046.6599999999999,903.12,1034.58,861.33,1367.28,654.38,1100.95,605.53,341.03,763.0199999999999,309.40999999999997,303.74,0,0,0,250.27999999999997,117,205.62,457.93,449.09999999999997,221,577.73,297.69,469.18,604.55,587.39,391,839.49,533.63,362.31,551.91],"24":[0,0.5,0,0,0,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"25":[46,76.169,7.33,75.807,32.97,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,1.8,5.24,0,5.8,9.4,1.6,0,0,0,0,14.2,2.8,0.67,1,0,0,3.6,8.5,8.6,3.2,2.41,0,3.4,2.6,6.46,0,4.1,0,0,0,0,0,0,0,0,0,0,0,3,11,0,0,0,0,0,0],"26":[18.5,57.25,11.7,57.52,10.94,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,2.62,7,0,3,7.4,0,0,0,0,1.5,1.2,3,3,1.8,6.4,1.1,0,0,7.5,0,0,4.9,5.3,0.74,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"27":[64.5,133.41899999999998,19.03,133.327,43.91,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1.8,7.86,7,5.8,12.4,9,0,0,0,0,15.7,4,3.67,4,1.8,6.4,4.7,8.5,8.6,10.7,2.41,0,8.3,7.9,7.2,0,4.1,0,0,0,0,0,0,0,0,0,0,0,3,11,0,0,0,0,0,0],"30":[186.536,180.738,239.513,241.552,233.273,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,226.825,268.99,0,254.634,232.788,253.527,0,0,0,0,234.392,229.932,232.313,223.324,0,0,259.67,241.982,239.552,223.926,217.565,0,196.344,189.797,252.779,0,261.536,0,0,0,0,0,0,0,0,0,0,0,238.898,234.881,0,0,0,0,0,0],"31":[176.285,194.107,263.764,252.419,262.412,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,241.168,270.959,0,243.187,231.099,0,0,0,0,241.221,208.67,274.018,265.842,207.279,291.771,272.113,0,0,263.916,0,0,231.921,289.565,269.838,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"32":[183.59579069767446,186.47462859113023,254.42296847083549,246.24024649170835,240.53286472329768,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,null,259.716,270.959,254.634,235.30388709677422,235.0862,0,0,0,0,235.0444522292994,223.55339999999998,266.40428065395093,255.21249999999998,207.279,291.771,262.5821914893617,241.98200000000003,239.552,251.95637383177572,217.56500000000003,0,217.3472891566265,256.7299620253164,254.53228611111112,0,261.536,0,0,0,0,0,0,0,0,0,0,0,238.898,234.88099999999997,0,0,0,0,0,0],"34":[0.9072,0.964,1,0.7959,1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,1,1,1,1,1,1,1,1,1,1,1,1,1,0.25,0.075,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"35":[0.5552,0.5969,0.5723,0.6531999999999999,1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.7561,0.8646,0.9032,0.8488,0.7843,0.7836,0,0,0,0,0.7835,0.7452,0.888,0.2127,0.0518,0.9726,0.8753,0.8066,0.7985,0.8399,0.7222,0,0.7245,0.8558,0.8484,0,0,0,0,0,0,0,0,0,0,0,0,0,0.7963,0.7829,0,0,0,0,0,0],"37":[0.0867,0.18,0.0264,0.17920000000000003,0.0704,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.075,0.3276,0.2917,0.2417,0.5167,0.375,null,null,null,0,0.6542,0.16670000000000001,0.15289999999999998,0.16670000000000001,0.075,0.2667,0.19579999999999997,0.3542,0.3583,0.4458,0.1005,0,0.3458,0.3292,0.3,0,0.17079999999999998,0,0,0,0,0,0,0,0,0,0,0,0.125,0.4583,0,0,0,0,0,0],"38":[0.0531,0.1115,0.0224,0.1471,0.0564,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.1242,0.1358,0.1418,0.0518,0,0,0,0,0.37439999999999996,0.0728,0,0.2505,0.2817,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.09949999999999999,0.3588,0,0,0,0,0,0],"39":[21.5,133.93,9.52,133.327,43.91,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,null,null,null,null,null,null,null,null,0,0,0,0,0,1.8,6.4,4.7,8.5,8.5,10.7,2.41,0,8.3,7.9,7.2,0,4.1,0,0,0,0,0,0,0,0,0,0,0,3,11,0,0,0,0,0,0],"42":[47.866,50.391,134.162,38.549,49.979,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,45.564,33.318,null,40.947,33.718,29.311,null,null,null,0,30.964,45.12,47.947,46.923,0,0,36.801,36.775,37.766,33.67,39.975,0,40.856,45.573,39.003,0,44.515,0,0,0,0,0,0,0,0,0,0,0,45.909,35.445,0,0,0,0,0,0],"43":[50.533,39.015,35.989,39.764,58.226,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,37.162,29.765,0,32.277,32.158,null,null,null,0,31.465,49.72,40.831,39.417,54.537,30.685,35.119,0,0,28.568,0,0,34.588,29.871,36.043,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"44":[48.600494610253556,45.1735904487574,71.58737422152457,39.0863282147151,52.22060376259836,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,45.564,34.507823422505474,29.765,40.947,33.35769159977476,31.612164772090818,0,0,0,0,31.01312421437036,46.40812387191433,41.963863729717794,41.05903515309317,54.537,30.685,36.3930519489359,36.775,37.766,29.924079947120333,39.975,0,36.907498037398355,33.69144136568838,38.680484714632215,0,44.515,0,0,0,0,0,0,0,0,0,0,0,45.909,35.445,0,0,0,0,0,0],"45":[0,0,34.47995461422088,8.963812220106481,10.59299409580066,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,6.084688935800322,6.515168476435688,3.6974018559770743,3.875149205285532,9.905686701266811,6.197055608689712,6.917851771854215,8.160762300108495,4.385958325511545,6.520742170332296,7.006820799007884,8.572560845947148,9.803443511778296,5.9505002632964725,10.475564656621534,7.41632226713293,11.939953429227288,18.238864616016187,6.930355691856047,9.317733751333183,14.196352143280436,0,0,0,10.09269618027809,21.752136752136753,13.627079077910707,7.011988731902256,7.343576040970831,25.38,9.095944472331366,15.149988242802916,9.66579990621936,9.689851956000332,7.082177088476141,11.631713554987213,6.204957771980608,10.947660363922568,12.660428914465513,9.827689297168018],"48":[48.600494610253556,45.1735904487574,106.06732883574546,48.050140434821614,62.81359785839902,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,45.564,34.507823422505474,29.765,40.947,33.35769159977476,31.612164772090818,0,6.515168476435688,3.6974018559770743,3.875149205285532,40.918810915637174,52.605179480604036,48.88171550157201,49.219797453201664,58.922958325511544,37.20574217033229,43.39987274794378,45.34756084594714,47.569443511778296,35.87458021041681,50.45056465662154,7.41632226713293,48.84745146662564,51.930305981704564,45.610840406488265,9.317733751333183,58.711352143280436,0,0,0,10.09269618027809,21.752136752136753,13.627079077910707,7.011988731902256,7.343576040970831,25.38,9.095944472331366,15.149988242802916,55.57479990621936,45.13485195600033,7.082177088476141,11.631713554987213,6.204957771980608,10.947660363922568,12.660428914465513,9.827689297168018],"52":[407.73,662.766,86.791,830.206,337.094,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,20.29,53.56,0,69.554,94.371,20.01,null,null,null,0,150.911,27.644,6.309,10.995,0,0,41.631,104.248,99.598,36.783,23.974,0,32.016,21.863,73.865,0,51.56,0,0,0,0,0,0,0,0,0,0,0,31.185,102.631,0,0,0,0,0,0],"53":[null,null,null,40.89,25.02,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,4.76,0,0,3.8,4,1,null,null,null,0,6.96,0.96,0.52,0.6,0,0,1.25,6.9,4.14,0,1.82,0,2.3,1,0.7,0,4.5,0,0,0,0,0,0,0,0,0,0,0,3.4,11.3,0,0,0,0,0,0],"54":[8172.92,13103.854,1668.842,17481.141,7353.918,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,387.995,1355.95,0,1407.324,2093.836,385.632,null,null,null,0,3177.45,616.166,149.341,212.329,0,0,893.18,1952.601,1960.545,679.779,500.358,0,635.555,471.608,1559.09,0,1020.737,0,0,0,0,0,0,0,0,0,0,0,685.51,2481.06,0,0,0,0,0,0],"55":[0.04988792255399539,0.05057794447343507,0.05200672082797532,0.045,0.044,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,0.05229448833103519,0.03949998156274199,null,0.049422876324144265,0.045070865148941944,0.05188884739855614,null,null,null,0,0.045,0.043,0.041,0.049,0,0,0.045,0.051,0.048,0.051,0.046,0,0.048,0.044,0.045,0,0.048,0,0,0,0,0,0,0,0,0,0,0,0.044,0.04,0,0,0,0,0,0],"56":[0.9524826207804771,0.9518570280867781,0.9505642694116595,0.955,0.956,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,0.9393528550157972,0.9620009790636462,null,0.9504591815371066,0.9551269565328456,0.9483329316696258,null,null,null,0,0.955,0.957,0.959,0.951,0,0,0.955,0.949,0.952,0.949,0.954,0,0.952,0.956,0.955,0,0.952,0,0,0,0,0,0,0,0,0,0,0,0.956,0.96,0,0,0,0,0,0],"58":[657.98,2694.369,848.42,4091.748,860.992,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,170.602,499.458,0,165.531,547.402,null,0,0,0,100.931,68.559,232.155,231.53,105.013,578.872,92.702,0,0,566.421,0,0,345,460.177,55.815,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"59":[154.65,480.866,133.362,456.137,72.029,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,18.956,48.329,0,21.983,60.828,null,0,0,0,12.384,9.989,33.404,28.959,13.108,38.834,11.856,0,0,52.493,0,0,36.528,28.436,7.065,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"60":[null,null,null,null,10.4,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,0,0,0,0,0,0],"61":[2448.65,7937.385,2104.26,9971.243,1937.764,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,442.302,1348.925,0,542.046,1101.904,null,0,0,0,248.516,171.856,556.495,537.036,254.982,1249.626,194.766,0,0,1360.456,0,0,754.884,1046.08,136.8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"62":[0.06315724991321749,0.060582421036651235,0.06337714921159932,0.031,0.025,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,0.04285759503687525,0.03582778879478103,null,0.04055559860233264,0.05520263108219954,null,null,null,0,0.034,0.04,0.041,0.036,0.035,0.021,0.04,0,0,0.027,0,0,0.032,0.019,0.035,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"63":[0.7508248295147917,0.7142676524527969,0.681863694661317,0.687,0.675,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,0.7000000000000001,0.7111912615093909,null,0.7429765886287626,0.6443378121246639,null,null,null,0,0.687,0.686,0.677,0.673,0.683,0.669,0.651,0,0,0.687,0,0,0.664,0.682,0.685,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"64":[0.20175513908649365,0.24246028389344726,0.27492172822016026,0.282,0.3,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,7,0.26999968347418735,0.2633283281805567,null,0.22689155107187894,0.3200930453403067,null,null,null,0,0.279,0.274,0.282,0.29,0.281,0.31,0.31,0,0,0.286,0,0,0.304,0.3,0.28,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"65":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"110":[0,0,0,208588,116458,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,null,null,null,null,null,null,null,null,null,null,null,null,null,null,7573,8496,7530,5095,5166,4989,5612,8875,7257,6854,6920,5841,6825,6328,8869,8444,8136,6855,8165,7230,6220,5288,2883,4312,1865,1809,1913,2526,2545,2802,3211,3298,5608,5255,4510,4535,5858,4160,4548,5209,5842,4587,5424],"q_cem_tat":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,27253,null,null,null,null,null,null,null,null,13565],"q_ist_opc":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"q_ist_ppc":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"q_str_opc":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"q_str_ppc":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"q_cust_comp":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,null,null,null,null,null,null,null,null,null],"q_co2_scope1":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,168.6243844452456,null,null,null,null,null,null],"q_co2_scope2":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,27.426754979600886,null,null,null,null,null,null],"q_water_cons":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"q_labour_prod":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,104]},"dates":["2026-07-01","2026-08-01","2026-09-01","2026-10-01","2026-11-01","2026-08-01","2026-08-02","2026-08-03","2026-08-04","2026-08-05","2026-08-06","2026-08-07","2026-08-08","2026-08-09","2026-08-10","2026-08-11","2026-08-12","2026-08-13","2026-08-14","2026-08-15","2026-08-16","2026-08-17","2026-08-18","2026-08-19","2026-08-20","2026-08-21","2026-08-22","2026-08-23","2026-08-24","2026-08-25","2026-08-26","2026-08-27","2026-08-28","2026-08-29","2026-08-30","2026-08-31","2026-09-01","2026-09-02","2026-09-03","2026-09-04","2026-09-05","2026-09-06","2026-09-07","2026-09-08","2026-09-09","2026-09-10","2026-09-11","2026-09-12","2026-09-13","2026-09-14","2026-09-15","2026-09-16","2026-09-17","2026-09-18","2026-09-19","2026-09-20","2026-09-21","2026-09-22","2026-09-23","2026-09-24","2026-09-25","2026-09-26","2026-09-27","2026-09-28","2026-09-29","2026-09-30","2026-10-01","2026-10-02","2026-10-03","2026-10-04","2026-10-05","2026-10-06","2026-10-07","2026-10-08","2026-10-09","2026-10-10","2026-10-11","2026-10-12","2026-10-13","2026-10-14","2026-10-15","2026-10-16","2026-10-17","2026-10-18","2026-10-19","2026-10-20","2026-10-21","2026-10-22","2026-10-23","2026-10-24","2026-10-25","2026-10-26","2026-10-27","2026-10-28","2026-10-29","2026-10-30","2026-10-31","2026-11-01","2026-11-02","2026-11-03","2026-11-04","2026-11-05","2026-11-06","2026-11-07","2026-11-08","2026-11-09","2026-11-10","2026-11-11","2026-11-12","2026-11-13","2026-11-14","2026-11-15","2026-11-16","2026-11-17","2026-11-18","2026-11-19","2026-11-20","2026-11-21","2026-11-22","2026-11-23","2026-11-24","2026-11-25","2026-11-26"],"months":{"data":{"4":[null,0.78,0.93,0.88,0.34,0.68],"5":[null,0.75,0.81,0.84,0.99,0.8],"6":[0.45,0.58,0.54,0.61,0.9,0.56],"8":[0,75,0,0,0,75],"9":[8580.65,13766.62,1755.633,18311.347,7691.012,51688.57],"10":[3261.28,11112.62,3086.042,14519.128,2870.785,34894.855],"11":[11841.93,24954.24,4841.675,32830.475000000006,10561.796999999999,86658.425],"12":[0.27540105371337276,0.44531991356979816,0.6373913986378681,0.4422454442099908,0.2718083863948531,0.4026712347933857],"13":[0.7245989462866272,0.5516745851606781,0.3626086013621319,0.5577545557900091,0.728191613605147,0.5964632982886545],"15":[null,null,15,428,265,708],"16":[2763.5,5196,994.4900000000001,7369.009999999999,4487.87,20810.87],"17":[3525.91,11332.28,271,4817,2456,22402.190000000002],"18":[null,null,260,1375,713,2348],"19":[861,11558.5,1103.5,9281,3072,25876],"20":[7150.41,28086.78,2643.9900000000002,23270.01,10993.869999999999,72145.06],"24":[0,0.5,0,0,0,0.5],"25":[46,76.169,7.33,75.807,32.97,249.376],"26":[18.5,57.25,11.7,57.52,10.94,156.16],"27":[64.5,133.41899999999998,19.03,133.327,43.91,406.036],"30":[186.536,180.738,239.513,241.552,233.273,207.272],"31":[176.285,194.107,263.764,252.419,262.412,223.456],"32":[183.59579069767446,186.47462859113023,254.42296847083549,246.24024649170835,240.53286472329768,213.425783014314],"34":[0.9072,0.964,1,0.7959,1,0.8808],"35":[0.5552,0.5969,0.5723,0.6531999999999999,1,0.6078],"37":[0.0867,0.18,0.0264,0.17920000000000003,0.0704,0.8683],"38":[0.0531,0.1115,0.0224,0.1471,0.0564,0.0816],"39":[21.5,133.93,9.52,133.327,43.91,58.00514285714286],"42":[47.866,50.391,134.162,38.549,49.979,48.105],"43":[50.533,39.015,35.989,39.764,58.226,41.708],"44":[48.600494610253556,45.1735904487574,71.58737422152457,39.0863282147151,52.22060376259836,45.53940684001584],"45":[0,0,34.47995461422088,8.963812220106481,10.59299409580066,8.930077818217907],"48":[48.600494610253556,45.1735904487574,106.06732883574546,48.050140434821614,62.81359785839902,54.46948465823375],"52":[407.73,662.766,86.791,830.206,337.094,2393.829],"53":[null,null,null,40.89,25.02,87.89],"54":[8172.92,13103.854,1668.842,17481.141,7353.918,49294.74],"55":[0.04988792255399539,0.05057794447343507,0.05200672082797532,0.045,0.044,0.046],"56":[0.9524826207804771,0.9518570280867781,0.9505642694116595,0.955,0.956,0.954],"58":[657.98,2694.369,848.42,4091.748,860.992,9167.009],"59":[154.65,480.866,133.362,456.137,72.029,1298.619],"60":[null,null,null,null,10.4,72.209],"61":[2448.65,7937.385,2104.26,9971.243,1937.764,24429.227],"62":[0.06315724991321749,0.060582421036651235,0.06337714921159932,0.031,0.025,0.037],"63":[0.7508248295147917,0.7142676524527969,0.681863694661317,0.687,0.675,0.7],"64":[0.20175513908649365,0.24246028389344726,0.27492172822016026,0.282,0.3,0.263],"65":[null,null,null,null,null,null],"110":[0,0,0,208588,116458,644261],"q_cem_tat":[null,null,null,null,9934,10997],"q_ist_opc":[null,null,null,null,144,140],"q_ist_ppc":[null,null,null,null,151,145],"q_str_opc":[null,null,null,null,22.4,20.1],"q_str_ppc":[null,null,null,null,14.09,14.6],"q_cust_comp":[null,null,null,null,0,12],"q_co2_scope1":[null,null,null,null,58.04,28.69],"q_co2_scope2":[null,null,null,null,45.88,43.07],"q_water_cons":[null,null,null,null,null,null],"q_labour_prod":[null,null,null,null,null,null]},"labels":["Jul-26","Aug-26","Sep-26","Oct-26","Nov-26","FY27 YTD"]},"cur_day":{"q_cem_tat":13565,"q_ist_opc":null,"q_ist_ppc":null,"q_str_opc":null,"q_str_ppc":null,"q_cust_comp":null,"q_co2_scope1":null,"q_co2_scope2":null,"q_water_cons":null,"q_labour_prod":104},"cur_mtd":{"4":0.34,"5":0.99,"6":0.9,"8":0,"9":7691.012,"10":2870.785,"11":10561.796999999999,"12":0.2718083863948531,"13":0.728191613605147,"15":265,"16":4487.87,"17":2456,"18":713,"19":3072,"20":10993.869999999999,"24":0,"25":32.97,"26":10.94,"27":43.91,"30":233.273,"31":262.412,"32":240.53286472329768,"34":1,"35":1,"37":0.0704,"38":0.0564,"39":43.91,"42":49.979,"43":58.226,"44":52.22060376259836,"45":10.59299409580066,"48":62.81359785839902,"52":337.094,"53":25.02,"54":7353.918,"55":0.044,"56":0.956,"58":860.992,"59":72.029,"60":10.4,"61":1937.764,"62":0.025,"63":0.675,"64":0.3,"65":null,"110":116458,"q_cem_tat":9934,"q_ist_opc":144,"q_ist_ppc":151,"q_str_opc":22.4,"q_str_ppc":14.09,"q_cust_comp":0,"q_co2_scope1":58.04,"q_co2_scope2":45.88,"q_water_cons":null,"q_labour_prod":null},"cur_ytd":{"4":0.68,"5":0.8,"6":0.56,"8":75,"9":51688.57,"10":34894.855,"11":86658.425,"12":0.4026712347933857,"13":0.5964632982886545,"15":708,"16":20810.87,"17":22402.190000000002,"18":2348,"19":25876,"20":72145.06,"24":0.5,"25":249.376,"26":156.16,"27":406.036,"30":207.272,"31":223.456,"32":213.425783014314,"34":0.8808,"35":0.6078,"37":0.8683,"38":0.0816,"39":58.00514285714286,"42":48.105,"43":41.708,"44":45.53940684001584,"45":8.930077818217907,"48":54.46948465823375,"52":2393.829,"53":87.89,"54":49294.74,"55":0.046,"56":0.954,"58":9167.009,"59":1298.619,"60":72.209,"61":24429.227,"62":0.037,"63":0.7,"64":0.263,"65":null,"110":644261,"q_cem_tat":10997,"q_ist_opc":140,"q_ist_ppc":145,"q_str_opc":20.1,"q_str_ppc":14.6,"q_cust_comp":12,"q_co2_scope1":28.69,"q_co2_scope2":43.07,"q_water_cons":null,"q_labour_prod":null},"file_meta":{"days":123,"name":"DPR_LCP.xlsx","time":"09:20:08 am","latestDate":"26 Nov"},"stock_data":{"items":[{"sl":1,"uom":"MT","code":"1003000002","desc":"Flyash","sloc":"","group":"DRY FLY ASH","issue":0,"plant":"","toDate":"2026-11-26","closing":4981.577,"opening":4981.577,"receipt":0,"fromDate":"2026-11-26"},{"sl":2,"uom":"MT","code":"1005500001","desc":"Gypsum Imp","sloc":"","group":"GPSM-MNRL-IMPORT","issue":0,"plant":"","toDate":"2026-11-26","closing":1015.93,"opening":1015.93,"receipt":0,"fromDate":"2026-11-26"},{"sl":3,"uom":"MT","code":"1008000001","desc":"G Slag","sloc":"","group":"GRANULATED SLAG","issue":0,"plant":"","toDate":"2026-11-26","closing":11333.035,"opening":11333.035,"receipt":0,"fromDate":"2026-11-26"},{"sl":4,"uom":"MT","code":"1018000001","desc":"MicroFibre","sloc":"","group":"FIBRE","issue":-0.062,"plant":"","toDate":"2026-11-26","closing":2.655,"opening":2.717,"receipt":0,"fromDate":"2026-11-26"},{"sl":5,"uom":"MT","code":"1100300004","desc":"Coal Imp","sloc":"","group":"COAL IMPORTED","issue":0,"plant":"","toDate":"2026-11-26","closing":654.495,"opening":654.495,"receipt":0,"fromDate":"2026-11-26"},{"sl":6,"uom":"EA","code":"2011200002","desc":"PPC DGMF WH","sloc":"","group":"PACKING BAG-LPP-LCP","issue":-1070,"plant":"","toDate":"2026-11-26","closing":172703,"opening":173743,"receipt":30,"fromDate":"2026-11-26"},{"sl":7,"uom":"EA","code":"2021200001","desc":"PPC DG GR","sloc":"","group":"PACKING BAG-PP-LCP","issue":-4190,"plant":"","toDate":"2026-11-26","closing":351281,"opening":355401,"receipt":70,"fromDate":"2026-11-26"},{"sl":8,"uom":"EA","code":"2021200003","desc":"OPC 53 DG","sloc":"","group":"PACKING BAG-PP-LCP","issue":-1040,"plant":"","toDate":"2026-11-26","closing":260991,"opening":261991,"receipt":40,"fromDate":"2026-11-26"},{"sl":9,"uom":"EA","code":"2021200005","desc":"OPC 53 IFC","sloc":"","group":"PACKING BAG-PP-LCP","issue":0,"plant":"","toDate":"2026-11-26","closing":103186,"opening":103186,"receipt":0,"fromDate":"2026-11-26"},{"sl":10,"uom":"MT","code":"8000100009","desc":"Clinker","sloc":"","group":"CLINKER","issue":0,"plant":"","toDate":"2026-11-26","closing":1883.555,"opening":1883.555,"receipt":0,"fromDate":"2026-11-26"},{"sl":11,"uom":"MT","code":"8040000003","desc":"Fine Coal","sloc":"","group":"COAL","issue":0,"plant":"","toDate":"2026-11-26","closing":33.549,"opening":33.549,"receipt":0,"fromDate":"2026-11-26"},{"sl":12,"uom":"MT","code":"9010200001","desc":"OPC-53","sloc":"","group":"OPC-53; LOOSE","issue":-293.91,"plant":"","toDate":"2026-11-26","closing":6659.622,"opening":6953.532,"receipt":0,"fromDate":"2026-11-26"},{"sl":13,"uom":"MT","code":"9010300001","desc":"OPC-43","sloc":"","group":"OPC-43; LOOSE","issue":0,"plant":"","toDate":"2026-11-26","closing":0,"opening":0,"receipt":0,"fromDate":"2026-11-26"},{"sl":14,"uom":"MT","code":"9020100001","desc":"PPC","sloc":"","group":"PPC; LOOSE","issue":-258,"plant":"","toDate":"2026-11-26","closing":5386.455,"opening":5644.455,"receipt":0,"fromDate":"2026-11-26"},{"sl":15,"uom":"MT","code":"9040100001","desc":"PSC","sloc":"","group":"PSC; LOOSE","issue":0,"plant":"","toDate":"2026-11-26","closing":0,"opening":0,"receipt":0,"fromDate":"2026-11-26"},{"sl":16,"uom":"MT","code":"9205000191","desc":"GGBS","sloc":"","group":"OTHER-NVL","issue":0,"plant":"","toDate":"2026-11-26","closing":0,"opening":0,"receipt":0,"fromDate":"2026-11-26"}],"history":{"2026-11-25":{"items":[{"sl":1,"uom":"MT","code":"1003000002","desc":"Flyash","sloc":"","group":"DRY FLY ASH","issue":0,"plant":"","toDate":"2026-11-25","closing":4981.577,"opening":4981.577,"receipt":0,"fromDate":"2026-11-25"},{"sl":2,"uom":"MT","code":"1005500001","desc":"Gypsum Imp","sloc":"","group":"GPSM-MNRL-IMPORT","issue":0,"plant":"","toDate":"2026-11-25","closing":1015.93,"opening":1015.93,"receipt":0,"fromDate":"2026-11-25"},{"sl":3,"uom":"MT","code":"1008000001","desc":"G Slag","sloc":"","group":"GRANULATED SLAG","issue":0,"plant":"","toDate":"2026-11-25","closing":10544.474,"opening":10544.474,"receipt":0,"fromDate":"2026-11-25"},{"sl":4,"uom":"MT","code":"1018000001","desc":"MicroFibre","sloc":"","group":"FIBRE","issue":-0.016,"plant":"","toDate":"2026-11-25","closing":2.717,"opening":2.733,"receipt":0,"fromDate":"2026-11-25"},{"sl":5,"uom":"MT","code":"1100300004","desc":"Coal Imp","sloc":"","group":"COAL IMPORTED","issue":0,"plant":"","toDate":"2026-11-25","closing":654.495,"opening":654.495,"receipt":0,"fromDate":"2026-11-25"},{"sl":6,"uom":"EA","code":"2011200002","desc":"PPC DGMF WH","sloc":"","group":"PACKING BAG-LPP-LCP","issue":-270,"plant":"","toDate":"2026-11-25","closing":173743,"opening":174003,"receipt":10,"fromDate":"2026-11-25"},{"sl":7,"uom":"EA","code":"2021200001","desc":"PPC DG GR","sloc":"","group":"PACKING BAG-PP-LCP","issue":-3270,"plant":"","toDate":"2026-11-25","closing":355401,"opening":358601,"receipt":70,"fromDate":"2026-11-25"},{"sl":8,"uom":"EA","code":"2021200003","desc":"OPC 53 DG","sloc":"","group":"PACKING BAG-PP-LCP","issue":-1945,"plant":"","toDate":"2026-11-25","closing":261991,"opening":263891,"receipt":45,"fromDate":"2026-11-25"},{"sl":9,"uom":"EA","code":"2021200005","desc":"OPC 53 IFC","sloc":"","group":"PACKING BAG-PP-LCP","issue":0,"plant":"","toDate":"2026-11-25","closing":103186,"opening":103186,"receipt":0,"fromDate":"2026-11-25"},{"sl":10,"uom":"MT","code":"8000100009","desc":"Clinker","sloc":"","group":"CLINKER","issue":0,"plant":"","toDate":"2026-11-25","closing":1883.555,"opening":1883.555,"receipt":0,"fromDate":"2026-11-25"},{"sl":11,"uom":"MT","code":"8040000003","desc":"Fine Coal","sloc":"","group":"COAL","issue":0,"plant":"","toDate":"2026-11-25","closing":33.549,"opening":33.549,"receipt":0,"fromDate":"2026-11-25"},{"sl":12,"uom":"MT","code":"9010200001","desc":"OPC-53","sloc":"","group":"OPC-53; LOOSE","issue":-189.31,"plant":"","toDate":"2026-11-25","closing":6953.532,"opening":7142.842,"receipt":0,"fromDate":"2026-11-25"},{"sl":13,"uom":"MT","code":"9010300001","desc":"OPC-43","sloc":"","group":"OPC-43; LOOSE","issue":0,"plant":"","toDate":"2026-11-25","closing":0,"opening":0,"receipt":0,"fromDate":"2026-11-25"},{"sl":14,"uom":"MT","code":"9020100001","desc":"PPC","sloc":"","group":"PPC; LOOSE","issue":-173,"plant":"","toDate":"2026-11-25","closing":5644.455,"opening":5817.455,"receipt":0,"fromDate":"2026-11-25"},{"sl":15,"uom":"MT","code":"9040100001","desc":"PSC","sloc":"","group":"PSC; LOOSE","issue":0,"plant":"","toDate":"2026-11-25","closing":0,"opening":0,"receipt":0,"fromDate":"2026-11-25"},{"sl":16,"uom":"MT","code":"9205000191","desc":"GGBS","sloc":"","group":"OTHER-NVL","issue":0,"plant":"","toDate":"2026-11-25","closing":0,"opening":0,"receipt":0,"fromDate":"2026-11-25"}],"fileName":"SAP_Stock_Report.xlsx","dateLabel":"25 Nov","uploadedAt":"11:33 am"},"2026-11-26":{"items":[{"sl":1,"uom":"MT","code":"1003000002","desc":"Flyash","sloc":"","group":"DRY FLY ASH","issue":0,"plant":"","toDate":"2026-11-26","closing":4981.577,"opening":4981.577,"receipt":0,"fromDate":"2026-11-26"},{"sl":2,"uom":"MT","code":"1005500001","desc":"Gypsum Imp","sloc":"","group":"GPSM-MNRL-IMPORT","issue":0,"plant":"","toDate":"2026-11-26","closing":1015.93,"opening":1015.93,"receipt":0,"fromDate":"2026-11-26"},{"sl":3,"uom":"MT","code":"1008000001","desc":"G Slag","sloc":"","group":"GRANULATED SLAG","issue":0,"plant":"","toDate":"2026-11-26","closing":11333.035,"opening":11333.035,"receipt":0,"fromDate":"2026-11-26"},{"sl":4,"uom":"MT","code":"1018000001","desc":"MicroFibre","sloc":"","group":"FIBRE","issue":-0.062,"plant":"","toDate":"2026-11-26","closing":2.655,"opening":2.717,"receipt":0,"fromDate":"2026-11-26"},{"sl":5,"uom":"MT","code":"1100300004","desc":"Coal Imp","sloc":"","group":"COAL IMPORTED","issue":0,"plant":"","toDate":"2026-11-26","closing":654.495,"opening":654.495,"receipt":0,"fromDate":"2026-11-26"},{"sl":6,"uom":"EA","code":"2011200002","desc":"PPC DGMF WH","sloc":"","group":"PACKING BAG-LPP-LCP","issue":-1070,"plant":"","toDate":"2026-11-26","closing":172703,"opening":173743,"receipt":30,"fromDate":"2026-11-26"},{"sl":7,"uom":"EA","code":"2021200001","desc":"PPC DG GR","sloc":"","group":"PACKING BAG-PP-LCP","issue":-4190,"plant":"","toDate":"2026-11-26","closing":351281,"opening":355401,"receipt":70,"fromDate":"2026-11-26"},{"sl":8,"uom":"EA","code":"2021200003","desc":"OPC 53 DG","sloc":"","group":"PACKING BAG-PP-LCP","issue":-1040,"plant":"","toDate":"2026-11-26","closing":260991,"opening":261991,"receipt":40,"fromDate":"2026-11-26"},{"sl":9,"uom":"EA","code":"2021200005","desc":"OPC 53 IFC","sloc":"","group":"PACKING BAG-PP-LCP","issue":0,"plant":"","toDate":"2026-11-26","closing":103186,"opening":103186,"receipt":0,"fromDate":"2026-11-26"},{"sl":10,"uom":"MT","code":"8000100009","desc":"Clinker","sloc":"","group":"CLINKER","issue":0,"plant":"","toDate":"2026-11-26","closing":1883.555,"opening":1883.555,"receipt":0,"fromDate":"2026-11-26"},{"sl":11,"uom":"MT","code":"8040000003","desc":"Fine Coal","sloc":"","group":"COAL","issue":0,"plant":"","toDate":"2026-11-26","closing":33.549,"opening":33.549,"receipt":0,"fromDate":"2026-11-26"},{"sl":12,"uom":"MT","code":"9010200001","desc":"OPC-53","sloc":"","group":"OPC-53; LOOSE","issue":-293.91,"plant":"","toDate":"2026-11-26","closing":6659.622,"opening":6953.532,"receipt":0,"fromDate":"2026-11-26"},{"sl":13,"uom":"MT","code":"9010300001","desc":"OPC-43","sloc":"","group":"OPC-43; LOOSE","issue":0,"plant":"","toDate":"2026-11-26","closing":0,"opening":0,"receipt":0,"fromDate":"2026-11-26"},{"sl":14,"uom":"MT","code":"9020100001","desc":"PPC","sloc":"","group":"PPC; LOOSE","issue":-258,"plant":"","toDate":"2026-11-26","closing":5386.455,"opening":5644.455,"receipt":0,"fromDate":"2026-11-26"},{"sl":15,"uom":"MT","code":"9040100001","desc":"PSC","sloc":"","group":"PSC; LOOSE","issue":0,"plant":"","toDate":"2026-11-26","closing":0,"opening":0,"receipt":0,"fromDate":"2026-11-26"},{"sl":16,"uom":"MT","code":"9205000191","desc":"GGBS","sloc":"","group":"OTHER-NVL","issue":0,"plant":"","toDate":"2026-11-26","closing":0,"opening":0,"receipt":0,"fromDate":"2026-11-26"}],"fileName":"SAP_Stock_Report.xlsx","dateLabel":"26 Nov","uploadedAt":"09:20 am"}},"fileName":"SAP_Stock_Report.xlsx","dateLabel":"26 Nov","uploadedAt":"09:20 am"},"closing_stock":{"opc":6659.622,"ppc":5386.455,"total":12046.077000000001,"clinker":1883.555},"targets_store":{"Nov-26":{"4":"≥ 95%","5":"≥ 95%","6":"≥ 95%","8":"2000","9":"33061","10":"2075","11":"38035","12":"8","13":"92","15":"-","16":"-","17":"-","18":"-","19":"-","20":"38035","24":"-","25":"Max 24h","26":"Max 24h","27":"24.0 Hrs","30":"≥ 300 TPH","31":"≥ 300 TPH","32":"≥ 300 TPH","34":"≥ 95%","35":"≥ 95%","38":"≥ 95%","39":"250","42":"≤ 36.0","43":"≤ 34.0","44":"35","45":"≤ 2.5","48":"≤ 37.5","55":"5.0%","56":"95.0%","62":"4.5%","63":"65.0%","64":"30%","110":"Receipt Units","tot_clk":"≤ 84.5%","tot_gyp":"5%","tot_opc_disp":"33061"},"Oct-26":{"4":"≥ 95","5":"≥ 95","6":"≥ 95","8":"-","9":"30035","10":"1376","11":"31410","12":"8","13":"92","15":"-","16":"-","17":"-","18":"510","19":"885","20":"31400","24":"-","25":"Max 24h/d","26":"Max 24h/d","27":"Max 24h/d","30":"≥ 250","31":"≥ 260","32":"≥ 250","34":"≥ 95","35":"≥ 95","38":"≥ 95","39":"≥ 250","42":"≤ 36","43":"≤ 34","44":"≤ 35","45":"≤ 4.5","48":"39.5","55":"4.5","56":"95.5","62":"4.5","63":"65.5","64":"30","110":"-","tot_clk":"92","tot_gyp":"4.5","tot_opc_disp":"30035"}}};
 /*__EMBEDDED_STATE_END__*/
 var TARGETS_STORE = JSON.parse(JSON.stringify(DEFAULT_TARGETS_STORE));
 
@@ -2913,9 +2915,9 @@ const GROUPS = {
   '8. RAW MATERIAL CONSUMPTION % (OPC, PPC & TOTAL)': [
     { k: '56', n: 'OPC-53 Clinker Consumption %', u: '%', d: 1, s: 100, g: 0, target: '95.0% - 96.0%' },
     { k: '55', n: 'OPC-53 Gypsum Consumption %', u: '%', d: 1, s: 100, g: 0, target: '4.0% - 5.0%' },
-    { k: '62', n: 'PPC Clinker Consumption %', u: '%', d: 1, s: 100, g: 0, target: '67.0% - 68.0%' },
-    { k: '63', n: 'PPC Fly Ash Consumption %', u: '%', d: 1, s: 100, g: 0, target: '28.0% - 29.0%' },
-    { k: '61', n: 'PPC Gypsum Consumption %', u: '%', d: 1, s: 100, g: 0, target: '3.5% - 4.5%' },
+    { k: '63', n: 'PPC Clinker Consumption %', u: '%', d: 1, s: 100, g: 0, target: '67.0% - 68.0%' },
+    { k: '64', n: 'PPC Fly Ash Consumption %', u: '%', d: 1, s: 100, g: 0, target: '28.0% - 29.0%' },
+    { k: '62', n: 'PPC Gypsum Consumption %', u: '%', d: 1, s: 100, g: 0, target: '3.5% - 4.5%' },
     { k: 'tot_clk', n: 'TOTAL CLINKER CONSUMPTION % (Clinker Factor)', u: '%', d: 1, s: 100, g: -1, target: '≤ 84.5%', bold: true },
     { k: 'tot_gyp', n: 'TOTAL GYPSUM CONSUMPTION % (on Total Cement)', u: '%', d: 1, s: 100, g: 0, target: 'Total %' }
   ],
@@ -2949,9 +2951,12 @@ function getKpiVal(k, dayIdx) {
     return (v15 + v16 + v17);
   }
   if (k === 'tot_clk') {
-    const clk = DATA.daily['64'] ? DATA.daily['64'][dayIdx] : null;
+    const hasC1 = DATA.daily['54'] && typeof DATA.daily['54'][dayIdx] === 'number';
+    const hasC2 = DATA.daily['61'] && typeof DATA.daily['61'][dayIdx] === 'number';
+    const c1 = hasC1 ? DATA.daily['54'][dayIdx] : 0;
+    const c2 = hasC2 ? DATA.daily['61'][dayIdx] : 0;
     const cem = DATA.daily['11'] ? DATA.daily['11'][dayIdx] : null;
-    return (clk != null && cem) ? (clk / cem) : null;
+    return ((hasC1 || hasC2) && cem) ? ((c1 + c2) / cem) : null;
   }
   if (k === 'tot_fa') {
     const fa = DATA.daily['58'] ? DATA.daily['58'][dayIdx] : null;
@@ -2977,9 +2982,12 @@ function getPeriodVal(k, colIdx) {
     return (v15 + v16 + v17);
   }
   if (k === 'tot_clk') {
-    const clk = DATA.months.data['64'] ? DATA.months.data['64'][colIdx] : null;
+    const hasC1 = DATA.months.data['54'] && typeof DATA.months.data['54'][colIdx] === 'number';
+    const hasC2 = DATA.months.data['61'] && typeof DATA.months.data['61'][colIdx] === 'number';
+    const c1 = hasC1 ? DATA.months.data['54'][colIdx] : 0;
+    const c2 = hasC2 ? DATA.months.data['61'][colIdx] : 0;
     const cem = DATA.months.data['11'] ? DATA.months.data['11'][colIdx] : null;
-    return (clk != null && cem) ? (clk / cem) : null;
+    return ((hasC1 || hasC2) && cem) ? ((c1 + c2) / cem) : null;
   }
   if (k === 'tot_fa') {
     const fa = DATA.months.data['58'] ? DATA.months.data['58'][colIdx] : null;
@@ -3468,7 +3476,7 @@ function renderDashboard() {
   });
 
   const clkPct = (getKpiVal('tot_clk', i) || 0) * 100;
-  const faPct = ((getKpiVal('63', i) || getKpiVal('tot_fa', i) || 0) * 100);
+  const faPct = ((getKpiVal('64', i) || getKpiVal('tot_fa', i) || 0) * 100);
   const gypPct = (getKpiVal('tot_gyp', i) || 0) * 100;
   createOrUpdateChart('chartRawMix', 'doughnut', {
     labels: ['Total Clinker %', 'PPC Fly Ash %', 'Gypsum %'],
@@ -4723,5 +4731,6 @@ if (stockDropZone) {
 
 
 </script>
+
 
 </body></html>
