@@ -1,7 +1,7 @@
 import { chromium } from 'playwright';
 import nodemailer from 'nodemailer';
 
-const DASHBOARD_URL = 'https://<your-username>.github.io/lcpdailyreport/';
+const DASHBOARD_URL = 'https://lcp-dashboard-beta.vercel.app/';
 
 const today = new Date().toLocaleDateString('en-IN', {
   timeZone: 'Asia/Kolkata',
